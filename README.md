@@ -12,7 +12,7 @@ Experience seamless event booking with TopTierTix, your ultimate guide to local 
 
 ## Meet the Team
 
-TopTierTix was created by a collaborative team of developers, designers, and enthusiasts, including:
+TopTierTix was created by a collaborative team of developers:
 - **Romeo Francesco**: 885880
 - **Trombella Mattia**:
 - **Passoni Marco**:
@@ -31,5 +31,5 @@ For any issues, feedback, or queries, please [open an issue](mailto:romeo.france
 
 ## License
 
-All rights reserved. This project and its accompanying code, assets, and documentation are owned and maintained by [Your Name] and are protected by copyright law. No part of this project may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the owner, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
+All rights reserved. This project and its accompanying code, assets, and documentation are owned and maintained by Francesco Romeo, Mattia Trombella, Marco Passoni and are protected by copyright law. No part of this project may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the owner, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.
 
