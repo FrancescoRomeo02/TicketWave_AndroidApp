@@ -14,8 +14,8 @@ Experience seamless event booking with TopTierTix, your ultimate guide to local 
 
 TopTierTix was created by a collaborative team of developers:
 - **Romeo Francesco**: 885880
-- **Trombella Mattia**:
-- **Passoni Marco**:
+- **Trombella Mattia**: 879184
+- **Passoni Marco**: 885930
 
 ## How It Works
 
@@ -27,7 +27,7 @@ We welcome contributions from the community to enhance TopTierTix further. To co
 
 ## Support and Feedback
 
-For any issues, feedback, or queries, please [open an issue](mailto:romeo.francesco.2002@gmail.com). We appreciate your input as it helps us improve the TopTierTix experience.
+For any issues, feedback, or queries, please [open an issue](mailto:romeo.francesco.2002@gmail.com) or (mailto:mattiatrombella02@gmail.com). We appreciate your input as it helps us improve the TopTierTix experience.
 
 ## License
 
