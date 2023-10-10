@@ -19,7 +19,7 @@ TopTierTix was created by a collaborative team of developers:
 
 ## How It Works
 
-TopTierTix utilizes the Ticketmaster API to provide users with up-to-date event information. Users can search for specific events, access detailed event insights, check ticket availability, and make secure bookings within the app.
+TicketWave utilizes the Ticketmaster API to provide users with up-to-date event information. Users can search for specific events, access detailed event insights, check ticket availability, and make secure bookings within the app.
 
 ## Contribution Guidelines
 
