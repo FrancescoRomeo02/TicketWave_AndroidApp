@@ -1,6 +1,6 @@
 # TicketWave
 
-Experience seamless event booking with TopTierTix, your ultimate guide to local entertainment. Using the powerful Ticketmaster API, this Android app brings you real-time updates on concerts, live shows, and more. Discover, book, and enjoy - all from one user-friendly platform. Don't miss a beat; elevate your event experience with TopTierTix!
+Experience seamless event booking with TicketWave, your ultimate guide to local entertainment. Using the powerful Ticketmaster API, this Android app brings you real-time updates on concerts, live shows, and more. Discover, book, and enjoy - all from one user-friendly platform. Don't miss a beat; elevate your event experience with TicketWave!
 
 ## Features
 
@@ -12,7 +12,7 @@ Experience seamless event booking with TopTierTix, your ultimate guide to local 
 
 ## Meet the Team
 
-TopTierTix was created by a collaborative team of developers:
+TicketWave was created by a collaborative team of developers:
 - **Romeo Francesco**: 885880
 - **Trombella Mattia**: 879184
 - **Passoni Marco**: 885930
@@ -23,11 +23,11 @@ TicketWave utilizes the Ticketmaster API to provide users with up-to-date event 
 
 ## Contribution Guidelines
 
-We welcome contributions from the community to enhance TopTierTix further. To contribute, fork the repository, create your feature branch (`git checkout -b feature/AmazingFeature`), commit your changes (`git commit -m 'Add some amazing feature'`), and push to the branch (`git push origin feature/AmazingFeature`). Open a pull request, and we'll review your changes.
+We welcome contributions from the community to enhance TicketWave further. To contribute, fork the repository, create your feature branch (`git checkout -b feature/AmazingFeature`), commit your changes (`git commit -m 'Add some amazing feature'`), and push to the branch (`git push origin feature/AmazingFeature`). Open a pull request, and we'll review your changes.
 
 ## Support and Feedback
 
-For any issues, feedback, or queries, please [open an issue](mailto:romeo.francesco.2002@gmail.com) or [open an issue](mailto:mattiatrombella02@gmail.com). We appreciate your input as it helps us improve the TopTierTix experience.
+For any issues, feedback, or queries, please [open an issue](mailto:romeo.francesco.2002@gmail.com) or [open an issue](mailto:mattiatrombella02@gmail.com). We appreciate your input as it helps us improve the TicketWave experience.
 
 ## License
 
