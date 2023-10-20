@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">TicketWave</string>
+    <string name="app_name" translatable="false">TicketWave</string>
+    <string name="discover" translatable="false">Discover</string>
+    <string name="calendar">Calendar</string>
+    <string name="liked">Liked</string>
 </resources>
