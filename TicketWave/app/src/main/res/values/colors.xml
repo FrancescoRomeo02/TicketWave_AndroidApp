@@ -5,4 +5,5 @@
     <color name="primary">#6A0572</color>
     <color name="secondary">#A76AA1</color>
     <color name="info">#80CBC4</color>
+    <color name="background">#DEC5DC</color>
 </resources>
