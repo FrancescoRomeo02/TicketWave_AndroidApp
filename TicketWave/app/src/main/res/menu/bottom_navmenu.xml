@@ -16,10 +16,10 @@
         android:id="@+id/discover"/>
 
     <item
+        android:id="@+id/calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="@string/calendar"
         android:icon="@drawable/round_calendar_month_24"
-        android:id="@+id/calendar"/>
+        android:title="@string/calendar" />
 
 </menu>

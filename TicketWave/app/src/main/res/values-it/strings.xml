@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TicketWave</string>
+    <string name="discover">Scopri</string>
     <string name="calendar">Calendario</string>
-    <string name="liked">Likes</string>
+    <string name="liked">Piacciono</string>
 </resources>
