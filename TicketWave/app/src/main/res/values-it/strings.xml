@@ -1,7 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TicketWave</string>
+
+    <!-- Etichette comuni -->
     <string name="discover">Scopri</string>
     <string name="calendar">Calendario</string>
-    <string name="liked">Piacciono</string>
+    <string name="liked">Mi piace</string>
+    <string name="action_sign_in_register">Accedi o registrati</string>
+    <string name="welcome">Benvenuto !</string>
+    <string name="login_failed">Accesso fallito</string>
+    <string name="not_account_q">Non hai un account?</string>
+    <string name="create_account">Crea uno</string>
+    <string name="logo_description">Logo dell\'applicazione</string>
+
+    <!-- LoginActivity -->
+    <string name="invalid_username">Nome utente non valido</string>
+    <string name="invalid_password">La password deve essere >5 caratteri</string>
+    <string name="action_sign_in">Accedi</string>
+
+    <!-- RegisterActivity -->
+    <string name="full_name_hint">Nome completo</string>
+    <string name="date_of_birth_label">Data di nascita</string>
+    <string name="phone_number_label">Numero di telefono</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="register_button_text">Registrati</string>
+    <string name="already_have_account">Hai già un account?</string>
+    <string name="sign_in">Accedi</string>
+    <string name="full_name_label">Nome completo</string>
 </resources>

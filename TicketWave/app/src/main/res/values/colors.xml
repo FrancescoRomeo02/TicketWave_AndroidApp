@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Main colors -->
     <color name="black">#333333</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#6A0572</color>
+    <color name="primaryVariant">#4E025F</color>
+    <color name="onPrimary">#FFFFFF</color>
+
     <color name="secondary">#A76AA1</color>
+    <color name="secondaryVariant">#7D4D7A</color>
+    <color name="onSecondary">#FFFFFF</color>
+
     <color name="info">#80CBC4</color>
-    <color name="background">#DEC5DC</color>
+
+    <!-- Dark mode specific colors -->
+    <color name="backgroundDark">#333333</color>
+    <color name="onBackgroundDark">#FFFFFF</color>
+
+    <!-- Light mode specific colors -->
+    <color name="backgroundLight">#FFFFFFFF</color>
+    <color name="onBackgroundLight">#000000</color>
 </resources>
