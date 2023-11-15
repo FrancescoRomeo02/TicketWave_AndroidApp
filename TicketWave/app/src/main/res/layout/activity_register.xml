@@ -243,7 +243,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/already_have_account"
-        android:textColor="#331974"
+        android:textColor="@color/onSecondary"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

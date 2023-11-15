@@ -15,10 +15,13 @@
     <color name="info">#80CBC4</color>
 
     <!-- Dark mode specific colors -->
-    <color name="backgroundDark">#333333</color>
+    <color name="backgroundDarkPrimary">#41004F</color>
+    <color name="backgroundDarkSecondary">#5A3956</color>
     <color name="onBackgroundDark">#FFFFFF</color>
 
     <!-- Light mode specific colors -->
     <color name="backgroundLight">#FFFFFFFF</color>
     <color name="onBackgroundLight">#000000</color>
+
+
 </resources>

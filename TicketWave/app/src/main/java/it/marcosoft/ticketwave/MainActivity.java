@@ -2,6 +2,7 @@ package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
 import it.marcosoft.ticketwave.util.UserAuthenticationUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // User is not logged in, launch the login activity
             setContentView(R.layout.activity_login);
+
         }
 
     }
