@@ -2,6 +2,8 @@ package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.fragment.app.Fragment;
 
 
@@ -12,6 +14,7 @@ import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
 import it.marcosoft.ticketwave.util.UserAuthenticationUtil;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +36,10 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
             // Load the default fragment
-            loadFragment(new LikedFragment());
+            loadFragment(new DiscoverFragment());
+            bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("");
+            bottomNavigationView.setSelectedItemId(R.id.discover);
+
 
             // Set listener for BottomNavigationView item clicks
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -41,13 +47,24 @@ public class MainActivity extends AppCompatActivity {
 
                 int itemId = item.getItemId();
 
+
                 if (itemId == R.id.liked) {
                     fragment = new LikedFragment();
+                    item.setTitle("");
+                    bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
+                    bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle("Calendar");
+                   
                 } else if (itemId == R.id.discover) {
+                    item.setTitle("");
+                    bottomNavigationView.getMenu().findItem(R.id.liked).setTitle("Liked");
+                    bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle("Calendar");
                     // Usa DiscoverFragment come schermata principale
                     fragment = new DiscoverFragment();
                 } else if (itemId == R.id.calendar) {
                     fragment = new CalendarFragment();
+                    item.setTitle("");
+                    bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
+                    bottomNavigationView.getMenu().findItem(R.id.liked).setTitle("Liked");
                 } else {
                     return false;
                 }
