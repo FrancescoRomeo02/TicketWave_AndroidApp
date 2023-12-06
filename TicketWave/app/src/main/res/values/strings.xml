@@ -31,4 +31,7 @@
     <string name="already_have_account">Already have an account?</string>
     <string name="sign_in">Sign In</string>
     <string name="full_name_hint">Full Name</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
 </resources>

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
         // Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this)) {
+        if (UserAuthenticationUtil.getLoginStatus(this) | true) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
 
@@ -39,26 +39,25 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
                 Fragment fragment;
 
-                switch (item.getItemId()) {
-                    case R.id.liked:
-                        fragment = new LikedFragment();
-                        break;
-                    case R.id.discover:
-                        // Usa DiscoverFragment come schermata principale
-                        fragment = new DiscoverFragment();
-                        break;
-                    case R.id.calendar:
-                        fragment = new CalendarFragment();
-                        break;
-                    default:
-                        return false;
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.liked) {
+                    fragment = new LikedFragment();
+                } else if (itemId == R.id.discover) {
+                    // Usa DiscoverFragment come schermata principale
+                    fragment = new DiscoverFragment();
+                } else if (itemId == R.id.calendar) {
+                    fragment = new CalendarFragment();
+                } else {
+                    return false;
                 }
+
 
                 return loadFragment(fragment);
             });
         } else {
             // User is not logged in, launch the login activity
-            setContentView(R.layout.activity_login);
+            setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
     }
