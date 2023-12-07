@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
             bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
+
             // Load the default fragment
             loadFragment(new DiscoverFragment());
             bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("");
