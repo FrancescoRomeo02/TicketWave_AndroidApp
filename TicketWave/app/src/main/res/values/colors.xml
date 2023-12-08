@@ -32,5 +32,7 @@
     <color name="light_blue_900">#FF01579B</color>
     <color name="grey">#727170</color>
 
+    <color name="travels_color">#CAA8F5</color>
+    <color name="your_color">#121212</color>
 
 </resources>

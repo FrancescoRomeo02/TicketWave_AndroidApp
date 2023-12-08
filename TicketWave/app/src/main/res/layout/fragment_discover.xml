@@ -1,11 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Discover" />
-</RelativeLayout>
+        android:paddingBottom="20dp" >
+
+        <!-- Le tue TextView e MaterialCardView rimangono invariati -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginBottom="30dip">
+
+            <TextView
+                android:id="@+id/titolo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dip"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/sfprobold"
+                android:text="Your "
+                android:textColor="@color/primary"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/titolo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="45dip"
+                android:fontFamily="@font/sfprobold"
+                android:text="Travels"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+        </LinearLayout>
+        <!-- <TextView
+            android:id="@+id/titolo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dip"
+            android:layout_marginTop="45dip"
+            android:layout_marginEnd="45dip"
+            android:text="Your Travels"
+            android:textSize="30dp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/sfprobold"
+            /> -->
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+
+            android:layout_marginTop="120dip"
+            android:layout_marginEnd="30dp"
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="#41FFFFFF"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/card"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+
+            android:layout_marginTop="30dip"
+            android:layout_marginEnd="30dp"
+
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="#41FFFFFF"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/card2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dip"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="#41FFFFFF"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card4"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/card3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dip"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="#41FFFFFF"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+</ScrollView>

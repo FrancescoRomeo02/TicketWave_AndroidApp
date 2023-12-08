@@ -19,10 +19,6 @@ import it.marcosoft.ticketwave.R;
 
     public class LikedFragment extends Fragment {
 
-        public LikedFragment() {
-            // Required empty public constructor
-        }
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {

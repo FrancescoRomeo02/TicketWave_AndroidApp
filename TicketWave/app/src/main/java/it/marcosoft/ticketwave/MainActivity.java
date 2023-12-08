@@ -1,20 +1,22 @@
 package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.text.Html;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 
 import it.marcosoft.ticketwave.util.DiscoverFragment;
 import it.marcosoft.ticketwave.util.LikedFragment;
-import it.marcosoft.ticketwave.util.CalendarFragment;
+import it.marcosoft.ticketwave.util.TravelFragment;
 import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
 import it.marcosoft.ticketwave.util.UserAuthenticationUtil;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
             // Load the default fragment
             loadFragment(new DiscoverFragment());
-            bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("");
+            //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
+            //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
+            //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
+
             bottomNavigationView.setSelectedItemId(R.id.discover);
 
 
@@ -51,21 +56,21 @@ public class MainActivity extends AppCompatActivity {
 
                 if (itemId == R.id.liked) {
                     fragment = new LikedFragment();
-                    item.setTitle("");
-                    bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
-                    bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle("Calendar");
+                    item.setTitle("Liked");
+                    //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle(null);
+                    //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
                    
                 } else if (itemId == R.id.discover) {
-                    item.setTitle("");
-                    bottomNavigationView.getMenu().findItem(R.id.liked).setTitle("Liked");
-                    bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle("Calendar");
+                    item.setTitle("Discover");
+                    //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
+                    //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
                     // Usa DiscoverFragment come schermata principale
                     fragment = new DiscoverFragment();
                 } else if (itemId == R.id.calendar) {
-                    fragment = new CalendarFragment();
-                    item.setTitle("");
-                    bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
-                    bottomNavigationView.getMenu().findItem(R.id.liked).setTitle("Liked");
+                    fragment = new TravelFragment();
+                    item.setTitle("Add Travel");
+                    //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle(null);
+                    //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
                 } else {
                     return false;
                 }

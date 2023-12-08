@@ -5,17 +5,20 @@
 
         android:title="@string/liked"
         android:icon="@drawable/heart"
-        android:id="@+id/liked" />
+        android:id="@+id/liked"
+        />
 
     <item
 
         android:title="@string/discover"
         android:icon="@drawable/rocket"
-        android:id="@+id/discover"/>
+        android:id="@+id/discover"
+        android:fontFamily="@font/sfpro"/>
 
     <item
         android:id="@+id/calendar"
         android:icon="@drawable/baseline_airplane_ticket_24"
-        android:title="@string/calendar" />
+        android:title="@string/travel"
+        android:fontFamily="@font/sfpro"/>
 
 </menu>
