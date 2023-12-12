@@ -7,4 +7,6 @@
     <string name="click_to_login">Click to Login</string>
     <string name="click_to_register">Click to Register</string>
     <string name="logout">logout</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
 </resources>
