@@ -26,4 +26,5 @@
     <string name="already_have_account">Hai già un account?</string>
     <string name="sign_in">Accedi</string>
     <string name="full_name_label">Nome completo</string>
+    <string name="action_sign_in_short">Accedi</string>
 </resources>

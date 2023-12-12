@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registerbackground"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp" >
+
+        <!-- Le tue TextView e MaterialCardView rimangono invariati -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginBottom="30dip">
+
+            <TextView
+                android:id="@+id/hi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dip"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/sfprobold"
+                android:text="Hi "
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/nomeLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="45dip"
+                android:fontFamily="@font/sfprobold"
+                android:text="----"
+                android:textColor="@color/backgroundDarkPrimary"
+                android:textSize="30sp"
+                tools:ignore="HardcodedText" />
+<!--
+            <Button
+                android:id="@+id/useraccountbuttoncalendar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="60dp"
+                android:layout_weight="0"
+                android:background="@drawable/useraccount"
+                android:drawableTint="@color/primary"
+                />
+-->
+
+        </LinearLayout>
+        <!-- <TextView
+            android:id="@+id/titolo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dip"
+            android:layout_marginTop="45dip"
+            android:layout_marginEnd="45dip"
+            android:text="Your Travels"
+            android:textSize="30dp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/sfprobold"
+            /> -->
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+
+            android:layout_marginTop="120dip"
+            android:layout_marginEnd="20dp"
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textcard1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="24dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text="Your Calendar"
+                        android:textColor="@color/backgroundDarkPrimary"
+                        android:textSize="35sp"
+                        tools:ignore="HardcodedText" />
+
+                    <CalendarView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </CalendarView>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+
+            android:layout_marginTop="30dip"
+            android:layout_marginEnd="20dp"
+
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/yourliked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text="Your liked"
+                        android:textColor="@color/backgroundDarkPrimary"
+                        android:textSize="35sp"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <Button
+                        android:id="@+id/likedbutton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Liked"
+                        android:layout_marginStart="118dp"
+                        android:layout_marginVertical="16dp"
+                        android:backgroundTint="@color/backgroundDarkPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dip"
+            android:layout_marginEnd="20dp"
+
+            android:background="#3F51B5"
+            android:checkable="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:hapticFeedbackEnabled="true"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="40dp"
+            style="?attr/materialCardViewFilledStyle">
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+</ScrollView>

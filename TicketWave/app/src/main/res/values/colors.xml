@@ -2,26 +2,37 @@
 <resources>
 
     <!-- Main colors -->
-    <color name="black">#333333</color>
+    <color name="black">#121212</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary">#6A0572</color>
-    <color name="primaryVariant">#4E025F</color>
-    <color name="onPrimary">#FFFFFF</color>
 
-    <color name="secondary">#A76AA1</color>
-    <color name="secondaryVariant">#7D4D7A</color>
-    <color name="onSecondary">#FFFFFF</color>
+    <color name="primary">#CAA8F5</color>
+    <color name="primaryVariant">#CE1483</color>
+    <color name="onPrimary">#333333</color>
+
+    <color name="secondary">#FCE694</color>
+    <color name="secondaryVariant">#EDC99D</color>
+    <color name="onSecondary">#333333</color>
 
     <color name="info">#80CBC4</color>
 
     <!-- Dark mode specific colors -->
-    <color name="backgroundDarkPrimary">#41004F</color>
-    <color name="backgroundDarkSecondary">#5A3956</color>
+    <color name="backgroundDarkPrimary">#6E5D84</color>
+    <color name="backgroundDarkSecondary">#70134B</color>
     <color name="onBackgroundDark">#FFFFFF</color>
 
     <!-- Light mode specific colors -->
     <color name="backgroundLight">#FFFFFFFF</color>
     <color name="onBackgroundLight">#000000</color>
 
+    <color name="shadow1">#806E58</color>
+    <color name="shadow2">#877C53</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="grey">#727170</color>
+
+    <color name="travels_color">#CAA8F5</color>
+    <color name="your_color">#121212</color>
 
 </resources>

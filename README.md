@@ -13,9 +13,11 @@ Experience seamless event booking with TicketWave, your ultimate guide to local 
 ## Meet the Team
 
 TicketWave was created by a collaborative team of developers:
-- **Romeo Francesco**: 885880
-- **Trombella Mattia**: 879184
-- **Passoni Marco**: 885930
+- **Nembrini**: 886135
+- **Soranno**: 885930
+- **Romeo**: 885880
+- **Trombella**: 879184
+- **Passoni**: 885873
 
 ## How It Works
 
