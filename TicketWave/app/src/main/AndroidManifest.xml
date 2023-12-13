@@ -15,11 +15,11 @@
         <activity
             android:name=".ui.login.RegisterActivity"
             android:exported="false"
-            android:label="@string/title_activity_register" />
+            android:label="@string/register_activity_title" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_login" />
+            android:label="@string/login_activity_title" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

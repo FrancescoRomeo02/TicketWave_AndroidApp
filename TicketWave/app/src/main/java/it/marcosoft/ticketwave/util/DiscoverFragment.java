@@ -10,13 +10,6 @@ import androidx.fragment.app.Fragment;
 import it.marcosoft.ticketwave.R;
 
 
-import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import it.marcosoft.ticketwave.R;
-
 public class DiscoverFragment extends Fragment {
 
 

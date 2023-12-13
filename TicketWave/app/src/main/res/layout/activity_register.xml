@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/register"
+        android:text="@string/register_action"
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -28,7 +28,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name" />
+            android:hint="@string/name_prompt" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,7 +41,7 @@
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/phone_number" />
+            android:hint="@string/phone_prompt" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,7 +55,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email" />
+            android:hint="@string/email_prompt" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +70,7 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password" />
+            android:hint="@string/password_prompt" />
 
     </com.google.android.material.textfield.TextInputLayout>
     
@@ -83,7 +83,7 @@
 
     <Button
         android:id="@+id/btn_register"
-        android:text="@string/register"
+        android:text="@string/register_action"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginNow"
-        android:text="@string/click_to_login"
+        android:text="@string/sign_in_action"
         />
 
 

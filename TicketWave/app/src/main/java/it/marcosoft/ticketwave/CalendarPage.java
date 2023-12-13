@@ -1,9 +1,9 @@
 package it.marcosoft.ticketwave;
+
 import android.os.Bundle;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -21,12 +21,7 @@ public class CalendarPage extends AppCompatActivity {
         calendar = Calendar.getInstance();
         setDate(1,1,2023); //TASK: da settare con gli eventi selezionati
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(CalendarPage.this, dayOfMonth +"/" + month + 1 + "/" + "" + year, Toast.LENGTH_SHORT).show();
-            }
-        });
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> Toast.makeText(CalendarPage.this, dayOfMonth +"/" + month + 1 + "/" + "" + year, Toast.LENGTH_SHORT).show());
 
     }
     public void getDate(){
