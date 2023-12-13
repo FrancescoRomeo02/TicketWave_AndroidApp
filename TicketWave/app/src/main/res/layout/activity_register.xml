@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -13,7 +12,7 @@
     android:background="@drawable/registerbackground"
     tools:context=".ui.login.LoginActivity">
 
-    <!-- Application Logo -->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="110dp"
@@ -23,10 +22,9 @@
         app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logot"
-        android:contentDescription="@string/logo_description" />
+        app:srcCompat="@drawable/logot" />
 
-    <!-- Full Name Input Field -->
+
     <EditText
         android:id="@+id/fullNameInputRegister"
         android:layout_width="match_parent"
@@ -36,10 +34,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittextbackground"
-        android:drawableStart="@drawable/baseline_person_24"
+        android:drawableLeft="@drawable/baseline_person_24"
         android:drawablePadding="10dp"
-        android:hint="@string/full_name_hint"
-        android:inputType="textPersonName"
+        android:hint="Full Name"
+        android:inputType="textEmailAddress"
         android:padding="15dp"
         android:selectAllOnFocus="true"
         android:textColor="@color/white"
@@ -47,38 +45,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fullNameTextRegister"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/fullNameTextRegister" />
 
-    <!-- Date of Birth Text Label -->
+
     <TextView
         android:id="@+id/dateOfBirthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/date_of_birth_label"
+        android:text="Date of birth"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameInputRegister" />
 
-    <!-- Phone Number Text Label -->
+
+
+
     <TextView
         android:id="@+id/phoneNumberText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="8dp"
-        android:text="@string/phone_number_label"
+        android:text="Phone Number"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameInputRegister" />
 
-    <!-- Date of Birth Input Field -->
+
     <EditText
         android:id="@+id/dateOfBirthInputRegister"
         android:layout_width="160dp"
@@ -88,9 +87,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittextbackground"
-        android:drawableStart="@drawable/baseline_calendar_month_24"
+        android:drawableLeft="@drawable/baseline_calendar_month_24"
         android:drawablePadding="10dp"
-        android:inputType="date"
+        android:inputType="datetime"
         android:padding="15dp"
         android:selectAllOnFocus="true"
         android:textColor="@color/white"
@@ -98,36 +97,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateOfBirthText"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/dateOfBirthText" />
 
-    <!-- Email Text Label -->
+
     <TextView
         android:id="@+id/emailTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+
+
         android:layout_marginTop="108dp"
-        android:text="@string/email_label"
+        android:text="Email"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullNameInputRegister" />
 
-    <!-- Phone Number Input Field -->
+
+
+
     <EditText
         android:id="@+id/phoneNumberInputRegister"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/edittextbackground"
-        android:drawableStart="@drawable/baseline_local_phone_24"
+        android:drawableLeft="@drawable/baseline_local_phone_24"
         android:drawablePadding="10dp"
-        android:inputType="phone"
+        android:inputType="number"
         android:padding="15dp"
         android:selectAllOnFocus="true"
         android:textColor="@color/white"
@@ -135,24 +137,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateOfBirthText"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/dateOfBirthText" />
 
-    <!-- Full Name Text Label -->
+
     <TextView
         android:id="@+id/fullNameTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+
+
         android:layout_marginTop="132dp"
-        android:text="@string/full_name_label"
+        android:text="Full Name"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Email Input Field -->
+
     <EditText
         android:id="@+id/emailInputTextRegister"
         android:layout_width="match_parent"
@@ -161,7 +164,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittextbackground"
-        android:drawableStart="@drawable/baseline_email_24"
+        android:drawableLeft="@drawable/baseline_email_24"
         android:drawablePadding="10dp"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
@@ -172,24 +175,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextRegister"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTextRegister" />
 
-    <!-- Password Text Label -->
+
     <TextView
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/password_label"
+        android:text="Password"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailInputTextRegister" />
 
-    <!-- Password Input Field -->
+
     <EditText
         android:id="@+id/passwordInputTextRegister"
         android:layout_width="match_parent"
@@ -198,10 +200,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/edittextbackground"
-        android:drawableStart="@drawable/baseline_lock_24"
+        android:drawableLeft="@drawable/baseline_lock_24"
         android:drawablePadding="10dp"
         android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in"
+        android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:padding="15dp"
@@ -211,10 +213,9 @@
         app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        tools:ignore="MissingConstraints"
-        android:autofillHints="" />
+        tools:ignore="MissingConstraints" />
 
-    <!-- Register Button -->
+
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
@@ -227,40 +228,41 @@
         android:paddingTop="10dp"
         android:paddingRight="30dp"
         android:paddingBottom="10dp"
-        android:text="@string/register_button_text"
+        android:text="Register"
         android:textColor="#331974"
-        android:textSize="22sp"
+        android:textSize="22dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordInputTextRegister" />
 
-    <!-- Already have an account? Text -->
+
     <TextView
         android:id="@+id/warningTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/already_have_account"
-        android:textColor="@color/onSecondary"
-        android:textSize="17sp"
+        android:text="Already have an account?"
+        android:textColor="#331974"
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register" />
 
-    <!-- Sign In Text -->
+
     <TextView
         android:id="@+id/signInTextRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
+        android:text="Sign in"
         android:textColor="#331974"
-        android:textSize="17sp"
+        android:textSize="17dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/warningTextRegister" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
