@@ -137,7 +137,7 @@
                 android:textStyle="bold"
                 android:background="@drawable/editexttravelbackground"
                 android:fontFamily="@font/sfprobold"
-                android:hint="From"
+                android:hint="From (devo essere data input)"
                 android:drawableStart="@drawable/arrowup"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
@@ -155,7 +155,7 @@
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/sfprobold"
-                android:hint="To"
+                android:hint="To (devo essere un data input)"
                 android:background="@drawable/editexttravelbackground"
                 android:drawableStart="@drawable/arrowdown"
                 android:drawablePadding="10dp"
@@ -185,3 +185,4 @@
     </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>
+

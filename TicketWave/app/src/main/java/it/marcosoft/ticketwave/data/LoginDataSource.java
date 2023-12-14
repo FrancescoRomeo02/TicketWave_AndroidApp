@@ -9,20 +9,32 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result login(String username, String password) {
-
+    /**
+     * Attempt to log in with the provided username and password.
+     *
+     * @param username The username.
+     * @param password The password.
+     * @return The result of the login attempt.
+     */
+    public Result login(String username, String password) throws IOException {
         try {
             // TODO: handle loggedInUser authentication
+            // For demonstration purposes, a fake user is created.
             LoggedInUser fakeUser =
                     new LoggedInUser(
                             java.util.UUID.randomUUID().toString(),
                             "Jane Doe");
             return new Result.Success<>(fakeUser);
         } catch (Exception e) {
-            return new Result.Error(new IOException("Error logging in", e));
+            // An unexpected exception occurred during the login process.
+            return new Result.Error(new IOException("Unexpected error logging in", e));
         }
     }
 
+    /**
+     * Logout the user.
+     * TODO: Implement the logic to revoke authentication if needed.
+     */
     public void logout() {
         // TODO: revoke authentication
     }

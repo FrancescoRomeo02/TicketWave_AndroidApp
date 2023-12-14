@@ -1,27 +1,13 @@
 package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
-import android.os.Bundle;
-import android.text.Html;
-import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
-
-import it.marcosoft.ticketwave.util.DiscoverFragment;
-import it.marcosoft.ticketwave.util.LikedFragment;
-import it.marcosoft.ticketwave.util.TravelFragment;
-import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
-import it.marcosoft.ticketwave.util.UserAuthenticationUtil;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import it.marcosoft.ticketwave.util.*;
 
+import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-
-    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,50 +17,32 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
         // Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this) | true) {
+        if (UserAuthenticationUtil.getLoginStatus(this) || true) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
 
-            bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
+            BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
             // Load the default fragment
             loadFragment(new DiscoverFragment());
-            //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle("Discover");
-            //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
-            //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
 
             bottomNavigationView.setSelectedItemId(R.id.discover);
 
-
             // Set listener for BottomNavigationView item clicks
-            bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-                Fragment fragment;
-
+            bottomNavigationView.setOnItemSelectedListener(item -> {
+                Fragment fragment = null;
                 int itemId = item.getItemId();
-
 
                 if (itemId == R.id.liked) {
                     fragment = new LikedFragment();
-                    item.setTitle("Liked");
-                    //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle(null);
-                    //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
-                   
+                    item.setTitle(getString(R.string.liked_label));
                 } else if (itemId == R.id.discover) {
-                    item.setTitle("Discover");
-                    //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
-                    //bottomNavigationView.getMenu().findItem(R.id.calendar).setTitle(null);
-                    // Usa DiscoverFragment come schermata principale
                     fragment = new DiscoverFragment();
+                    item.setTitle(getString(R.string.discover_label));
                 } else if (itemId == R.id.calendar) {
                     fragment = new TravelFragment();
-                    item.setTitle("Add Travel");
-                    //bottomNavigationView.getMenu().findItem(R.id.discover).setTitle(null);
-                    //bottomNavigationView.getMenu().findItem(R.id.liked).setTitle(null);
-                } else {
-                    return false;
+                    item.setTitle(getString(R.string.travel_label));
                 }
-
 
                 return loadFragment(fragment);
             });

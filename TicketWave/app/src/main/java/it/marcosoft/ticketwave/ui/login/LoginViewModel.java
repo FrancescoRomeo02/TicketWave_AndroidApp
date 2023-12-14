@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
+import java.io.IOException;
+
 import it.marcosoft.ticketwave.data.LoginRepository;
 import it.marcosoft.ticketwave.data.Result;
 import it.marcosoft.ticketwave.data.model.LoggedInUser;
@@ -29,23 +31,23 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    public void login(String username, String password) {
+    public void login(String username, String password) throws IOException {
         // can be launched in a separate asynchronous job
         Result result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getValue();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
-            loginResult.setValue(new LoginResult(R.string.login_failed));
+            loginResult.setValue(new LoginResult(R.string.login_failed_message));
         }
     }
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
-            loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
+            loginFormState.setValue(new LoginFormState(R.string.invalid_username_message, null));
         } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
+            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password_message));
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }

@@ -3,14 +3,14 @@
 
     <item
 
-        android:title="@string/liked"
+        android:title="@string/liked_label"
         android:icon="@drawable/heart"
         android:id="@+id/liked"
         />
 
     <item
 
-        android:title="@string/discover"
+        android:title="@string/discover_label"
         android:icon="@drawable/rocket"
         android:id="@+id/discover"
         android:fontFamily="@font/sfpro"/>
@@ -18,7 +18,7 @@
     <item
         android:id="@+id/calendar"
         android:icon="@drawable/baseline_airplane_ticket_24"
-        android:title="@string/travel"
+        android:title="@string/travel_label"
         android:fontFamily="@font/sfpro"/>
 
 </menu>
