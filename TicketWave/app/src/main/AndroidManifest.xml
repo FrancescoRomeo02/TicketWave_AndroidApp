@@ -20,6 +20,7 @@
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/login_activity_title" />
+        <activity android:name=".LandingPage"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

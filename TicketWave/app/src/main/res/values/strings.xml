@@ -26,10 +26,14 @@
     <string name="liked_label">Liked</string>
     <string name="discover_label">Discover</string>
     <string name="travel_label">Travels</string>
+    <string name="ticketwave_text">Ticketwave</string>
+    <string name="getstarted_label">Get Started!</string>
 
     <!-- Messages -->
     <string name="welcome_message">Hi,</string>
     <string name="login_failed_message">Login Failed</string>
     <string name="invalid_password_message">Invalid Password</string>
     <string name="invalid_username_message">Invalid Username</string>
+    <string name="landing_page_text">Ride the Wave of Premier Events</string>
+
 </resources>

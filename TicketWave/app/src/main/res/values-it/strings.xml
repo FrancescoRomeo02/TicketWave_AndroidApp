@@ -22,10 +22,15 @@
     <string name="liked_label">Mi piace</string>
     <string name="discover_label">Scopri</string>
     <string name="travel_label">Viaggi</string>
+    <string name="ticketwave_text">Ticketwave</string>
+    <string name="getstarted_label">Inizia Ora!</string>
+
 
     <!-- Messaggi -->
     <string name="welcome_message">Ciao,</string>
     <string name="login_failed_message">Accesso fallito</string>
     <string name="invalid_password_message">Password non valida</string>
     <string name="invalid_username_message">Nome utente non valido</string>
+    <string name="landing_page_text">Ride the Wave of Premier Events</string>
+
 </resources>
