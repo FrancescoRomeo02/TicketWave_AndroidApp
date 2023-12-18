@@ -18,15 +18,24 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.ktx.Firebase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Register extends AppCompatActivity {
 
-    TextInputEditText editTextEmail,editTextPassword,editTextUsername,editTextPhone;
+    TextInputEditText editTextEmail,editTextPassword,editTextName,editTextPhone,editTextBirth;
     Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textView;
+
+
 
     @Override
     public void onStart() {
@@ -42,13 +51,16 @@ public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
         editTextEmail = findViewById(R.id.email);
+        editTextName = findViewById(R.id.name);
         editTextPassword = findViewById(R.id.password);
-        editTextUsername = findViewById(R.id.name);
         editTextPhone = findViewById(R.id.phone);
+        editTextBirth = findViewById(R.id.birth);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -97,6 +109,7 @@ public class Register extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+
                                     Toast.makeText(Register.this, "Account created.",
                                             Toast.LENGTH_SHORT).show();
 
@@ -110,9 +123,30 @@ public class Register extends AppCompatActivity {
                             }
                         });
 
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("https://progettodismob-default-rtdb.europe-west1.firebasedatabase.app/");
+
+
+                DatabaseReference usersRef = ref.child("users");
+
+
+                Map<String, User> users = new HashMap<>();
+                users.put(String.valueOf(editTextEmail.getText()), new User(String.valueOf(editTextBirth.getText()), String.valueOf(editTextName.getText()),String.valueOf(editTextPhone.getText())));
+                usersRef.setValue(users);
+
+
+
+
+
+
 
 
             }
         });
     }
+
+
+
+
+
 }
