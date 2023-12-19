@@ -110,6 +110,7 @@ public class Register extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
 
+
                                     Toast.makeText(Register.this, "Account created.",
                                             Toast.LENGTH_SHORT).show();
 
@@ -124,21 +125,12 @@ public class Register extends AppCompatActivity {
                         });
 
                 final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("https://progettodismob-default-rtdb.europe-west1.firebasedatabase.app/");
+                DatabaseReference ref = database.getReference();
+                DatabaseReference usersRef = ref.child("Users");
 
+                User user = new User(String.valueOf(editTextBirth.getText()), String.valueOf(editTextName.getText()),String.valueOf(editTextPhone.getText()));
 
-                DatabaseReference usersRef = ref.child("users");
-
-
-                Map<String, User> users = new HashMap<>();
-                users.put(String.valueOf(editTextEmail.getText()), new User(String.valueOf(editTextBirth.getText()), String.valueOf(editTextName.getText()),String.valueOf(editTextPhone.getText())));
-                usersRef.setValue(users);
-
-
-
-
-
-
+                usersRef.push().setValue(user);
 
 
             }
