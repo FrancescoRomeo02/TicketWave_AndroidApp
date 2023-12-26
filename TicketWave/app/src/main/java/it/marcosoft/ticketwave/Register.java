@@ -20,8 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
@@ -84,9 +86,12 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password, datebirth, name, phone;
                 email=String.valueOf(editTextEmail.getText());
                 password=String.valueOf(editTextPassword.getText());
+                datebirth = String.valueOf(editTextBirth.getText());
+                name =String.valueOf(editTextName.getText());
+                phone = String.valueOf(editTextPhone.getText());
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Register.this,"enter email",Toast.LENGTH_SHORT).show();
@@ -103,14 +108,35 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                if(email.indexOf('@') == -1){
+                    Toast.makeText(Register.this,"email is not an email address",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(datebirth.indexOf('/') != 2 && datebirth.lastIndexOf('/') != 5 ){
+                    Toast.makeText(Register.this,"date of birth needs to be in the xx/xx/xxxx form",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(datebirth.length()>10){
+                    Toast.makeText(Register.this,"date of birth has too many characters",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(phone.length()>10){
+                    Toast.makeText(Register.this,"not a phone number",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
 
-
+                                    InsertData(email,name,datebirth,phone);
                                     Toast.makeText(Register.this, "Account created.",
                                             Toast.LENGTH_SHORT).show();
 
@@ -124,20 +150,50 @@ public class Register extends AppCompatActivity {
                             }
                         });
 
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference();
-                DatabaseReference usersRef = ref.child("Users");
 
-                User user = new User(String.valueOf(editTextBirth.getText()), String.valueOf(editTextName.getText()),String.valueOf(editTextPhone.getText()));
 
-                usersRef.push().setValue(user);
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseUser Fuser = auth.getCurrentUser();
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(name)
+                        .build();
+                Fuser.updateProfile(profileUpdates);
 
+                if(Fuser != null){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
 
             }
+
+            
+
         });
+
+
+
     }
 
 
+
+    public void InsertData(String email, String name, String datebirth, String phone) {
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        DatabaseReference usersRef = ref.child("Users");
+        User user = new User(email, datebirth, name, phone);
+
+        usersRef.push().setValue(user);
+        /*
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference keyRef = rootRef.push();
+        String key = keyRef.getKey();
+        keyRef.setValue(user);
+        */
+
+
+    }
 
 
 

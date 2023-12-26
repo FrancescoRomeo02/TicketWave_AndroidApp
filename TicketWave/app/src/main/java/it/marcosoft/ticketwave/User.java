@@ -10,14 +10,16 @@ public class User {
 
     public String dateOfBirth;
     public String name;
+    public String email;
     public String phone;
 
 
 
-    public User(String dateOfBirth, String name, String phone) {
+    public User(String email, String dateOfBirth, String name, String phone) {
         this.name=name;
         this.dateOfBirth=dateOfBirth;
         this.phone=phone;
+        this.email=email;
     }
 
     public String getDateOfBirth() {
@@ -42,6 +44,14 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
