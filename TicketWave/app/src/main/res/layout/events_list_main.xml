@@ -120,33 +120,28 @@ android:background="@drawable/registerbackground">
                 android:id="@+id/search_bar_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="150dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
-
-                android:background="#3F51B5"
                 android:checkable="false"
                 android:clickable="true"
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="40dp"
-                style="?attr/materialCardViewFilledStyle">
+                app:cardCornerRadius="10dp"
+                style="?attr/materialCardViewFilledStyle"
+                app:cardBackgroundColor="@android:color/transparent">
 
-
-                    <Button
-                        android:id="@+id/button_parse"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true"
-                        android:text="parse"></Button>
-
-
+                <Button
+                    android:id="@+id/button_parse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="parse"
+                    android:background="@color/primary" />
             </com.google.android.material.card.MaterialCardView>
 
 
@@ -155,30 +150,18 @@ android:background="@drawable/registerbackground">
                 android:id="@+id/dynamic_card_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-
-                android:checkable="false"
-                android:clickable="true"
-                android:focusable="true"
-                android:hapticFeedbackEnabled="true"
-                android:visibility="visible"
-                app:cardCornerRadius="30dp">
+                android:layout_below="@id/search_bar_event"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:strokeColor="@android:color/transparent">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycle_main"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp">
-
-                </androidx.recyclerview.widget.RecyclerView>
-
+                    android:layout_margin="5dp"/>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
