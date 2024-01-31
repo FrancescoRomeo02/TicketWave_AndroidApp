@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/registerbackground">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp" >
+        <!-- Le tue TextView e MaterialCardView rimangono invariati -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginBottom="30dip">
+
+            <TextView
+                android:id="@+id/searchevents_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dip"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="0dp"
+                android:fontFamily="@font/sfprobold"
+                android:text="Event "
+                android:textColor="@color/black"
+                android:textSize="35dp" />
+
+            <TextView
+                android:id="@+id/searchevents_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="45dip"
+                android:layout_marginEnd="45dip"
+                android:fontFamily="@font/sfprobold"
+                android:text="Details"
+                android:textColor="@color/primary"
+                android:textSize="35dp" />
+        </LinearLayout>
+        <!-- <TextView
+            android:id="@+id/titolo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dip"
+            android:layout_marginTop="45dip"
+            android:layout_marginEnd="45dip"
+            android:text="Your Travels"
+            android:textSize="30dp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/sfprobold"
+            /> -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/event_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+
+                android:layout_marginTop="120dp"
+                android:layout_marginEnd="20dp"
+                android:background="#3F51B5"
+                android:checkable="false"
+                android:clickable="true"
+                android:focusable="true"
+                android:hapticFeedbackEnabled="true"
+                android:visibility="visible"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="40dp"
+                style="?attr/materialCardViewFilledStyle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/eventname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text="Event Name"
+                            android:textAlignment="center"
+                            android:textColor="@color/primary"
+                            android:textSize="35dp" />
+
+                        <TextView
+                            android:id="@+id/eventdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="30dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text="from 1 Sep to 12 Sep"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            tools:ignore="TextSizeCheck" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/search_bar_event"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:background="#3F51B5"
+                android:checkable="false"
+                android:clickable="true"
+                android:focusable="true"
+                android:hapticFeedbackEnabled="true"
+                android:visibility="visible"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="40dp"
+                style="?attr/materialCardViewFilledStyle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <SearchView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </SearchView>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dynamic_card_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="35dp"
+
+                android:checkable="false"
+                android:clickable="true"
+                android:focusable="true"
+                android:hapticFeedbackEnabled="true"
+                android:visibility="visible"
+                android:background="#55000000"
+                app:cardCornerRadius="30dp"
+                style="?attr/materialCardViewFilledStyle">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:padding="8dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
