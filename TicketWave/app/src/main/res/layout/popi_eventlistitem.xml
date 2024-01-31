@@ -6,30 +6,29 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     app:cardElevation="8dp"
-    android:layout_margin="8dp"
+    android:layout_margin="10dp"
     android:checkable="false"
     android:clickable="true"
     android:focusable="true"
     android:hapticFeedbackEnabled="true"
     android:visibility="visible"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="40dp">
+    app:cardCornerRadius="30dp">
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_margin="1dp"
         android:weightSum="3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/event_image"
                     android:layout_width="150dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:padding="7dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/eventi"
@@ -56,31 +55,34 @@
                         android:fontFamily="@font/sfprobold"
                         android:text="event_name"
                         android:textColor="@color/black"
-                        android:textSize="22dp">
+                        android:textSize="17dp"
+                        android:layout_marginRight="5dp">
                     </TextView>
-                    <TextView
-                        android:id="@+id/event_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="event_date"
-                        android:textColor="@color/black"
-                        android:textSize="20dp">
-                    </TextView>
+
                 </LinearLayout>
 
-
+                <TextView
+                    android:id="@+id/event_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfprobold"
+                    android:text="event_date"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:layout_marginRight="5dp">
+                </TextView>
                 <TextView
                     android:id="@+id/event_description"
                     android:layout_width="220dp"
-                    android:layout_height="49dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="event_description"
+                    android:text="event_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_description"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
                     android:textSize="15dp"
-                    tools:ignore="TextSizeCheck"></TextView>
+                    tools:ignore="TextSizeCheck"
+                    android:layout_marginRight="5dp">
+                </TextView>
             </LinearLayout>
 
     </LinearLayout>
