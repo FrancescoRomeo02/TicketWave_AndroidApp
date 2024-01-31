@@ -30,7 +30,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.event_list_items, parent, false);
+        View view = layoutInflater.inflate(R.layout.popi_eventlistitem, parent, false);
         return new ViewHolder(view);
     }
 
@@ -57,9 +57,9 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textTitle = itemView.findViewById(R.id.text_title);
-            textLocation = itemView.findViewById(R.id.text_location);
-            imageView = itemView.findViewById(R.id.img_headline);
+            textTitle = itemView.findViewById(R.id.event_name);
+            textLocation = itemView.findViewById(R.id.event_description);
+            imageView = itemView.findViewById(R.id.event_image);
         }
     }
 }
