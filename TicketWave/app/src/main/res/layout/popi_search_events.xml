@@ -137,17 +137,15 @@ android:background="@drawable/registerbackground">
                 app:cardCornerRadius="40dp"
                 style="?attr/materialCardViewFilledStyle">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
-                    <SearchView
+                    <Button
+                        android:id="@+id/button_parse"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </SearchView>
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:text="parse"></Button>
 
-                </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -169,9 +167,7 @@ android:background="@drawable/registerbackground">
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                android:background="#55000000"
-                app:cardCornerRadius="30dp"
-                style="?attr/materialCardViewFilledStyle">
+                app:cardCornerRadius="30dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycle_main"
