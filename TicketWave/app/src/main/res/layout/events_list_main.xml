@@ -158,9 +158,9 @@ android:background="@drawable/registerbackground">
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
 
-                android:layout_marginStart="35dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginEnd="35dp"
+                android:layout_marginEnd="20dp"
 
                 android:checkable="false"
                 android:clickable="true"
@@ -173,8 +173,9 @@ android:background="@drawable/registerbackground">
                     android:id="@+id/recycle_main"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:padding="8dp">
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
