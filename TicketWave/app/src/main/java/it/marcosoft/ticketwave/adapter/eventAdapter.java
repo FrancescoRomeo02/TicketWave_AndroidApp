@@ -30,8 +30,9 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.event_list_items, parent, false);
-        return new ViewHolder(view);
+        //View view = layoutInflater.inflate(R.layout.event_list_items, parent, false);
+        //return new ViewHolder(view);
+        return null;
     }
 
     @Override
@@ -43,6 +44,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
         Picasso.get().load(imgUrl).into(holder.imageView);
+
     }
 
     @Override

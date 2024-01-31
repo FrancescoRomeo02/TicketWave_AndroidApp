@@ -9,9 +9,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import java.util.Calendar;
 
+import it.marcosoft.ticketwave.CardData;
 import it.marcosoft.ticketwave.R;
 
 public class TravelFragment extends Fragment {
@@ -65,11 +67,14 @@ public class TravelFragment extends Fragment {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // Imposta la data selezionata nell'EditText
                         selectedEditText.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+
                     }
                 }, year, month, day);
 
         // Mostra il DatePickerDialog
         datePickerDialog.show();
     }
+
+
 
 }

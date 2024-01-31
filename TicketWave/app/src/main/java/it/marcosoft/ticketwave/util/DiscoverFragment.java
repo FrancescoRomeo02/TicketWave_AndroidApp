@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import it.marcosoft.ticketwave.CardAdapter;
+import it.marcosoft.ticketwave.adapter.CardAdapter;
 import it.marcosoft.ticketwave.CardData;
 import it.marcosoft.ticketwave.MainActivity;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.adapter.OnDataAddedListener;
 
 public class DiscoverFragment extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +37,11 @@ public class DiscoverFragment extends Fragment {
         CardAdapter cardAdapter = new CardAdapter(cardData, (MainActivity) getActivity());
         recyclerView.setAdapter(cardAdapter);
 
+
+
         return rootView;
     }
+
+
+
 }

@@ -1,25 +1,30 @@
-package it.marcosoft.ticketwave;
+package it.marcosoft.ticketwave.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import it.marcosoft.ticketwave.CardData;
+import it.marcosoft.ticketwave.MainActivity;
+import it.marcosoft.ticketwave.R;
+
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
 
 
     CardData[] cardData;
     Context context;
+    OnDataAddedListener onDataAddedListener;
 
     public CardAdapter(CardData[] cardData, MainActivity activity){
         this.cardData = cardData;
         this.context = activity;
+
         
 
     }
@@ -39,13 +44,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         holder.destination.setText(cardDataList.getDestination());
         holder.datesFrom.setText((cardDataList.getDateFrom()));
         holder.datesTo.setText(cardDataList.getDateTo());
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, cardDataList.getDestination(), Toast.LENGTH_SHORT).show();
+                onDataAddedListener.onDataAdded(cardDataList);
             }
         });
+
     }
 
     @Override
