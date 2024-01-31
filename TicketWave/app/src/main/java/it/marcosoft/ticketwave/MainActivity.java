@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             });
         } else {
             // User is not logged in, launch the login activity
-            setContentView(R.layout.activity_register);
+           // setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
     }

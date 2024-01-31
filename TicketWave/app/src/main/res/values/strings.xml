@@ -16,7 +16,7 @@
     <!-- Actions -->
     <string name="sign_in_action">Sign In</string>
     <string name="create_account_action">Create One</string>
-    <string name="register_action">Register Now</string>
+    <string name="register_action">Create User</string>
 
     <!-- Questions -->
     <string name="no_account_question">Don\'t have an Account?</string>
@@ -32,4 +32,14 @@
     <string name="login_failed_message">Login Failed</string>
     <string name="invalid_password_message">Invalid Password</string>
     <string name="invalid_username_message">Invalid Username</string>
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="error_email" translatable="false">Insert a valid email address</string>
+    <string name="error_password" translatable="false">Password cannot be empty</string>
+
+    <string name="google_login" translatable="false">Login with Google</string>
+    <string name="new_account" translatable="false">New to TicketWave?</string>
+    <string name="register" translatable="false">Register</string>
+    <string name="login" translatable="false">Log in</string>
+
 </resources>

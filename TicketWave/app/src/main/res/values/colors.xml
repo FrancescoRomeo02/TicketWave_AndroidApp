@@ -4,6 +4,8 @@
     <!-- Main colors -->
     <color name="black">#121212</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="google_login_button">#eceff1</color>
+    <color name="google_login_text">#616161</color>
 
     <color name="primary">#CAA8F5</color>
     <color name="primaryVariant">#CE1483</color>
