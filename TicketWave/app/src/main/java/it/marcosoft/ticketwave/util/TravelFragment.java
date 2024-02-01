@@ -77,6 +77,25 @@ public class TravelFragment extends Fragment {
         });
 
 
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Controlla se i campi sono vuoti prima di inviare il form
+                String fromLocation = fromTravelEditText.getText().toString().trim();
+                String toLocation = toTravelEditText.getText().toString().trim();
+                String destination = destinationEditText.getText().toString().trim();
+
+                if (fromLocation.isEmpty() || toLocation.isEmpty() || destination.isEmpty()) {
+                    // Almeno uno dei campi è vuoto, mostra un messaggio
+                    Toast.makeText(requireContext(), "Compila tutti i campi prima di inviare il form", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Tutti i campi sono compilati, puoi procedere con l'invio del form
+                    // ... Implementa qui la logica per l'invio del form ...
+                    insertIntoDatabase();  // Esempio: richiama il metodo per inserire nel database
+                }
+            }
+        });
+
         return rootView;
     }
 
