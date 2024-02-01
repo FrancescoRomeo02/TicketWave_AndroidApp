@@ -29,7 +29,8 @@
                 android:fontFamily="@font/sfprobold"
                 android:text="Your "
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:layout_alignParentTop="true" />
 
             <TextView
                 android:id="@+id/titolo2"
@@ -41,7 +42,9 @@
                 android:fontFamily="@font/sfprobold"
                 android:text="Travels"
                 android:textColor="@color/primary"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:layout_toEndOf="@id/titolo"
+                android:layout_alignParentTop="true" />
 
             <Button
                 android:id="@+id/useraccountbutton"
@@ -51,9 +54,7 @@
                 android:layout_marginLeft="60dp"
                 android:layout_weight="0"
                 android:background="@drawable/useraccount"
-                android:drawableTint="@color/primary"
-                />
-
+                android:drawableTint="@color/primary" />
 
         </LinearLayout>
 

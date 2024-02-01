@@ -1,0 +1,377 @@
+Abilene
+Sweetwater
+Albany
+Schenectady
+Troy
+Albany, GA
+Albuquerque
+Santa Fe
+Alexandria, LA
+Alpena
+Amarillo
+Anchorage
+Atlanta
+Augusta
+Austin
+Bakersfield
+Baltimore
+Bangor
+Baton Rouge
+Beaumont
+Port Arthur
+Bend, OR
+Billings
+Biloxi
+Gulfport
+Binghamton
+Birmingham 
+Bluefield
+Beckley
+Oak Hill
+Boise
+Boston 
+Manchester
+Bowling Green
+Buffalo
+Burlington 
+Plattsburgh
+Butte
+Bozeman
+Casper
+Riverton
+Cedar Rapids
+Waterloo & Dubuque
+Champaign & Springfield
+Decatur
+Charleston, SC
+Charleston-Huntington
+Charlotte
+Charlottesville
+Chattanooga
+Cheyenne
+Scottsbluff
+Chicago
+Chico
+Redding
+Cincinnati
+Clarksburg
+Weston
+Cleveland
+Colorado Springs
+Pueblo
+Columbia
+Jefferson City
+Columbia, SC
+Columbus
+Tupelo
+West Point
+Columbus, GA
+Columbus, OH
+Corpus Christi
+Dallas
+Fort Worth
+Davenport
+Rock Island
+Moline
+Dayton
+Denver
+Des Moines
+Ames
+Detroit
+Dothan
+Duluth
+Superior
+El Paso
+Elmira
+Erie
+Eugene
+Eureka
+Evansville
+Fairbanks
+Fargo
+Valley City
+Flint
+Saginaw
+Bay City
+Florence
+Myrtle Beach
+Fort Myers
+Naples
+Fort Smith
+Fayetteville
+Springdale
+Rogers
+Fort Wayne
+Fresno
+Visalia
+Gainesville
+Glendive
+Grand Junction
+Montrose
+Grand Rapids
+Kalamazoo
+Battle Creek
+Great Falls
+Green Bay
+Appleton
+Greensboro
+High Point
+Winston-Salem
+Greenville
+New Bern
+Washington
+Greenville
+Spartansburg
+Asheville
+Anderson
+Greenwood
+Greenville
+Harlingen
+Weslaco
+Brownsville
+McAllen
+Harrisburg
+Lancaster
+Lebanon
+York
+Harrisonburg
+Hartford & New Haven
+Hattiesburg
+Laurel
+Helena
+Honolulu
+Houston
+Huntsville
+Decatur (Florence)
+Idaho Falls
+Pocatello
+Indianapolis
+Jackson, MS
+Jackson, TN
+Jacksonville
+Johnstown
+Altoona
+Jonesboro
+Joplin
+Pittsburg
+Juneau
+Kansas City
+Knoxville
+La Crosse
+Eau Claire
+Lafayette, IN
+Lafayette, LA
+Lake Charles
+Lansing
+Laredo
+Las Vegas
+Lexington
+Lima
+Lincoln & Hastings
+Kearney
+Little Rock
+Pine Bluff
+Los Angeles
+Louisville
+Lubbock
+Macon
+Madison
+Mankato
+Marquette
+Medford
+Klamath Falls
+Memphis
+Meridian
+Miami
+Fort Lauderdale
+Milwaukee
+Minneapolis
+Saint Paul
+Minot
+Bismarck
+Dickinson
+Missoula
+Mobile
+Pensacola (Fort Walton Beach)
+Monroe
+El Dorado
+Monterey
+Salinas
+Montgomery (Selma)
+Nashville
+New Orleans
+New York
+Norfolk
+Portsmouth
+Newport News
+North Platte
+Odessa
+Midland
+Oklahoma City
+Omaha
+Orlando
+Daytona Beach
+Melbourne
+Ottumwa
+Kirksville
+Paducah
+Cape Girardeau
+Harrisburg
+Mt Vernon
+Palm Springs
+Panama City
+Parkersburg
+Peoria
+Bloomington
+Philadelphia
+Phoenix
+Pittsburgh
+Portland
+Auburn
+Portland, OR
+Presque Isle
+Providence
+New Bedford
+Quincy
+Hannibal
+Keokuk
+Raleigh
+Durham (Fayetteville)
+Rapid City
+Reno
+Richmond
+Petersburg
+Roanoke
+Lynchburg
+Rochester
+Mason City
+Austin
+Rochester, NY
+Rockford
+Sacramento
+Stockton
+Modesto
+Saint Joseph
+Saint Louis
+Salisbury
+Salt Lake City
+San Angelo
+San Antonio
+San Diego
+San Francisco
+Oakland
+San Jose
+Santa Barbara
+Santa Maria
+San Luis Obispo
+Savannah
+Seattle
+Tacoma
+Sherman
+Ada
+Shreveport
+Sioux City
+Sioux Falls (Mitchell)
+South Bend
+Elkhart
+Spokane
+Springfield
+Holyoke
+Springfield, MO
+Syracuse
+Tallahassee
+Thomasville
+Tampa
+Saint Petersburg (Sarasota)
+Terre Haute
+Toledo
+Topeka
+Traverse City
+Cadillac
+Tri-Cities, TN-VA
+Tucson (Sierra Vista)
+Tulsa
+Twin Falls
+Tyler
+Longview (Lufkin & Nacogdoches)
+Utica
+Victoria
+Waco
+Temple
+Bryan
+Washington DC (Hagerstown)
+Watertown
+Wausau
+Rhinelander
+West Palm Beach
+Fort Pierce
+Wheeling
+Steubenville
+Wichita
+Hutchinson
+Wichita Falls & Lawton
+Wilkes Barre
+Scranton
+Wilmington
+Yakima
+Pasco
+Richland
+Kennewick
+Youngstown
+Yuma
+El Centro
+Zanesville
+Northern New Jersey
+Barrie-Orillia
+Belleville-Peterborough
+Owen Sound
+Burnaby-New Westminster-Surrey
+Calgary-Banff
+Edmonton
+Fraser Valley
+Hamilton-Niagara
+Kitchener-Waterloo
+London-Sarnia
+Mississauga-Oakville
+Newfoundland
+NWT
+New Brunswick
+Northern Ontario
+Nova Scotia
+Nunavit
+Okanagan-Kootenays
+Ottawa-Gatineau
+PEI
+Prince George-North
+Montreal and Surrounding Area
+Red Deer
+Saskatchewan
+Toronto
+Vancouver
+Sunshine Coast-Islands
+Winnipeg-Brandon
+Yukon
+London
+South
+Midlands and Central
+Wales and North West
+North and North East
+Scotland
+All of Ireland
+Northern Ireland
+Germany
+Netherlands
+Sweden
+Turkey
+New South Wales/Australian Capital Territory
+Queensland
+Western Australia
+Victoria/Tasmania
+All of New Zealand
+North Island
+South Island
+Mexico City and Metropolitan Area
+Monterrey
+Guadalajara
+Barcelona
+Madrid

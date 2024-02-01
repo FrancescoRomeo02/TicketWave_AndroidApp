@@ -10,6 +10,7 @@
     <string name="phone_prompt">Numero di telefono</string>
 
     <!-- Azioni -->
+    <string name="explore">Esplora</string>
     <string name="sign_in_action">Accedi</string>
     <string name="create_account_action">Crea un account</string>
     <string name="register_action">Registrati ora</string>

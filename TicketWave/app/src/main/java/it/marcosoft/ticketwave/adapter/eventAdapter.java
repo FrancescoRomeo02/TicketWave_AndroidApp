@@ -43,6 +43,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
         Picasso.get().load(imgUrl).into(holder.imageView);
+
     }
 
     @Override

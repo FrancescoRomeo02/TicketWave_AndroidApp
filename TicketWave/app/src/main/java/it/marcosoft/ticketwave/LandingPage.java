@@ -2,6 +2,9 @@ package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import it.marcosoft.ticketwave.ui.login.RegisterActivity;
@@ -55,7 +58,7 @@ public class LandingPage extends AppCompatActivity {
             });
         } else {
             // User is not logged in, launch the login activity
-            setContentView(R.layout.landingpage); //qui dovrebbe andarci registerpage ma al momento fa il cotrario
+            setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
 
@@ -83,4 +86,9 @@ public class LandingPage extends AppCompatActivity {
         }
         return false;
     }
+
+
+
+
+
 }
