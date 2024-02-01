@@ -4,15 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import it.marcosoft.ticketwave.CardData;
-import it.marcosoft.ticketwave.MainActivity;
+import it.marcosoft.ticketwave.data.CardData;
+import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.util.DiscoverFragment;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
 
@@ -20,14 +22,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
     CardData[] cardData;
     Context context;
     OnDataAddedListener onDataAddedListener;
+    DiscoverFragment discoverFragment;
 
-    public CardAdapter(CardData[] cardData, MainActivity activity){
+
+    public CardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment){
         this.cardData = cardData;
         this.context = activity;
-
-        
-
+        this.discoverFragment = discoverFragment;
     }
+
 
     @NonNull
     @Override
@@ -44,6 +47,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
         holder.destination.setText(cardDataList.getDestination());
         holder.datesFrom.setText((cardDataList.getDateFrom()));
         holder.datesTo.setText(cardDataList.getDateTo());
+        holder.exploreButton.setTag(cardDataList.getId());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,14 +67,25 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView destination;
         TextView datesFrom;
-
         TextView datesTo;
+        Button exploreButton;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             destination = itemView.findViewById(R.id.destination);
             datesFrom = itemView.findViewById(R.id.datesFrom);
             datesTo = itemView.findViewById(R.id.datesTo);
+            exploreButton = itemView.findViewById(R.id.explore_button);
+            exploreButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Handle the button click within the DiscoverFragment
+                    discoverFragment.loadEventListMain(Integer.valueOf((String) exploreButton.getTag()));
+                }
+            });
 
         }
     }
+
 }
+
+

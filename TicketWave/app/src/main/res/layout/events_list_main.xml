@@ -13,7 +13,6 @@ android:background="@drawable/registerbackground">
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="20dp" >
-        <!-- Le tue TextView e MaterialCardView rimangono invariati -->
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -45,18 +44,7 @@ android:background="@drawable/registerbackground">
                 android:textColor="@color/primary"
                 android:textSize="35dp" />
         </LinearLayout>
-        <!-- <TextView
-            android:id="@+id/titolo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dip"
-            android:layout_marginTop="45dip"
-            android:layout_marginEnd="45dip"
-            android:text="Your Travels"
-            android:textSize="30dp"
-            android:textColor="@color/primary"
-            android:fontFamily="@font/sfprobold"
-            /> -->
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,33 +73,53 @@ android:background="@drawable/registerbackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="143dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:orientation="vertical">
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
                         <TextView
-                            android:id="@+id/eventname"
-                            android:layout_width="match_parent"
+                            android:id="@+id/destination"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="Event Name"
-                            android:textAlignment="center"
+                            android:text="City Name"
                             android:textColor="@color/primary"
-                            android:textSize="35dp" />
+                            android:textSize="35sp" />
 
                         <TextView
-                            android:id="@+id/eventdate"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="30dp"
+                            android:id="@+id/datesFrom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="from 1 Sep to 12 Sep"
-                            android:textAlignment="center"
+                            android:text="from ZZth Xember"
                             android:textColor="@color/black"
-                            android:textSize="15dp"
-                            tools:ignore="TextSizeCheck" />
+                            android:textSize="15sp" />
 
+                        <TextView
+                            android:id="@+id/datesTo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text="to ZZth Yember"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>

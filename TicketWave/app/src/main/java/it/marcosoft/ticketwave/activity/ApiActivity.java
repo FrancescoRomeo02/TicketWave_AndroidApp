@@ -11,52 +11,68 @@ import com.android.volley.toolbox.Volley;
 import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.common.ApiConstants;
+import it.marcosoft.ticketwave.data.CardData;
+import it.marcosoft.ticketwave.util.DateUtil;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ApiActivity extends AppCompatActivity {
 
     private RequestQueue requestQueue;
     private JsonObjectRequest request;
     private RecyclerView recyclerView;
-
+    private CardData cardData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.cardData = getIntent().getParcelableExtra("CardData");
+
+        super.onCreate(savedInstanceState);
+
         // Retrieve the layout ID from the intent
         int layoutId = getIntent().getIntExtra("layout_id", 0);
 
         // Set the content view to the specified layout
         if (layoutId != 0) {
             setContentView(layoutId);
-        }
+            TextView eventNameTextView = findViewById(R.id.destination);
+            TextView eventDateFromTextView = findViewById(R.id.datesFrom);
+            TextView eventDateToTextView = findViewById(R.id.datesTo);
 
-        // Call the superclass method after setting the content view
-        super.onCreate(savedInstanceState);
+            eventNameTextView.setText(cardData.getDestination());
+            eventDateFromTextView.setText("To: " + cardData.getDateFrom());
+            eventDateToTextView.setText("From: " + cardData.getDateTo());
+
+        }
 
         // Initialize the request queue and the RecyclerView
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         recyclerView = findViewById(R.id.recycle_main);
 
         // Call a method to handle the API call
-        makeApiCall();
+        makeApiCall(this.cardData);
 
-        // Additional initializations or specific logic for your activity
     }
 
-    private void makeApiCall() {
+
+    private void makeApiCall(CardData cardData) {
         // Initialize a button for triggering the API call
         Button buttonParse = findViewById(R.id.button_parse);
 
         // Set a click listener for the button
         buttonParse.setOnClickListener(v -> {
-            // Prepare parameters for the API call
+            // Prepare parameters for the API call startDateTime=2024-02-04T00:00:00Z&endDateTime=2024-02-10T23:59:59Z
             List<String> params = new ArrayList<>();
-            params.add("city=barcelona");
-            params.add("size=2");
+            params.add("city="+cardData.getDestination());
+            String dateFrom = DateUtil.convertItalianToISO8601(cardData.getDateFrom());
+            String dateTo = DateUtil.convertItalianToISO8601(cardData.getDateTo());
+            params.add("startDateTime="+dateFrom);
+            params.add("endDateTime="+dateTo);
 
             // Set up the RecyclerView with a LinearLayoutManager
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -71,4 +87,5 @@ public class ApiActivity extends AppCompatActivity {
     }
 
     // Other methods if needed
+
 }
