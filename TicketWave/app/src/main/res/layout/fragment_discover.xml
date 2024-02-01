@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/registerbackground"
-    >
+    android:background="@drawable/registerbackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp" >
+        android:paddingBottom="20dp">
 
-        <!-- Le tue TextView e MaterialCardView rimangono invariati -->
+        <!-- Le tue TextView rimangono invariati -->
         <LinearLayout
+            android:id="@+id/titleLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
@@ -29,7 +29,8 @@
                 android:fontFamily="@font/sfprobold"
                 android:text="Your "
                 android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:layout_alignParentTop="true" />
 
             <TextView
                 android:id="@+id/titolo2"
@@ -41,7 +42,9 @@
                 android:fontFamily="@font/sfprobold"
                 android:text="Travels"
                 android:textColor="@color/primary"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:layout_toEndOf="@id/titolo"
+                android:layout_alignParentTop="true" />
 
             <Button
                 android:id="@+id/useraccountbutton"
@@ -51,330 +54,18 @@
                 android:layout_marginLeft="60dp"
                 android:layout_weight="0"
                 android:background="@drawable/useraccount"
-                android:drawableTint="@color/primary"
-                />
-
+                android:drawableTint="@color/primary" />
 
         </LinearLayout>
-        <!-- <TextView
-            android:id="@+id/titolo"
+
+        <!-- Aggiungi la RecyclerView sotto le TextView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_below="@id/titleLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dip"
-            android:layout_marginTop="45dip"
-            android:layout_marginEnd="45dip"
-            android:text="Your Travels"
-            android:textSize="30dp"
-            android:textColor="@color/primary"
-            android:fontFamily="@font/sfprobold"
-            /> -->
+            android:layout_marginTop="16dp" />
 
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-
-            android:layout_marginTop="120dip"
-            android:layout_marginEnd="20dp"
-            android:background="#3F51B5"
-            android:checkable="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:hapticFeedbackEnabled="true"
-            android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="40dp"
-            style="?attr/materialCardViewFilledStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textcard1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="24dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="Madrid"
-                        android:textColor="@color/primary"
-                        android:textSize="35dp" />
-
-                    <TextView
-                        android:id="@+id/textcard2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="from 12th Oct to 19th Oct"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <Button
-                        android:id="@+id/explorebutton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Explore"
-                        android:layout_marginLeft="118dp"
-                        android:layout_marginVertical="16dp"
-                        android:backgroundTint="@color/primary"
-                        android:textSize="22dp"
-                        android:textStyle="bold"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-
-            android:layout_marginTop="30dip"
-            android:layout_marginEnd="20dp"
-
-            android:background="#3F51B5"
-            android:checkable="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:hapticFeedbackEnabled="true"
-            android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="40dp"
-            style="?attr/materialCardViewFilledStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textcard3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="20dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="Madrid"
-                        android:textColor="@color/primary"
-                        android:textSize="35dp" />
-
-                    <TextView
-                        android:id="@+id/textcard4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="from 12th Oct to 19th Oct"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <Button
-                        android:id="@+id/explorebutton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Explore"
-                        android:layout_marginLeft="118dp"
-                        android:layout_marginVertical="16dp"
-                        android:backgroundTint="@color/primary"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card2"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dip"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="30dp"
-
-            android:background="#3F51B5"
-            android:checkable="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:hapticFeedbackEnabled="true"
-            android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="40dp"
-            style="?attr/materialCardViewFilledStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textcard5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="Madrid"
-                        android:textColor="@color/primary"
-                        android:textSize="35dp" />
-
-                    <TextView
-                        android:id="@+id/textcard6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="from 12th Oct to 19th Oct"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <Button
-                        android:id="@+id/explorebutton3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Explore"
-                        android:layout_marginLeft="118dp"
-                        android:layout_marginVertical="16dp"
-                        android:backgroundTint="@color/primary"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card3"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dip"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="20dp"
-            android:background="#3F51B5"
-            android:checkable="false"
-            android:clickable="true"
-            android:focusable="true"
-            android:hapticFeedbackEnabled="true"
-            android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="40dp"
-            style="?attr/materialCardViewFilledStyle">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textcard7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginLeft="20dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="Madrid"
-                        android:textColor="@color/primary"
-                        android:textSize="35dp" />
-
-                    <TextView
-                        android:id="@+id/textcard8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text="from 12th Oct to 19th Oct"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <Button
-                        android:id="@+id/explorebutton4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Explore"
-                        android:layout_marginLeft="118dp"
-                        android:layout_marginVertical="16dp"
-                        android:backgroundTint="@color/primary"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        />
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>
 
 </ScrollView>

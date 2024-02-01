@@ -2,6 +2,9 @@ package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import it.marcosoft.ticketwave.util.*;
 
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         // Check and create preferences file if not exists
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
+
+
         // Check the login status
         if (UserAuthenticationUtil.getLoginStatus(this) || true) {
             // User is logged in, launch the main activity
@@ -27,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
             loadFragment(new DiscoverFragment());
 
             bottomNavigationView.setSelectedItemId(R.id.discover);
+
+
 
             // Set listener for BottomNavigationView item clicks
             bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -51,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
+
+
+
+
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -63,4 +74,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+
+
+
+
 }

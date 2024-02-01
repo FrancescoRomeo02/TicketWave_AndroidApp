@@ -12,6 +12,7 @@
     <string name="password_prompt">Password</string>
     <string name="name_prompt">Name</string>
     <string name="phone_prompt">Phone Number</string>
+    <string name="explore">Explore</string>
 
     <!-- Actions -->
     <string name="sign_in_action">Sign In</string>
