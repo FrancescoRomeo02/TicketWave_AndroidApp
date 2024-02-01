@@ -11,4 +11,8 @@ public class Constants {
     // Constants for encrypted files
     public static final String ENCRYPTED_DATA_FILE_NAME = "it.marcosoft.ticketwave.encrypted_file.txt";
 
+    public static final String FIREBASE_REALTIME_DATABASE = "https://ticketwavepmd-default-rtdb.europe-west1.firebasedatabase.app/\n" +
+            ":";
+    public static final String FIREBASE_USERS_COLLECTION = "users";
+
 }

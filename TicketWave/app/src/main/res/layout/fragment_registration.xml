@@ -146,7 +146,7 @@
 
 
             <Button
-                android:id="@+id/signInButton"
+                android:id="@+id/RegisterButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
@@ -173,7 +173,7 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signInButton">
+                app:layout_constraintTop_toBottomOf="@id/RegisterButton">
 
                 <View
                     android:layout_width="wrap_content"

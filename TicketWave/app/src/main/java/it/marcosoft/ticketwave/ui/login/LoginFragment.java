@@ -40,9 +40,10 @@ import it.marcosoft.ticketwave.util.DataEncryptionUtil;
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
 public class LoginFragment extends Fragment {
 
-    private static final String TAG = WelcomeActivity.class.getSimpleName();
+    private static final String TAG = LoginFragment.class.getSimpleName();
     private static final boolean USE_NAVIGATION_COMPONENT = true;
     //serve per usare nav o intent, in base se e' u frag. o un activity
     private TextInputLayout textInputLayoutEmail;
@@ -60,7 +61,7 @@ public class LoginFragment extends Fragment {
      *
      * @return A new instance of fragment LoginFragment.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static LoginFragment newInstance() {
         return new LoginFragment();
     }
@@ -81,40 +82,12 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        dataEncryptionUtil = new DataEncryptionUtil(requireContext());
-        try {
-            Log.d(TAG, "Email address from encrypted SharedPref: " + dataEncryptionUtil.
-                    readSecretDataWithEncryptedSharedPreferences(
-                            ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, EMAIL_ADDRESS));
-            Log.d(TAG, "Password from encrypted SharedPref: " + dataEncryptionUtil.
-                    readSecretDataWithEncryptedSharedPreferences(
-                            ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, PASSWORD));
-            Log.d(TAG, "Login data from encrypted file: " + dataEncryptionUtil.
-                    readSecretDataOnFile(ENCRYPTED_DATA_FILE_NAME));
-        } catch (GeneralSecurityException | IOException e) {
-            e.printStackTrace();
-        }
-
 
         textInputLayoutEmail = view.findViewById(R.id.emailInputEditText);
         textInputLayoutPassword = view.findViewById(R.id.passwordInputEditText);
         final Button buttonLogin = view.findViewById(R.id.signInButton);
         final Button buttonGoogleLogin = view.findViewById(R.id.googleLoginButton);
-
-        dataEncryptionUtil = new DataEncryptionUtil(requireContext());
-
-        try {
-            Log.d(TAG, "Email address from encrypted SharedPref: " + dataEncryptionUtil.
-                    readSecretDataWithEncryptedSharedPreferences(
-                            ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, EMAIL_ADDRESS));
-            Log.d(TAG, "Password from encrypted SharedPref: " + dataEncryptionUtil.
-                    readSecretDataWithEncryptedSharedPreferences(
-                            ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, PASSWORD));
-            Log.d(TAG, "Login data from encrypted file: " + dataEncryptionUtil.
-                    readSecretDataOnFile(ENCRYPTED_DATA_FILE_NAME));
-        } catch (GeneralSecurityException | IOException e) {
-            e.printStackTrace();
-        }
+        final Button buttonRegistration = view.findViewById(R.id.toRegisterButtonFrame);
 
         buttonLogin.setOnClickListener(v -> {
 
@@ -123,8 +96,7 @@ public class LoginFragment extends Fragment {
 
             // Start login if email and password are ok
             if (isEmailOk(email) & isPasswordOk(password)) {
-                Log.d(TAG, "Email and password are ok");
-                saveLoginData(email, password);
+
 
                 startActivityBasedOnCondition(MainActivity.class,
                         R.id.action_loginFragment_to_mainActivity);
@@ -134,7 +106,22 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        buttonRegistration.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment);
+        });
+
+
+
+
+
+
     }
+
+
+
+
+
+
 
     /**
      * It starts another Activity using Intent or NavigationComponent.
