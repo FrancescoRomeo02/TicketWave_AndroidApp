@@ -15,8 +15,13 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Calendar;
-
+import java.util.HashSet;
+import java.util.Set;
 
 import it.marcosoft.ticketwave.R;
 
@@ -47,23 +52,6 @@ public class TravelFragment extends Fragment {
         toTravelEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDatePickerDialog(toTravelEditText);
-            }
-        });
-
-        // Aggiungi il listener al pulsante "Add"
-        Button addButton = rootView.findViewById(R.id.addbuttontravel);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chiamata al metodo per inserire nel database
-                insertIntoDatabase();
-            }
-        });
-
-        toTravelEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 // Controlla se la data "from" è stata già selezionata
                 if (fromTravelEditText.getText().toString().isEmpty()) {
                     // La data "from" non è stata ancora selezionata, mostra un messaggio
@@ -76,7 +64,8 @@ public class TravelFragment extends Fragment {
             }
         });
 
-
+        // Aggiungi il listener al pulsante "Add"
+        Button addButton = rootView.findViewById(R.id.addbuttontravel);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,9 +78,15 @@ public class TravelFragment extends Fragment {
                     // Almeno uno dei campi è vuoto, mostra un messaggio
                     Toast.makeText(requireContext(), "Compila tutti i campi prima di inviare il form", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Tutti i campi sono compilati, puoi procedere con l'invio del form
-                    // ... Implementa qui la logica per l'invio del form ...
-                    insertIntoDatabase();  // Esempio: richiama il metodo per inserire nel database
+                    // Tutti i campi sono compilati, verifica la destinazione
+                    if (isValidDestination(destination)) {
+                        // Destinazione valida, puoi procedere con l'invio del form
+                        // ... Implementa qui la logica per l'invio del form ...
+                        insertIntoDatabase();  // Esempio: richiama il metodo per inserire nel database
+                    } else {
+                        // Destinazione non valida, mostra un messaggio
+                        Toast.makeText(requireContext(), "Destinazione non valida", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -137,8 +132,6 @@ public class TravelFragment extends Fragment {
         datePickerDialog.show();
     }
 
-
-
     private void insertIntoDatabase() {
         DBHelper dbHelper = new DBHelper(requireContext());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -166,5 +159,30 @@ public class TravelFragment extends Fragment {
 
         // Chiudi il database
         db.close();
+    }
+
+    private Set<String> readDestinationsFromFile() {
+        Set<String> destinations = new HashSet<>();
+
+        try {
+            InputStream inputStream = getResources().openRawResource(R.raw.destinations); // Assicurati che il file sia presente nella cartella "res/raw"
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                destinations.add(line.trim());
+            }
+
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return destinations;
+    }
+
+    private boolean isValidDestination(String destination) {
+        Set<String> validDestinations = readDestinationsFromFile();
+        return validDestinations.contains(destination);
     }
 }
