@@ -20,12 +20,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Definisci la tabella per i viaggi con colonne "from_location", "to_location", "destination"
+        // Definisci la tabella per i viaggi
         String createTable = "CREATE TABLE IF NOT EXISTS travels " +
                 "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "from_location TEXT, " +
                 "to_location TEXT, " +
-                "destination TEXT);";
+                "destination TEXT);";  // Modifica il nome del campo per corrispondere al tuo layout
         db.execSQL(createTable);
     }
 
