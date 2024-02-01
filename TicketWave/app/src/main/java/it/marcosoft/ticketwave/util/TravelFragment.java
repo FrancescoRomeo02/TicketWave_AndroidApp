@@ -1,25 +1,30 @@
 package it.marcosoft.ticketwave.util;
 
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import java.util.Calendar;
 
-import it.marcosoft.ticketwave.CardData;
+
 import it.marcosoft.ticketwave.R;
 
 public class TravelFragment extends Fragment {
 
     private EditText fromTravelEditText;
     private EditText toTravelEditText;
+    private EditText destinationEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +34,7 @@ public class TravelFragment extends Fragment {
         // Inizializza gli EditText
         fromTravelEditText = rootView.findViewById(R.id.fromtravel);
         toTravelEditText = rootView.findViewById(R.id.totravel);
+        destinationEditText = rootView.findViewById(R.id.destinationtravel);
 
         // Aggiungi il listener agli EditText
         fromTravelEditText.setOnClickListener(new View.OnClickListener() {
@@ -45,10 +51,35 @@ public class TravelFragment extends Fragment {
             }
         });
 
+        // Aggiungi il listener al pulsante "Add"
+        Button addButton = rootView.findViewById(R.id.addbuttontravel);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Chiamata al metodo per inserire nel database
+                insertIntoDatabase();
+            }
+        });
+
+        toTravelEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Controlla se la data "from" è stata già selezionata
+                if (fromTravelEditText.getText().toString().isEmpty()) {
+                    // La data "from" non è stata ancora selezionata, mostra un messaggio
+                    Toast.makeText(requireContext(), "Seleziona prima la data 'From'", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Se la data "from" è stata selezionata, mostra il DatePickerDialog per la data "to"
+                showDatePickerDialog(toTravelEditText);
+            }
+        });
+
+
         return rootView;
     }
 
-    // Metodo per mostrare il DatePickerDialog
     // Metodo per mostrare il DatePickerDialog
     private void showDatePickerDialog(final EditText selectedEditText) {
         // Rimuovi il focus dall'EditText per evitare che la tastiera si apra
@@ -60,16 +91,28 @@ public class TravelFragment extends Fragment {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        // Crea un DatePickerDialog
+        // Crea un DatePickerDialog con data di partenza impostata sulla data corrente
         DatePickerDialog datePickerDialog = new DatePickerDialog(requireContext(),
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         // Imposta la data selezionata nell'EditText
                         selectedEditText.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-
                     }
                 }, year, month, day);
+
+        // Se è la data "to", imposta la data di partenza sulla data "from"
+        if (selectedEditText.getId() == R.id.totravel) {
+            String fromDateText = fromTravelEditText.getText().toString();
+            if (!fromDateText.isEmpty()) {
+                // Imposta la data di partenza sulla data "from"
+                Calendar fromDate = Calendar.getInstance();
+                fromDate.set(Integer.parseInt(fromDateText.split("/")[2]),
+                        Integer.parseInt(fromDateText.split("/")[1]) - 1,
+                        Integer.parseInt(fromDateText.split("/")[0]));
+                datePickerDialog.getDatePicker().setMinDate(fromDate.getTimeInMillis());
+            }
+        }
 
         // Mostra il DatePickerDialog
         datePickerDialog.show();
@@ -77,4 +120,32 @@ public class TravelFragment extends Fragment {
 
 
 
+    private void insertIntoDatabase() {
+        DBHelper dbHelper = new DBHelper(requireContext());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Recupera i valori dai campi di input
+        String fromLocation = fromTravelEditText.getText().toString();
+        String toLocation = toTravelEditText.getText().toString();
+        String destination = destinationEditText.getText().toString();
+
+        // Inserisci i dati nel database
+        ContentValues values = new ContentValues();
+        values.put("from_location", fromLocation);
+        values.put("to_location", toLocation);
+        values.put("destination", destination);
+
+        long newRowId = db.insert("travels", null, values);
+
+        if (newRowId != -1) {
+            Log.d("Database", "Travel added to database with ID: " + newRowId);
+            Toast.makeText(requireContext(), "Travel added to database", Toast.LENGTH_SHORT).show();
+        } else {
+            Log.e("Database", "Failed to add travel to database");
+            Toast.makeText(requireContext(), "Failed to add travel to database", Toast.LENGTH_SHORT).show();
+        }
+
+        // Chiudi il database
+        db.close();
+    }
 }
