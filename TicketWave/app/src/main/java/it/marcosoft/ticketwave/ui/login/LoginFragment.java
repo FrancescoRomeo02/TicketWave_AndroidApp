@@ -15,12 +15,10 @@ import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_DATA_FILE_NAME;
 import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_SHARED_PREFERENCES_FILE_NAME;
 import static it.marcosoft.ticketwave.util.Constants.PASSWORD;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -31,8 +29,16 @@ import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
+
+
+import it.marcosoft.ticketwave.model.Result;
+import it.marcosoft.ticketwave.model.User;
+import it.marcosoft.ticketwave.util.ServiceLocator;
+import it.marcosoft.ticketwave.MainActivity;
+
 import it.marcosoft.ticketwave.MainActivity;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.data.repository.user.IUserRepository;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
 
 /**
@@ -48,6 +54,7 @@ public class LoginFragment extends Fragment {
     //serve per usare nav o intent, in base se e' u frag. o un activity
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
+    private UserViewModel userViewModel;
 
     private DataEncryptionUtil dataEncryptionUtil;
 
@@ -69,6 +76,14 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        IUserRepository userRepository = ServiceLocator.getInstance().
+                getUserRepository(requireActivity().getApplication());
+
+        userViewModel = new ViewModelProvider(
+                requireActivity(),
+                new UserViewModelFactory(userRepository)).get(UserViewModel.class);
+
     }
 
     @Override
@@ -96,10 +111,35 @@ public class LoginFragment extends Fragment {
 
             // Start login if email and password are ok
             if (isEmailOk(email) & isPasswordOk(password)) {
+                /**
+                 *
+                 */
+
+                if (!userViewModel.isAuthenticationError()) {
+                    userViewModel.getUserMutableLiveData(email, password, true).observe(
+                            getViewLifecycleOwner(), result -> {
+                                if (result.isSuccess()) {
+
+                                    User user = ((Result.UserResponseSuccess) result).getData();
+                                    userViewModel.setAuthenticationError(false);
+
+                                    startActivityBasedOnCondition(MainActivity.class,
+                                            R.id.action_loginFragment_to_mainActivity);
+                                } else {
 
 
-                startActivityBasedOnCondition(MainActivity.class,
-                        R.id.action_loginFragment_to_mainActivity);
+                                    userViewModel.setAuthenticationError(true);
+                                    Snackbar.make(requireActivity().findViewById(android.R.id.content),
+                                            "getErrorMessage(((Result.Error) result).getMessage())",
+                                            Snackbar.LENGTH_SHORT).show();
+                                }
+                            });
+                } else {
+                    userViewModel.getUser(email, password, true);
+                }
+                /**
+                 *
+                 */
             } else {
                 Snackbar.make(requireActivity().findViewById(android.R.id.content),
                         "check inserted data", Snackbar.LENGTH_SHORT).show();

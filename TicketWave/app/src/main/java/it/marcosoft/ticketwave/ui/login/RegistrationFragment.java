@@ -10,11 +10,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.MenuProvider;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,6 +35,9 @@ import java.security.GeneralSecurityException;
 
 import it.marcosoft.ticketwave.MainActivity;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.databinding.FragmentRegistrationBinding;
+import it.marcosoft.ticketwave.model.Result;
+import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
 
 /**
@@ -41,6 +50,8 @@ public class RegistrationFragment extends Fragment {
     private static final String TAG = RegistrationFragment.class.getSimpleName();
     private static final boolean USE_NAVIGATION_COMPONENT = true;
     //serve per usare nav o intent, in base se e' u frag. o un activity
+    private FragmentRegistrationBinding binding;
+    private UserViewModel userViewModel;
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
 
@@ -50,28 +61,23 @@ public class RegistrationFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistrationFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegistrationFragment newInstance(String param1, String param2) {
+
+    public static RegistrationFragment newInstance() {
         return new RegistrationFragment();
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userViewModel = new ViewModelProvider(requireActivity()).get(UserViewModel.class);
+        userViewModel.setAuthenticationError(false);
     }
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        binding= FragmentRegistrationBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
 
@@ -80,13 +86,28 @@ public class RegistrationFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+        requireActivity().addMenuProvider(new MenuProvider() {
+            @Override
+            public void onCreateMenu(@NonNull Menu menu, @NonNull MenuInflater menuInflater) {
+                menu.clear();
+            }
+
+            @Override
+            public boolean onMenuItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == android.R.id.home) {
+                    Navigation.findNavController(requireView()).navigateUp();
+                }
+                return false;
+            }
+        }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
+
         textInputLayoutEmail = view.findViewById(R.id.emailInputEditText);
         textInputLayoutPassword = view.findViewById(R.id.passwordInputEditText);
         final Button buttonRegister = view.findViewById(R.id.RegisterButton);
         final Button buttonGoogleLogin = view.findViewById(R.id.googleLoginButton);
         final Button buttonLogin = view.findViewById(R.id.toLoginButtonFrame);
 
-
+        /**
 
         buttonRegister.setOnClickListener(v -> {
 
@@ -96,7 +117,7 @@ public class RegistrationFragment extends Fragment {
             // Start login if email and password are ok
             if (isEmailOk(email) & isPasswordOk(password)) {
 
-    
+
 
                 startActivityBasedOnCondition(MainActivity.class,
                         R.id.action_registrationFragment_to_mainActivity);
@@ -105,12 +126,53 @@ public class RegistrationFragment extends Fragment {
                         "check inserted data", Snackbar.LENGTH_SHORT).show();
             }
         });
+         }
+        **/
 
-        buttonLogin.setOnClickListener(v -> {
-            Navigation.findNavController(view).navigate(R.id.action_registrationFragment_to_loginFragment);
+        binding.RegisterButton.setOnClickListener(v -> {
+            String email = binding.InputEmail.getText().toString().trim();
+            String password = binding.InputPassword.getText().toString().trim();
+
+            if (isEmailOk(email) & isPasswordOk(password)) {
+
+                if (!userViewModel.isAuthenticationError()) {
+                    userViewModel.getUserMutableLiveData(email, password, false).observe(
+                            getViewLifecycleOwner(), result -> {
+                                if (result.isSuccess()) {
+                                    User user = ((Result.UserResponseSuccess) result).getData();
+
+                                    userViewModel.setAuthenticationError(false);
+                                    Navigation.findNavController(view).navigate(
+                                            R.id.action_registrationFragment_to_mainActivity);
+                                } else {
+                                    userViewModel.setAuthenticationError(true);
+                                    Snackbar.make(requireActivity().findViewById(android.R.id.content),
+                                            "getErrorMessage(((Result.Error) result).getMessage())",
+                                            Snackbar.LENGTH_SHORT).show();
+                                }
+                            });
+                } else {
+                    userViewModel.getUser(email, password, false);
+                }
+
+            } else {
+                userViewModel.setAuthenticationError(true);
+                Snackbar.make(requireActivity().findViewById(android.R.id.content),
+                        "R.string.check_login_data_message", Snackbar.LENGTH_SHORT).show();
+            }
         });
 
+        binding.toLoginButtonFrame.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_registrationFragment_to_loginFragment);
+        });
     }
+
+
+
+
+
+
+
 
     /**
      * It starts another Activity using Intent or NavigationComponent.

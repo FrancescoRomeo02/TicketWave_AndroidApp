@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Check and create preferences file if not exists
-        SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
+       // SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
-        // Check the login status
+        //Check the login status
         if (UserAuthenticationUtil.getLoginStatus(this) || true) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
            // setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
+
+
     }
 
     private boolean loadFragment(Fragment fragment) {
