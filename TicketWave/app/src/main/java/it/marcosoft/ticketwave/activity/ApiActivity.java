@@ -1,5 +1,9 @@
 package it.marcosoft.ticketwave.activity;
 
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,13 +18,8 @@ import it.marcosoft.ticketwave.common.ApiConstants;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.util.DateUtil;
 
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class ApiActivity extends AppCompatActivity {
 
@@ -28,10 +27,13 @@ public class ApiActivity extends AppCompatActivity {
     private JsonObjectRequest request;
     private RecyclerView recyclerView;
     private CardData cardData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Retrieve CardData from the intent
         this.cardData = getIntent().getParcelableExtra("CardData");
 
+        // Call superclass method after setting CardData
         super.onCreate(savedInstanceState);
 
         // Retrieve the layout ID from the intent
@@ -40,14 +42,9 @@ public class ApiActivity extends AppCompatActivity {
         // Set the content view to the specified layout
         if (layoutId != 0) {
             setContentView(layoutId);
-            TextView eventNameTextView = findViewById(R.id.destination);
-            TextView eventDateFromTextView = findViewById(R.id.datesFrom);
-            TextView eventDateToTextView = findViewById(R.id.datesTo);
 
-            eventNameTextView.setText(cardData.getDestination());
-            eventDateFromTextView.setText("To: " + cardData.getDateFrom());
-            eventDateToTextView.setText("From: " + cardData.getDateTo());
-
+            // Populate UI elements with CardData
+            populateUI();
         }
 
         // Initialize the request queue and the RecyclerView
@@ -56,23 +53,33 @@ public class ApiActivity extends AppCompatActivity {
 
         // Call a method to handle the API call
         makeApiCall(this.cardData);
-
     }
 
+    // Populate UI elements with CardData
+    private void populateUI() {
+        TextView eventNameTextView = findViewById(R.id.destination);
+        TextView eventDateFromTextView = findViewById(R.id.datesFrom);
+        TextView eventDateToTextView = findViewById(R.id.datesTo);
 
+        eventNameTextView.setText(cardData.getDestination());
+        eventDateFromTextView.setText("To: " + cardData.getDateFrom());
+        eventDateToTextView.setText("From: " + cardData.getDateTo());
+    }
+
+    // Handle the API call
     private void makeApiCall(CardData cardData) {
         // Initialize a button for triggering the API call
         Button buttonParse = findViewById(R.id.button_parse);
 
         // Set a click listener for the button
         buttonParse.setOnClickListener(v -> {
-            // Prepare parameters for the API call startDateTime=2024-02-04T00:00:00Z&endDateTime=2024-02-10T23:59:59Z
+            // Prepare parameters for the API call
             List<String> params = new ArrayList<>();
-            params.add("city="+cardData.getDestination());
+            params.add("city=" + cardData.getDestination());
             String dateFrom = DateUtil.convertItalianToISO8601(cardData.getDateFrom());
             String dateTo = DateUtil.convertItalianToISO8601(cardData.getDateTo());
-            params.add("startDateTime="+dateFrom);
-            params.add("endDateTime="+dateTo);
+            params.add("startDateTime=" + dateFrom);
+            params.add("endDateTime=" + dateTo);
 
             // Set up the RecyclerView with a LinearLayoutManager
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -87,5 +94,4 @@ public class ApiActivity extends AppCompatActivity {
     }
 
     // Other methods if needed
-
 }

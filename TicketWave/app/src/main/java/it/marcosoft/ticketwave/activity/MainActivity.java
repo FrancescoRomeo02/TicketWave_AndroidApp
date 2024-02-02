@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Method to set up the main screen
+    // Method to set up the main screen with BottomNavigationView
     private void setupMainScreen() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
