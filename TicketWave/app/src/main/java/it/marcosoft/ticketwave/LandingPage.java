@@ -2,8 +2,8 @@ package it.marcosoft.ticketwave;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+//import androidx.recyclerview.widget.LinearLayoutManager;
+//import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,8 +16,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class LandingPage extends AppCompatActivity {
-
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +60,9 @@ public class LandingPage extends AppCompatActivity {
             // Add additional logic for the login activity if needed
         }
 
-        button=(Button)findViewById(R.id.buttonlandingpage);
+        Button button = findViewById(R.id.buttonlandingpage);
+
+        //can be replaced with lambda (?)
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

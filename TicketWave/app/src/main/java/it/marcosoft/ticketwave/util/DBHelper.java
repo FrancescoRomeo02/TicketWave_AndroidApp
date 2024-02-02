@@ -38,8 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // Implement database upgrade if necessary
         // This method is called when the version number of your database changes
     }
-
-    // Method to clear all data from the "travels" table
+// warning but when is never used this method
     public void clearDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete all rows in the "travels" table
@@ -49,7 +48,6 @@ public class DBHelper extends SQLiteOpenHelper {
         // Close the database connection
         db.close();
     }
-
     // Retrieve all travel data from the database
     public List<CardData> getAllTravelData() {
         List<CardData> cardDataList = new ArrayList<>();

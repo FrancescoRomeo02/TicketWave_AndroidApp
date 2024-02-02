@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <!-- EVENT DETAILS TITOLO -->
         <LinearLayout
@@ -27,9 +27,9 @@
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="0dp"
                 android:fontFamily="@font/sfprobold"
-                android:text="Event "
+                android:text="@string/event"
                 android:textColor="@color/black"
-                android:textSize="35dp" />
+                android:textSize="35sp" />
 
             <TextView
                 android:id="@+id/eventdetails_title2"
@@ -39,9 +39,9 @@
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="45dip"
                 android:fontFamily="@font/sfprobold"
-                android:text="Details"
-                android:textColor="@color/primary"
-                android:textSize="35dp" />
+                android:text="@string/details"
+                android:textColor="@color/backgroundDarkPrimary"
+                android:textSize="35sp" />
         </LinearLayout>
 
 
@@ -58,8 +58,6 @@
                 android:id="@+id/eventdetails_namecard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
 
                 android:layout_marginTop="120dp"
@@ -84,10 +82,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/sfprobold"
-                        android:text="Event Name"
+                        android:text="@string/event_name"
                         android:textAlignment="center"
-                        android:textColor="@color/primary"
-                        android:textSize="35dp" />
+                        android:textColor="@color/backgroundDarkPrimary"
+                        android:textSize="35sp" />
 
                     <TextView
                         android:id="@+id/eventdetails_date"
@@ -96,10 +94,10 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="30dp"
                         android:fontFamily="@font/sfprobold"
-                        android:text="from 1 Sep to 12 Sep"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="15dp"
+                        android:textSize="15sp"
                         tools:ignore="TextSizeCheck" />
 
                 </LinearLayout>
@@ -113,8 +111,6 @@
                 android:id="@+id/event_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
 
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
@@ -161,9 +157,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/sfprobold"
-                                android:text="event_name"
+                                android:text=""
                                 android:textColor="@color/black"
-                                android:textSize="22dp">
+                                android:textSize="22sp">
                         </TextView>
 
 
@@ -171,19 +167,22 @@
                             android:id="@+id/event_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="event_descriptionevent_descriptionevent_descriptionevent_descriptionevent_description"
+                            android:text=""
                             android:textAlignment="textStart"
                             android:textColor="@color/black"
-                            android:textSize="15dp"
+                            android:textSize="15sp"
                             android:layout_marginTop="5dp"
                             tools:ignore="TextSizeCheck">
                         </TextView>
 
                         <Button
-                            android:layout_width="match_parent"
+                            android:layout_width="300dp"
                             android:layout_height="wrap_content"
-                            android:text="Bottone"
-                            android:layout_marginTop="10dp">
+                            android:text="@string/go"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="15dp">
 
                         </Button>
 
