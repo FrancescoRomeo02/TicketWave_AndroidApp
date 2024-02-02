@@ -69,6 +69,7 @@ public class JsonParser {
             urlBuilder.append(queryParam).append("&");
         }
         String url = urlBuilder.append(API_KEY).toString();
+        Log.d("api", url);
 
         // Create a JsonObjectRequest for the API call
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(

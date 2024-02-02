@@ -30,19 +30,20 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //View view = layoutInflater.inflate(R.layout.event_list_items, parent, false);
-        //return new ViewHolder(view);
-        return null;
+        View view = layoutInflater.inflate(R.layout.event_list_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String title = eventList.get(position).getName();
         String location = eventList.get(position).getVenue().getName();
+        String date = eventList.get(position).getDate();
         String imgUrl = eventList.get(position).getImages().get(0).getUrlImage();
 
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
+        holder.textDate.setText(date);
         Picasso.get().load(imgUrl).into(holder.imageView);
 
     }
@@ -54,14 +55,15 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textTitle, textLocation;
+        TextView textTitle, textLocation, textDate;
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textTitle = itemView.findViewById(R.id.text_title);
-            textLocation = itemView.findViewById(R.id.text_location);
-            imageView = itemView.findViewById(R.id.img_headline);
+            textTitle = itemView.findViewById(R.id.event_name);
+            textLocation = itemView.findViewById(R.id.event_description);
+            textDate = itemView.findViewById((R.id.event_date));
+            imageView = itemView.findViewById(R.id.event_image);
         }
     }
 }

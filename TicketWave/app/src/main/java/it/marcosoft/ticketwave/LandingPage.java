@@ -6,11 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import it.marcosoft.ticketwave.ui.login.RegisterActivity;
 import it.marcosoft.ticketwave.util.*;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class LandingPage extends AppCompatActivity {
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
         // Check and create preferences file if not exists
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
-
-
         // Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this) || true) {
+        if (UserAuthenticationUtil.getLoginStatus(this) || false) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
 
@@ -32,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
             loadFragment(new DiscoverFragment());
 
             bottomNavigationView.setSelectedItemId(R.id.discover);
-
-
 
             // Set listener for BottomNavigationView item clicks
             bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -59,9 +62,18 @@ public class MainActivity extends AppCompatActivity {
             // Add additional logic for the login activity if needed
         }
 
+        button=(Button)findViewById(R.id.buttonlandingpage);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegister();
+            }
+        });
+    }
 
-
-
+    public void openRegister(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private boolean loadFragment(Fragment fragment) {
