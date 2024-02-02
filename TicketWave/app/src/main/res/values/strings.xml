@@ -13,6 +13,10 @@
     <string name="name_prompt">Name</string>
     <string name="phone_prompt">Phone Number</string>
     <string name="explore">Explore</string>
+    <string name="date">Date</string>
+    <string name="location">Location</string>
+
+
 
     <!-- Actions -->
     <string name="sign_in_action">Sign In</string>
@@ -48,11 +52,13 @@
     <string name="travels">Travels</string>
     <string name="add">Add </string>
     <string name="destination">Destination</string>
-    <string name="from">From</string>
+    <string name="from">From </string>
     <string name="new_travel">new Travel...</string>
     <string name="travel_to">Travel to...</string>
-    <string name="to">To</string>
+    <string name="to"> To </string>
     <string name="landingimage">LandingImage</string>
     <string name="event_date">event_date</string>
+    <string name="event_list_text">Events during your travel:</string>
+
 
 </resources>

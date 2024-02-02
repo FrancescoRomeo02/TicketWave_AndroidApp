@@ -8,6 +8,10 @@
     <string name="password_prompt">Password</string>
     <string name="name_prompt">Nome</string>
     <string name="phone_prompt">Numero di telefono</string>
+    <string name="date">Data</string>
+    <string name="location">Luogo</string>
+
+
 
     <!-- Azioni -->
     <string name="explore">Esplora</string>
@@ -33,5 +37,7 @@
     <string name="invalid_password_message">Password non valida</string>
     <string name="invalid_username_message">Nome utente non valido</string>
     <string name="landing_page_text">Ride the Wave of Premier Events</string>
+    <string name="event_list_text">Eventi durante il tuo viaggio:</string>
+
 
 </resources>
