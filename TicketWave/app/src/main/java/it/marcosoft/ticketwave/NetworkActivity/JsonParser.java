@@ -27,19 +27,19 @@ public class JsonParser {
     private static final String API_KEY = "apikey=KqtxCDlnofSteZ63m7gmezFR8PR34o78";
 
     // Endpoint for the API request
-    private String root;
+    private final String root;
 
     // Query parameters for the API request
-    private List<String> queryParams;
+    private final List<String> queryParams;
 
     // List to store the parsed events
-    private List<Event> eventsList;
+    private final List<Event> eventsList;
 
     // Android application context
-    private Context context;
+    private final Context context;
 
     // RecyclerView to display the parsed events
-    private RecyclerView recyclerView;
+    private final RecyclerView recyclerView;
 
     /**
      * Constructor for the JsonParser class.
@@ -72,7 +72,8 @@ public class JsonParser {
         Log.d("api", url);
 
         // Create a JsonObjectRequest for the API call
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+
+        return new JsonObjectRequest(
                 Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -109,7 +110,5 @@ public class JsonParser {
                 Log.e("JsonParser", "Volley error", error);
             }
         });
-
-        return jsonObjectRequest;
     }
 }

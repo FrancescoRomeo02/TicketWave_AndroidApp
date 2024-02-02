@@ -96,7 +96,7 @@ public class Event {
         }
     }
 
-    private Classification buildClassification(JSONObject classificationObj) throws JSONException {
+    private Classification buildClassification(JSONObject classificationObj) {
         Classification classification = new Classification();
 
         // Extract information about segments
@@ -141,7 +141,7 @@ public class Event {
         return subGenre;
     }
 
-    private Venue buildVenue(JSONObject venueObj) throws JSONException {
+    private Venue buildVenue(JSONObject venueObj) {
         Venue venue1 = new Venue();
         venue1.setName(venueObj.optString("name", null));
         venue1.setId(venueObj.optString("id", null));

@@ -18,10 +18,10 @@ import it.marcosoft.ticketwave.util.DiscoverFragment;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private CardData[] cardData;
-    private Context context;
+    private final CardData[] cardData;
+    private final Context context;
     private OnDataAddedListener onDataAddedListener;
-    private DiscoverFragment discoverFragment;
+    private final DiscoverFragment discoverFragment;
 
     public CardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
         this.cardData = cardData;
@@ -59,10 +59,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView destination;
-        TextView datesFrom;
-        TextView datesTo;
-        Button exploreButton;
+        final TextView destination;
+        final TextView datesFrom;
+        final TextView datesTo;
+        final Button exploreButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

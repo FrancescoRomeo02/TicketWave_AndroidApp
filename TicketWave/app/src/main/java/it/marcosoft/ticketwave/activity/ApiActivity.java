@@ -62,8 +62,8 @@ public class ApiActivity extends AppCompatActivity {
         TextView eventDateToTextView = findViewById(R.id.datesTo);
 
         eventNameTextView.setText(cardData.getDestination());
-        eventDateFromTextView.setText("To: " + cardData.getDateFrom());
-        eventDateToTextView.setText("From: " + cardData.getDateTo());
+        eventDateFromTextView.setText(getString(R.string.to_placeholder, cardData.getDateFrom()));
+        eventDateToTextView.setText(getString(R.string.to_placeholder,cardData.getDateTo()));
     }
 
     // Handle the API call

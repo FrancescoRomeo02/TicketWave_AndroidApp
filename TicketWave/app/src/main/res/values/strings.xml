@@ -40,19 +40,22 @@
     <string name="event_name">Event Name</string>
     <string name="details">Details</string>
     <string name="go">Go</string>
-    <string name="city_name">City Name</string>
+    <string name="city_name">City</string>
     <string name="imageoftheevent">ImageOfTheEvent</string>
     <string name="join">Join!</string>
-    <string name="parse">Parse</string>
+    <string name="parse">Show events</string>
     <string name="your">Your</string>
     <string name="travels">Travels</string>
     <string name="add">Add </string>
     <string name="destination">Destination</string>
-    <string name="from">From</string>
-    <string name="new_travel">new Travel...</string>
-    <string name="travel_to">Travel to...</string>
+    <string name="from_placeholder">From %1$s</string>
+    <string name="new_travel">new Travel…</string>
+    <string name="travel_to">Travel to…</string>
+    <string name="to_placeholder">To %1$s</string>
+    <string name="landingimage" translatable="false">LandingImage</string>
+    <string name="event_date">event\'s date</string>
+    <string name="event_location" translatable="false">location</string>
+    <string name="from">from</string>
     <string name="to">To</string>
-    <string name="landingimage">LandingImage</string>
-    <string name="event_date">event_date</string>
 
 </resources>

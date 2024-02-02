@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="40dp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/colorBackground"
         app:cardElevation="10dp"
         android:layout_margin="20dp"
         >
@@ -34,7 +34,7 @@
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/sfprobold"
                     android:text="@string/city_name"
-                    android:textColor="@color/backgroundDarkPrimary"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="35sp" />
 
                 <TextView
@@ -44,7 +44,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/sfprobold"
                     android:text=""
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimaryText"
                     android:textSize="15sp" />
 
                 <TextView
@@ -54,7 +54,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/sfprobold"
                     android:text=""
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimaryText"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -71,7 +71,7 @@
                     android:text="@string/explore"
 
                     android:layout_marginVertical="16dp"
-                    android:backgroundTint="@color/backgroundDarkPrimary"
+                    android:backgroundTint="@color/colorAccent"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     />

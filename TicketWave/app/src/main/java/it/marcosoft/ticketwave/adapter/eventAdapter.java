@@ -37,14 +37,14 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         String title = eventList.get(position).getName();
         String location = eventList.get(position).getVenue().getName();
         String date = eventList.get(position).getDate();
+        String description = eventList.get(position).getClassifications().toString();
         String imgUrl = eventList.get(position).getImages().get(0).getUrlImage();
-        //description? serve eventDescription.setSelected(true); per la visualizzazione scorrevole della description
-        //String description = eventList.get(position).getVenue().
+
 
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
         holder.textDate.setText(date);
-        //holder.textDescription.setText(description);
+        holder.textDescription.setText(description);
         Picasso.get().load(imgUrl).into(holder.imageView);
 
     }
@@ -56,16 +56,19 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textTitle, textLocation, textDate, textDescription;
-        ImageView imageView;
+        final TextView textTitle;
+        final TextView textLocation;
+        final TextView textDate;
+        final TextView textDescription;
+        final ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textTitle = itemView.findViewById(R.id.event_name);
-            textLocation = itemView.findViewById(R.id.event_description);
+            textLocation = itemView.findViewById(R.id.event_location);
             textDate = itemView.findViewById((R.id.event_date));
             imageView = itemView.findViewById(R.id.event_image);
-            //textDescription = itemView.findViewById(R.id.event_description);
+            textDescription = itemView.findViewById(R.id.event_description);
         }
     }
 }

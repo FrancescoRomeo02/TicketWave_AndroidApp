@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/registerbackground"
+    android:background="@drawable/background"
     >
 
 
@@ -29,7 +29,7 @@
                 android:layout_marginEnd="0dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/event"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="30sp" />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_marginEnd="45dip"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/details"
-                android:textColor="@color/backgroundDarkPrimary"
+                android:textColor="@color/colorPrimary"
                 android:textSize="30sp" />
 
         </LinearLayout>
@@ -75,7 +75,7 @@
             android:focusable="true"
             android:hapticFeedbackEnabled="true"
             android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/colorBackground"
             app:cardCornerRadius="40dp"
             style="?attr/materialCardViewFilledStyle">
 
@@ -92,7 +92,7 @@
                         android:fontFamily="@font/sfprobold"
                         android:text="@string/event_name"
                         android:textAlignment="center"
-                        android:textColor="@color/backgroundDarkPrimary"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="35sp" />
 
                     <TextView
@@ -104,7 +104,7 @@
                         android:fontFamily="@font/sfprobold"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimaryText"
                         android:textSize="15sp" />
             </LinearLayout>
 
@@ -126,7 +126,7 @@
             android:focusable="true"
             android:hapticFeedbackEnabled="true"
             android:visibility="visible"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/colorBackground"
             app:cardCornerRadius="40dp"
             style="?attr/materialCardViewFilledStyle">
 
@@ -153,7 +153,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/sfprobold"
                     android:text=""
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimaryText"
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@id/eventimage"
                     app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +166,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/sfprobold"
                     android:text=""
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimaryText"
                     android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@id/typeofevent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
                     android:text="@string/join"
-                    android:backgroundTint="@color/backgroundDarkPrimary"
+                    android:backgroundTint="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintTop_toBottomOf="@id/eventdescription"
