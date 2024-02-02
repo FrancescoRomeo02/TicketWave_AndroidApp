@@ -11,7 +11,7 @@ android:background="@drawable/registerbackground">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="20dp" >
         <LinearLayout
             android:layout_width="fill_parent"
@@ -28,9 +28,9 @@ android:background="@drawable/registerbackground">
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="0dp"
                 android:fontFamily="@font/sfprobold"
-                android:text="Event "
+                android:text="@string/event"
                 android:textColor="@color/black"
-                android:textSize="35dp" />
+                android:textSize="35sp" />
 
             <TextView
                 android:id="@+id/searchevents_title2"
@@ -40,9 +40,9 @@ android:background="@drawable/registerbackground">
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="45dip"
                 android:fontFamily="@font/sfprobold"
-                android:text="Details"
-                android:textColor="@color/primary"
-                android:textSize="35dp" />
+                android:text="@string/details"
+                android:textColor="@color/backgroundDarkPrimary"
+                android:textSize="35sp" />
         </LinearLayout>
 
 
@@ -55,8 +55,6 @@ android:background="@drawable/registerbackground">
                 android:id="@+id/event_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginStart="20dp"
 
                 android:layout_marginTop="120dp"
@@ -78,21 +76,14 @@ android:background="@drawable/registerbackground">
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
                         <TextView
                             android:id="@+id/destination"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="City Name"
-                            android:textColor="@color/primary"
+                            android:text="@string/city_name"
+                            android:textColor="@color/backgroundDarkPrimary"
                             android:textSize="35sp" />
 
                         <TextView
@@ -101,7 +92,7 @@ android:background="@drawable/registerbackground">
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="from ZZth Xember"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -111,15 +102,10 @@ android:background="@drawable/registerbackground">
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="to ZZth Yember"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -131,10 +117,7 @@ android:background="@drawable/registerbackground">
                 android:layout_marginStart="150dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="150dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
                 android:checkable="false"
-                android:clickable="true"
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
@@ -144,12 +127,14 @@ android:background="@drawable/registerbackground">
 
                 <Button
                     android:id="@+id/button_parse"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:text="parse"
-                    android:background="@color/primary" />
+                    android:text="@string/parse"
+                    android:background="@color/backgroundDarkPrimary" />
             </com.google.android.material.card.MaterialCardView>
 
 
@@ -161,7 +146,6 @@ android:background="@drawable/registerbackground">
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_below="@id/search_bar_event"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:strokeColor="@android:color/transparent">
 

@@ -38,7 +38,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // Implement database upgrade if necessary
         // This method is called when the version number of your database changes
     }
-
+// warning but when is never used this method
     public void clearDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete all rows in the "travels" table

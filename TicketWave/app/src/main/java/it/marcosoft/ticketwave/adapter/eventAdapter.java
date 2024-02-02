@@ -14,12 +14,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.EventModel.Event;
+import it.marcosoft.ticketwave.R;
 
 public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> {
-    private LayoutInflater layoutInflater;
-    private List<Event> eventList;
+    private final LayoutInflater layoutInflater;
+    private final List<Event> eventList;
 
     public eventAdapter(Context context, List<Event> eventList){
         this.layoutInflater = LayoutInflater.from(context);
@@ -53,7 +53,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         return eventList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView textTitle, textLocation, textDate;
         ImageView imageView;
