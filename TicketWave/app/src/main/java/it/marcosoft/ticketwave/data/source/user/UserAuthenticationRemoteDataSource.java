@@ -56,14 +56,16 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
     }
 
     @Override
-    public void signUp(String email, String password) {
+    public void signUp(String email, String password, String name) {
+
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
+
                     userResponseCallback.onSuccessFromAuthentication(
-                            new User(firebaseUser.getDisplayName(), email, firebaseUser.getUid())
-                    );
+                            new User(name, email, firebaseUser.getUid())
+                );
                 } else {
                     userResponseCallback.onFailureFromAuthentication(getErrorMessage(task.getException()));
                 }

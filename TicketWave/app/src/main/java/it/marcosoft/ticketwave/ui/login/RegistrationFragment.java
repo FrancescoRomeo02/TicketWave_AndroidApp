@@ -54,6 +54,7 @@ public class RegistrationFragment extends Fragment {
     private UserViewModel userViewModel;
     private TextInputLayout textInputLayoutEmail;
     private TextInputLayout textInputLayoutPassword;
+    private TextInputLayout textInputLayoutName;
 
     private DataEncryptionUtil dataEncryptionUtil;
 
@@ -101,22 +102,21 @@ public class RegistrationFragment extends Fragment {
             }
         }, getViewLifecycleOwner(), Lifecycle.State.RESUMED);
 
-        textInputLayoutEmail = view.findViewById(R.id.emailInputEditText);
-        textInputLayoutPassword = view.findViewById(R.id.passwordInputEditText);
-        final Button buttonRegister = view.findViewById(R.id.RegisterButton);
-        final Button buttonGoogleLogin = view.findViewById(R.id.googleLoginButton);
-        final Button buttonLogin = view.findViewById(R.id.toLoginButtonFrame);
+
 
 
         binding.RegisterButton.setOnClickListener(v -> {
+
             String email = binding.InputEmail.getText().toString().trim();
             String password = binding.InputPassword.getText().toString().trim();
+            String name = binding.InputName.getText().toString().trim();
 
             if (isEmailOk(email) & isPasswordOk(password)) {
 
                 if (!userViewModel.isAuthenticationError()) {
-                    userViewModel.getUserMutableLiveData(email, password, false).observe(
+                    userViewModel.getUserMutableLiveData(email, password, name, false).observe(
                             getViewLifecycleOwner(), result -> {
+
                                 if (result.isSuccess()) {
                                     User user = ((Result.UserResponseSuccess) result).getData();
 
@@ -129,6 +129,7 @@ public class RegistrationFragment extends Fragment {
                                             "getErrorMessage(((Result.Error) result).getMessage())",
                                             Snackbar.LENGTH_SHORT).show();
                                 }
+
                             });
                 } else {
                     userViewModel.getUser(email, password, false);
@@ -176,11 +177,14 @@ public class RegistrationFragment extends Fragment {
     private boolean isEmailOk(String email) {
         // Check if the email is valid through the use of this library:
         // https://commons.apache.org/proper/commons-validator/
+
+        //qua fa crashare?
         if (!EmailValidator.getInstance().isValid((email))) {
-            textInputLayoutEmail.setError(getString(R.string.error_email));
+
+            binding.emailInputEditText.setError(getString(R.string.error_email));
             return false;
         } else {
-            textInputLayoutEmail.setError(null);
+            binding.emailInputEditText.setError(null);
             return true;
         }
     }
@@ -192,11 +196,11 @@ public class RegistrationFragment extends Fragment {
      */
     private boolean isPasswordOk(String password) {
         // Check if the password length is correct
-        if (password.isEmpty()) {
-            textInputLayoutPassword.setError(getString(R.string.error_password));
+        if (password.isEmpty() || password.length()<8) {
+            binding.passwordInputEditText.setError(getString(R.string.error_password));
             return false;
         } else {
-            textInputLayoutPassword.setError(null);
+            binding.passwordInputEditText.setError(null);
             return true;
         }
     }

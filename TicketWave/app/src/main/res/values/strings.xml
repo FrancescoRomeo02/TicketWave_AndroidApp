@@ -35,7 +35,7 @@
 
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="error_email" translatable="false">Insert a valid email address</string>
-    <string name="error_password" translatable="false">Password cannot be empty</string>
+    <string name="error_password" translatable="false">Password cannot be empty or less than 8 characters</string>
 
     <string name="google_login" translatable="false">Login with Google</string>
     <string name="new_account" translatable="false">New to TicketWave?</string>

@@ -1,5 +1,7 @@
 package it.marcosoft.ticketwave.ui.login;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -30,9 +32,20 @@ public class UserViewModel extends ViewModel {
         userMutableLiveData = userRepository.getUser(email, password, isUserRegistered);
     }
 
+    private void getUserData(String email, String password, String name, boolean isUserRegistered) {
+        userMutableLiveData = userRepository.getUser(email, password, name, isUserRegistered);
+    }
+
     public MutableLiveData<Result> getUserMutableLiveData(String email, String password, boolean isUserRegistered) {
         if (userMutableLiveData == null) {
             getUserData(email, password, isUserRegistered);
+        }
+        return userMutableLiveData;
+    }
+
+    public MutableLiveData<Result> getUserMutableLiveData(String email, String password, String name, boolean isUserRegistered) {
+        if (userMutableLiveData == null) {
+            getUserData(email, password, name, isUserRegistered);
         }
         return userMutableLiveData;
     }
