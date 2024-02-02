@@ -24,7 +24,10 @@ public class CalendarPage extends AppCompatActivity {
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> Toast.makeText(CalendarPage.this, dayOfMonth +"/" + month + 1 + "/" + "" + year, Toast.LENGTH_SHORT).show());
 
     }
+
+    //warning but this never used
     public void getDate(){
+        //warning but this never used
         long date = calendarView.getDate();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy", Locale.getDefault());
         String selected_date = simpleDateFormat.format(calendar.getTime());

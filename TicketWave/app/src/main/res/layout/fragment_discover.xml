@@ -23,14 +23,12 @@
                 android:id="@+id/titolo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dip"
-                android:layout_marginTop="45dip"
-                android:layout_marginEnd="0dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="45dp"
                 android:fontFamily="@font/sfprobold"
-                android:text="Your "
+                android:text="@string/your"
                 android:textColor="@color/black"
-                android:textSize="30dp"
-                android:layout_alignParentTop="true" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/titolo2"
@@ -40,19 +38,16 @@
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="45dip"
                 android:fontFamily="@font/sfprobold"
-                android:text="Travels"
-                android:textColor="@color/primary"
-                android:textSize="30dp"
-                android:layout_toEndOf="@id/titolo"
-                android:layout_alignParentTop="true" />
+                android:text="@string/travels"
+                android:textColor="@color/backgroundDarkPrimary"
+                android:textSize="30sp" />
 
             <Button
                 android:id="@+id/useraccountbutton"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginLeft="60dp"
-                android:layout_weight="0"
+                android:layout_marginStart="60dp"
                 android:background="@drawable/useraccount"
                 android:drawableTint="@color/primary" />
 

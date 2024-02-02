@@ -14,36 +14,37 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.EventModel.Event;
+import it.marcosoft.ticketwave.R;
 
 public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> {
-    private LayoutInflater layoutInflater;
-    private List<Event> eventList;
+    private final LayoutInflater layoutInflater;
+    private final List<Event> eventList;
 
     public eventAdapter(Context context, List<Event> eventList){
         this.layoutInflater = LayoutInflater.from(context);
         this.eventList = eventList;
 
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = layoutInflater.inflate(R.layout.event_list_item, parent, false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String title = eventList.get(position).getName();
         String location = eventList.get(position).getVenue().getName();
         String date = eventList.get(position).getDate();
         String imgUrl = eventList.get(position).getImages().get(0).getUrlImage();
+        //description? serve eventDescription.setSelected(true); per la visualizzazione scorrevole della description
+        //String description = eventList.get(position).getVenue().
 
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
         holder.textDate.setText(date);
+        //holder.textDescription.setText(description);
         Picasso.get().load(imgUrl).into(holder.imageView);
 
     }
@@ -53,9 +54,9 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         return eventList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textTitle, textLocation, textDate;
+        TextView textTitle, textLocation, textDate, textDescription;
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +65,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
             textLocation = itemView.findViewById(R.id.event_description);
             textDate = itemView.findViewById((R.id.event_date));
             imageView = itemView.findViewById(R.id.event_image);
+            //textDescription = itemView.findViewById(R.id.event_description);
         }
     }
 }
