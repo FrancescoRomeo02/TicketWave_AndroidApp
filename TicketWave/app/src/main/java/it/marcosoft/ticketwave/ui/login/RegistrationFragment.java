@@ -107,27 +107,6 @@ public class RegistrationFragment extends Fragment {
         final Button buttonGoogleLogin = view.findViewById(R.id.googleLoginButton);
         final Button buttonLogin = view.findViewById(R.id.toLoginButtonFrame);
 
-        /**
-
-        buttonRegister.setOnClickListener(v -> {
-
-            String email = textInputLayoutEmail.getEditText().getText().toString();
-            String password = textInputLayoutPassword.getEditText().getText().toString();
-
-            // Start login if email and password are ok
-            if (isEmailOk(email) & isPasswordOk(password)) {
-
-
-
-                startActivityBasedOnCondition(MainActivity.class,
-                        R.id.action_registrationFragment_to_mainActivity);
-            } else {
-                Snackbar.make(requireActivity().findViewById(android.R.id.content),
-                        "check inserted data", Snackbar.LENGTH_SHORT).show();
-            }
-        });
-         }
-        **/
 
         binding.RegisterButton.setOnClickListener(v -> {
             String email = binding.InputEmail.getText().toString().trim();

@@ -40,11 +40,11 @@ public class ServiceLocator {
 
         BaseUserAuthenticationRemoteDataSource userRemoteAuthenticationDataSource =
                 new UserAuthenticationRemoteDataSource();
-        /*
+
         BaseUserDataRemoteDataSource userDataRemoteDataSource =
                 new UserDataRemoteDataSource(sharedPreferencesUtil);
-        */
 
-        return new UserRepository(userRemoteAuthenticationDataSource);
+
+        return new UserRepository(userRemoteAuthenticationDataSource, userDataRemoteDataSource);
     }
 }

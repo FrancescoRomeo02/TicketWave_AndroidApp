@@ -1,5 +1,7 @@
 package it.marcosoft.ticketwave.data.repository.user;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
@@ -21,22 +23,22 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
     private static final String TAG = UserRepository.class.getSimpleName();
 
     private final BaseUserAuthenticationRemoteDataSource userRemoteDataSource;
-    /*private final BaseUserDataRemoteDataSource userDataRemoteDataSource;*/
+    private final BaseUserDataRemoteDataSource userDataRemoteDataSource;
 
     private final MutableLiveData<Result> userMutableLiveData;
-    public UserRepository(BaseUserAuthenticationRemoteDataSource userRemoteDataSource/*,
-                          BaseUserDataRemoteDataSource userDataRemoteDataSource*/) {
+    public UserRepository(BaseUserAuthenticationRemoteDataSource userRemoteDataSource,
+                          BaseUserDataRemoteDataSource userDataRemoteDataSource) {
 
 
         this.userRemoteDataSource = userRemoteDataSource;
         this.userMutableLiveData = new MutableLiveData<>();
         this.userRemoteDataSource.setUserResponseCallback(this);
 
-        /*
+
         this.userDataRemoteDataSource = userDataRemoteDataSource;
         this.userDataRemoteDataSource.setUserResponseCallback(this);
 
-         */
+
 
     }
 
@@ -74,8 +76,16 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
 
     @Override
     public void onSuccessFromAuthentication(User user) {
+
+        if (user != null) {
+            Log.d(TAG, "OnSuccessIsSuccess");
+            userDataRemoteDataSource.saveUserData(user);
+        }
+
+        /*
         Result.UserResponseSuccess result = new Result.UserResponseSuccess(user);
         userMutableLiveData.postValue(result);
+         */
     }
 
     @Override

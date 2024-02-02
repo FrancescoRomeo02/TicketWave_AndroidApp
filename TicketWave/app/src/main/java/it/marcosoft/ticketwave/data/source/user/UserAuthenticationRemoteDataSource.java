@@ -83,10 +83,7 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
 
                     userResponseCallback.onSuccessFromAuthentication(
                             new User(firebaseUser.getDisplayName(), email, firebaseUser.getUid())
-
-
                     );
-
 
                 } else {
                     userResponseCallback.onFailureFromAuthentication(getErrorMessage(task.getException()));
