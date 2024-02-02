@@ -53,5 +53,6 @@
     <string name="travel_to">Travel to...</string>
     <string name="to">To</string>
     <string name="landingimage">LandingImage</string>
+    <string name="event_date">event_date</string>
 
 </resources>

@@ -52,12 +52,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:fontFamily="@font/sfprobold"
-                        android:text="event_name"
+                        android:text="@string/event_name"
                         android:textColor="@color/black"
-                        android:textSize="17dp"
-                        android:layout_marginRight="5dp">
-                    </TextView>
+                        android:textSize="17sp"
+                        tools:ignore="TextSizeCheck"></TextView>
 
                 </LinearLayout>
 
@@ -66,22 +66,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sfprobold"
-                    android:text="event_date"
+                    android:text="@string/event_date"
                     android:textColor="@color/black"
-                    android:textSize="15dp"
-                    android:layout_marginRight="5dp">
+                    android:textSize="15sp"
+                    android:layout_marginEnd="5dp">
                 </TextView>
                 <TextView
                     android:id="@+id/event_description"
-                    android:layout_width="220dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="event_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_description"
                     android:textAlignment="textStart"
                     android:textColor="@color/black"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
+                    android:text="event_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_descriptionevent_description"
                     tools:ignore="TextSizeCheck"
-                    android:layout_marginRight="5dp">
+                    android:layout_marginRight="5dp"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true">
                 </TextView>
             </LinearLayout>
 
