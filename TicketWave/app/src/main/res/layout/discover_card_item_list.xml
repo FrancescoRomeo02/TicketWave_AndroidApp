@@ -16,18 +16,19 @@
         app:cardElevation="10dp"
         android:layout_margin="20dp"
         >
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="317dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/destination"
@@ -39,6 +40,7 @@
                     android:text="@string/city_name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="35sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -52,6 +54,7 @@
                         android:text="@string/from"
                         android:textColor="@color/colorPrimaryText"
                         android:textSize="15sp" />
+
                     <TextView
                         android:id="@+id/datesTo"
                         android:layout_width="wrap_content"
@@ -67,20 +70,18 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/explore_button"
-                    android:tag="To define"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/explore"
-
                     android:layout_marginVertical="16dp"
                     android:backgroundTint="@color/colorAccent"
+                    android:tag="To define"
+                    android:text="@string/explore"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
