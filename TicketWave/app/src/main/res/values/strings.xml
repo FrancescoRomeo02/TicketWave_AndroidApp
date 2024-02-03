@@ -55,7 +55,12 @@
     <string name="landingimage" translatable="false">LandingImage</string>
     <string name="event_date">event\'s date</string>
     <string name="event_location" translatable="false">location</string>
-    <string name="from">from</string>
-    <string name="to">To</string>
+    <string name="from">From&#160;</string>
+    <string name="to">&#160;To&#160;</string>
+    <string name="date">Date:&#160;</string>
+    <string name="location">Location:&#160;</string>
+    <string name="description">Description:&#160;</string>
+
+
 
 </resources>

@@ -2,6 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -11,11 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp" >
+
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="51dp"
+            android:background="@drawable/back_button"
+            android:clickable="true"
+            android:drawableTint="@color/colorPrimary"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
             android:weightSum="1"
+            android:gravity="center_horizontal"
             android:layout_marginBottom="30dip">
 
             <TextView
@@ -24,6 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dip"
                 android:layout_marginTop="45dip"
+                android:layout_marginBottom="5dp"
+
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/event"
@@ -37,6 +53,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="45dip"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/details"
                 android:textColor="@color/colorPrimary"
@@ -81,47 +98,60 @@
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/sfprobold"
                         android:text="@string/city_name"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorAccentDark"
                         android:textSize="35sp" />
 
-                    <TextView
-                        android:id="@+id/datesFrom"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="15sp" />
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/datesTo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/sfprobold"
-                        android:text=""
-                        android:textColor="@color/colorSecondaryText"
-                        android:textSize="15sp" />
+                        <TextView
+                            android:id="@+id/from"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text="@string/from"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:id="@+id/datesFrom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text=""
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:id="@+id/to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text="@string/to"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:id="@+id/datesTo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/sfprobold"
+                            android:text=""
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/search_bar_event"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="150dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="150dp"
-                android:checkable="false"
-                android:focusable="true"
-                android:hapticFeedbackEnabled="true"
-                android:visibility="visible"
-                app:cardCornerRadius="10dp"
-                style="?attr/materialCardViewFilledStyle"
-                app:cardBackgroundColor="@android:color/transparent">
+
 
                 <Button
                     android:id="@+id/button_parse"
@@ -131,10 +161,12 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"
-                    android:background="@color/colorAccent"
+                    android:background="@drawable/button_shape"
                     android:text="@string/parse"
-                    android:textColor="@color/colorTextLight" />
-            </com.google.android.material.card.MaterialCardView>
+                    android:textColor="@color/colorTextLight"
+                    tools:ignore="TextContrastCheck"
+                    />
+
 
 
 
@@ -142,9 +174,9 @@
                 android:id="@+id/dynamic_card_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="15dp"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:strokeColor="@android:color/transparent">
 
