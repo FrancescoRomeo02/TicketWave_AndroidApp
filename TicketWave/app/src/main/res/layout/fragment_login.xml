@@ -36,6 +36,22 @@
                 android:contentDescription="@string/logo_description" />
 
 
+
+            <!-- Email Text Label -->
+            <TextView
+                android:id="@+id/emailTextLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="168dp"
+                android:text="@string/email_prompt"
+                android:textColor="@color/primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <!-- Email Input Field -->
 
             <com.google.android.material.textfield.TextInputLayout
@@ -71,21 +87,6 @@
 
 
 
-
-
-            <!-- Password Text Label -->
-            <TextView
-                android:id="@+id/emailTextLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="168dp"
-                android:text="@string/email_prompt"
-                android:textColor="@color/primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- Password Text Label -->
             <TextView
@@ -203,17 +204,16 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/googleLoginButton"
+                android:id="@+id/forgotPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="24dp"
-                android:text="@string/google_login"
+                android:text="@string/forgotPassword"
                 android:textSize="14sp"
                 android:textColor="@color/google_login_text"
                 app:backgroundTint="@color/google_login_button"
-                app:icon="@drawable/googleg_standard_color_18"
                 app:iconGravity="textStart"
                 app:iconTint="@null"
                 style="@style/Widget.Material3.Button.ElevatedButton"
@@ -231,7 +231,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/toRegisterButtonFrame"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/googleLoginButton"
+                app:layout_constraintTop_toBottomOf="@+id/forgotPassword"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button

@@ -13,6 +13,8 @@ public interface IUserRepository {
     MutableLiveData<Result> logout();
     User getLoggedUser();
 
+    void resetPsw(String email);
+
     void signUp(String email, String password, String name, String surname, int age);
     void signIn(String email, String password);
 

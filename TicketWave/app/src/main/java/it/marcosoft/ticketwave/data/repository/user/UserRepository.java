@@ -54,6 +54,8 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
         return userMutableLiveData;
     }
 
+
+
     public MutableLiveData<Result> getUser(String email, String password, String name, String surname, int age, boolean isUserRegistered) {
         if (isUserRegistered) {
             signIn(email, password);
@@ -119,6 +121,8 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
         userMutableLiveData.postValue(result);
     }
 
-
-
+    @Override
+    public void resetPsw(String email) {
+        userRemoteDataSource.ResetPassword(email);
+    }
 }

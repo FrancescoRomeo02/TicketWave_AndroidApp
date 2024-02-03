@@ -4,6 +4,7 @@ package it.marcosoft.ticketwave.data.source.user;
 import android.util.Log;
 
 
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
@@ -93,6 +94,27 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
                 userResponseCallback.onFailureFromAuthentication(getErrorMessage(task.getException()));
             }
         });
+    }
+
+    @Override
+    public void ResetPassword(String email) {
+        firebaseAuth.sendPasswordResetEmail(email)
+
+                /*
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+
+
+                })
+                */
+
+                /*
+                .addOnFailureListener(new OnFailureListener() {
+
+                })
+                */;
+
+
+
     }
 
 

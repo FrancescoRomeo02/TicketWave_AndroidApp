@@ -101,7 +101,7 @@ public class LoginFragment extends Fragment {
         textInputLayoutEmail = view.findViewById(R.id.emailInputEditText);
         textInputLayoutPassword = view.findViewById(R.id.passwordInputEditText);
         final Button buttonLogin = view.findViewById(R.id.signInButton);
-        final Button buttonGoogleLogin = view.findViewById(R.id.googleLoginButton);
+        final Button buttonForgot = view.findViewById(R.id.forgotPassword);
         final Button buttonRegistration = view.findViewById(R.id.toRegisterButtonFrame);
 
         buttonLogin.setOnClickListener(v -> {
@@ -130,7 +130,7 @@ public class LoginFragment extends Fragment {
 
                                     userViewModel.setAuthenticationError(true);
                                     Snackbar.make(requireActivity().findViewById(android.R.id.content),
-                                            "getErrorMessage(((Result.Error) result).getMessage())",
+                                            getErrorMessage(((Result.Error) result).getMessage()),
                                             Snackbar.LENGTH_SHORT).show();
                                 }
                             });
@@ -150,6 +150,9 @@ public class LoginFragment extends Fragment {
             Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment);
         });
 
+        buttonForgot.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_forgotPasswordFragment);
+        });
 
 
 
@@ -210,6 +213,20 @@ public class LoginFragment extends Fragment {
             return true;
         }
     }
+
+    private String getErrorMessage(String errorType) {
+        switch (errorType) {
+            case "INVALID_CREDENTIALS_ERROR":
+                return requireActivity().getString(R.string.error_login_password_message);
+            case "INVALID_USER_ERROR":
+                return requireActivity().getString(R.string.error_login_user_message);
+            default:
+                return requireActivity().getString(R.string.unexpected_error);
+        }
+    }
+
+
+
 
     /**
      * Encrypts login data using DataEncryptionUtil class.
