@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardCornerRadius="40dp"
+        app:cardCornerRadius="60dp"
         app:cardBackgroundColor="@color/colorBackground"
         app:cardElevation="10dp"
         android:layout_margin="20dp"
@@ -30,7 +30,6 @@
                     android:id="@+id/destination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/sfprobold"
                     android:text="@string/city_name"
