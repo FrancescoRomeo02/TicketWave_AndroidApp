@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/registerbackground">
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -18,11 +19,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="45dip"
             android:layout_marginTop="45dip"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="5dp"
             android:fontFamily="@font/sfprobold"
-            android:text="Your "
-            android:textColor="@color/black"
-            android:textSize="30dp" />
+            android:text="@string/your"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/titolo2travell"
@@ -32,19 +33,18 @@
             android:layout_marginTop="45dip"
             android:layout_marginEnd="45dip"
             android:fontFamily="@font/sfprobold"
-            android:text="Travel to..."
-            android:textColor="@color/primary"
-            android:textSize="30dp" />
+            android:text="@string/travel_to"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/useraccountbuttontravel"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="0"
+            android:layout_marginStart="20dp"
             android:background="@drawable/useraccount"
-            android:drawableTint="@color/primary"
+            android:drawableTint="@color/colorPrimary"
             />
 
     </LinearLayout>
@@ -65,7 +65,7 @@
         android:focusable="true"
         android:hapticFeedbackEnabled="true"
         android:visibility="visible"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/colorBackground"
         app:cardCornerRadius="40dp"
         style="?attr/materialCardViewFilledStyle">
 
@@ -85,11 +85,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dip"
                     android:layout_marginTop="20dip"
-                    android:layout_marginEnd="0dp"
+                    android:layout_marginEnd="5dp"
                     android:fontFamily="@font/sfprobold"
-                    android:text="Add "
-                    android:textColor="@color/black"
-                    android:textSize="30dp" />
+                    android:text="@string/add"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/titolo2travel"
@@ -99,9 +99,9 @@
                     android:layout_marginTop="20dip"
                     android:layout_marginEnd="20dip"
                     android:fontFamily="@font/sfprobold"
-                    android:text="new Travel..."
-                    android:textColor="@color/primary"
-                    android:textSize="30dp" />
+                    android:text="@string/new_travel"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp" />
 
             </LinearLayout>
 
@@ -118,13 +118,13 @@
                 android:layout_marginTop="16dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/sfprobold"
-                android:hint="Destination"
+                android:hint="@string/destination"
                 android:background="@drawable/editexttravelbackground"
                 android:drawableStart="@drawable/destination"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
                 android:textColorHint="#331974"
-                />
+                android:autofillHints="" />
             <EditText
                 android:id="@+id/fromtravel"
                 android:layout_width="match_parent"
@@ -137,13 +137,13 @@
                 android:textStyle="bold"
                 android:background="@drawable/editexttravelbackground"
                 android:fontFamily="@font/sfprobold"
-                android:hint="From"
+                android:hint="@string/from"
                 android:drawableStart="@drawable/arrowup"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
                 android:textColorHint="#331974"
                 android:focusableInTouchMode="false"
-                />
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/totravel"
@@ -156,30 +156,32 @@
                 android:layout_marginBottom="16dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/sfprobold"
-                android:hint="To"
+                android:hint="@string/to"
                 android:background="@drawable/editexttravelbackground"
                 android:drawableStart="@drawable/arrowdown"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
                 android:textColorHint="#331974"
                 android:focusableInTouchMode="false"
-                />
+                android:autofillHints="" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
+
                 <Button
                     android:id="@+id/addbuttontravel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Add"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="16dp"                     android:backgroundTint="@color/primary"
-                    android:textSize="22dp"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:text="@string/add"
+                    android:textSize="22sp"
                     android:textStyle="bold"
-                    />
+                    tools:ignore="TextSizeCheck" />
 
             </LinearLayout>
         </LinearLayout>

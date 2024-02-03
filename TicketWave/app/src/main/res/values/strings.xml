@@ -12,11 +12,12 @@
     <string name="password_prompt">Password</string>
     <string name="name_prompt">Name</string>
     <string name="phone_prompt">Phone Number</string>
+    <string name="explore">Explore</string>
 
     <!-- Actions -->
     <string name="sign_in_action">Sign In</string>
     <string name="create_account_action">Create One</string>
-    <string name="register_action">Create User</string>
+    <string name="register_action">Register Now</string>
 
     <!-- Questions -->
     <string name="no_account_question">Don\'t have an Account?</string>
@@ -26,33 +27,35 @@
     <string name="liked_label">Liked</string>
     <string name="discover_label">Discover</string>
     <string name="travel_label">Travels</string>
+    <string name="ticketwave_text">Ticketwave</string>
+    <string name="getstarted_label">Get Started!</string>
 
     <!-- Messages -->
     <string name="welcome_message">Hi,</string>
     <string name="login_failed_message">Login Failed</string>
     <string name="invalid_password_message">Invalid Password</string>
     <string name="invalid_username_message">Invalid Username</string>
-
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="error_email" translatable="false">Insert a valid email address</string>
-    <string name="error_password" translatable="false">Password cannot be empty or less than 8 characters</string>
-
-    <string name="google_login" translatable="false">Login with Google</string>
-    <string name="new_account" translatable="false">New to TicketWave?</string>
-    <string name="register" translatable="false">Register</string>
-    <string name="login" translatable="false">Log in</string>
-    <string name="surname_prompt" translatable="false">Surname</string>
-    <string name="age_prompt" translatable="false">Age</string>
-    <string name="error_name" translatable="false">Name can\'t be empty</string>
-    <string name="error_surname" translatable="false">Surname can\'t be empty</string>
-    <string name="error_age" translatable="false">Age can\'t be empty or more than 140 or equal to 0</string>
-    <string name="check_login_data_message" translatable="false">The data inserted isn\'t allowed</string>
-    <string name="error_user_collision_message">Email adress already in use</string>
-    <string name="unexpected_error">Unexpected error</string>
-    <string name="sendEmailReset">Send password reset</string>
-    <string name="returnToLogin">Return to Login Page</string>
-    <string name="error_login_password_message">invalid credentials</string>
-    <string name="error_login_user_message">login users doesn\'t exist</string>
-    <string name="forgotPassword">Forgot your password?</string>
+    <string name="landing_page_text">Ride the Wave of Premier Events</string>
+    <string name="event">Event</string>
+    <string name="event_name">Event Name</string>
+    <string name="details">Details</string>
+    <string name="go">Go</string>
+    <string name="city_name">City</string>
+    <string name="imageoftheevent">ImageOfTheEvent</string>
+    <string name="join">Join!</string>
+    <string name="parse">Show events</string>
+    <string name="your">Your</string>
+    <string name="travels">Travels</string>
+    <string name="add">Add </string>
+    <string name="destination">Destination</string>
+    <string name="from_placeholder">From %1$s</string>
+    <string name="new_travel">new Travel…</string>
+    <string name="travel_to">Travel to…</string>
+    <string name="to_placeholder">To %1$s</string>
+    <string name="landingimage" translatable="false">LandingImage</string>
+    <string name="event_date">event\'s date</string>
+    <string name="event_location" translatable="false">location</string>
+    <string name="from">from</string>
+    <string name="to">To</string>
 
 </resources>

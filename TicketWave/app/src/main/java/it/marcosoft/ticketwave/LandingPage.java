@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Check and create preferences file if not exists
-       // SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
+        SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
-        //Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this) || true) {
+        // Check the login status
+        if (UserAuthenticationUtil.getLoginStatus(this) || false) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
 
@@ -48,11 +48,24 @@ public class MainActivity extends AppCompatActivity {
             });
         } else {
             // User is not logged in, launch the login activity
-           // setContentView(R.layout.activity_register);
+            setContentView(R.layout.activity_register);
             // Add additional logic for the login activity if needed
         }
 
+        Button button = findViewById(R.id.buttonlandingpage);
 
+        //can be replaced with lambda (?)
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegister();
+            }
+        });
+    }
+
+    public void openRegister(){
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private boolean loadFragment(Fragment fragment) {
