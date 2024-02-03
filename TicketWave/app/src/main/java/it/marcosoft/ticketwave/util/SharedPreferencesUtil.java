@@ -34,6 +34,18 @@ public class SharedPreferencesUtil {
         }
     }
 
+    /**
+     * Gets the login status from the preferences file.
+     *
+     * @param context The application context.
+     * @return The login status.
+     */
+
+    public static boolean getLoginStatus(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return preferences.getBoolean(KEY_LOGIN_STATUS, false);
+    }
+
 
     /**
      * Sets the login status to true after the user logs in.

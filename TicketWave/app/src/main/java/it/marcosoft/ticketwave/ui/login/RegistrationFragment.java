@@ -6,6 +6,7 @@ import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_SHARED_PREFERENCE
 import static it.marcosoft.ticketwave.util.Constants.PASSWORD;
 import static it.marcosoft.ticketwave.util.SharedPreferencesUtil.setLoginStatus;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -40,6 +41,7 @@ import it.marcosoft.ticketwave.databinding.FragmentRegistrationBinding;
 import it.marcosoft.ticketwave.model.Result;
 import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
+import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -135,6 +137,9 @@ public class RegistrationFragment extends Fragment {
 
                                     userViewModel.setAuthenticationError(false);
                                     //setLoginStatus(this, true);
+                                    Log.d("S","login HELP fino a qua");
+                                    Context context = getContext();
+                                    SharedPreferencesUtil.setLoginStatus(context,true);
                                     Navigation.findNavController(view).navigate(
                                             R.id.action_registrationFragment_to_mainActivity);
                                 } else {

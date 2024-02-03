@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
 
 /**
  * Activity to allow user to login.
@@ -22,4 +23,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
     }
+
+
 }

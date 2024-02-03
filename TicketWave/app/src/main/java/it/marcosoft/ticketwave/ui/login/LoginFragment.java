@@ -1,5 +1,6 @@
 package it.marcosoft.ticketwave.ui.login;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.repository.user.IUserRepository;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
+import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -122,7 +124,8 @@ public class LoginFragment extends Fragment {
 
                                     User user = ((Result.UserResponseSuccess) result).getData();
                                     userViewModel.setAuthenticationError(false);
-
+                                    Context context = getContext();
+                                    SharedPreferencesUtil.setLoginStatus(context,true);
                                     startActivityBasedOnCondition(MainActivity.class,
                                             R.id.action_loginFragment_to_mainActivity);
                                 } else {
