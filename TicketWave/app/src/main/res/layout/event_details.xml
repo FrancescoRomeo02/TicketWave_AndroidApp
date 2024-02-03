@@ -67,7 +67,7 @@
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/colorBackground"
+                app:cardBackgroundColor="@color/colorTextLight"
                 app:cardCornerRadius="40dp"
                 style="?attr/materialCardViewFilledStyle">
 

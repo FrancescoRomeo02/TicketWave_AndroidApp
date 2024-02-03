@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import it.marcosoft.ticketwave.adapter.CardAdapter;
+import it.marcosoft.ticketwave.adapter.cardAdapter;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.activity.ApiActivity;
 import it.marcosoft.ticketwave.activity.MainActivity;
@@ -29,7 +29,7 @@ public class DiscoverFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_discover, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_travels, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -39,7 +39,7 @@ public class DiscoverFragment extends Fragment {
         List<CardData> cardDataList = getTravelsDataFromDatabase();
 
         // Creare l'adapter e popolare l'RecyclerView
-        CardAdapter cardAdapter = new CardAdapter(cardDataList.toArray(new CardData[0]), (MainActivity) getActivity(), this);
+        cardAdapter cardAdapter = new cardAdapter(cardDataList.toArray(new CardData[0]), (MainActivity) getActivity(), this);
         recyclerView.setAdapter(cardAdapter);
 
 
@@ -69,7 +69,7 @@ public class DiscoverFragment extends Fragment {
         Intent intent = new Intent(getActivity(), ApiActivity.class);
 
         // Pass the layout ID of events_list_main.xml as extra data
-        intent.putExtra("layout_id", R.layout.events_list_main);
+        intent.putExtra("layout_id", R.layout.fragment_events_list);
         intent.putExtra("CardData", cardData);
         // Start the ApiActivity with the specified intent
         startActivity(intent);

@@ -16,14 +16,14 @@ import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
+public class cardAdapter extends RecyclerView.Adapter<cardAdapter.ViewHolder> {
 
     private final CardData[] cardData;
     private final Context context;
     private OnDataAddedListener onDataAddedListener;
     private final DiscoverFragment discoverFragment;
 
-    public CardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
+    public cardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
         this.cardData = cardData;
         this.context = activity;
         this.discoverFragment = discoverFragment;
@@ -41,8 +41,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final CardData currentCardData = cardData[position];
         holder.destination.setText(currentCardData.getDestination());
-        holder.datesFrom.setText(currentCardData.getDateFrom());
-        holder.datesTo.setText(currentCardData.getDateTo());
+        holder.datesFrom.append(currentCardData.getDateFrom());
+        holder.datesTo.append(currentCardData.getDateTo());
         holder.exploreButton.setTag(currentCardData.getId());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,10 @@
 package it.marcosoft.ticketwave.EventModel;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import it.marcosoft.ticketwave.EventModel.ClassificationModel.*;
 
 /**
@@ -77,4 +82,31 @@ public class Classification {
                 ", subGenre=" + subGenre +
                 '}';
     }
+
+    /**
+     * Returns a prettier string representation of the Classification object.
+     *
+     * @return A string representation of the Classification object.
+     */
+    public String toStringPretty() {
+        Set<String> uniqueValues = new HashSet<>();
+        List<String> values = new ArrayList<>();
+
+        if (!"Other".equals(segment.getName()) && uniqueValues.add(segment.getName())) {
+            values.add(segment.getName());
+        }
+
+        if (!"Other".equals(genre.getName()) && uniqueValues.add(genre.getName())) {
+            values.add(genre.getName());
+        }
+
+        if (!"Other".equals(subGenre.getName()) && uniqueValues.add(subGenre.getName())) {
+            values.add(subGenre.getName());
+        }
+
+        return String.join(", ", values) + ".";
+    }
+
+
+
 }

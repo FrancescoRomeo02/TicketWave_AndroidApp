@@ -1,6 +1,7 @@
 package it.marcosoft.ticketwave.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> 
         String title = eventList.get(position).getName();
         String location = eventList.get(position).getVenue().getName();
         String date = eventList.get(position).getDate();
-        String description = eventList.get(position).getClassifications().toString();
+        String description = eventList.get(position).getClassifications().get(0).toStringPretty();
         String imgUrl = eventList.get(position).getImages().get(0).getUrlImage();
 
 

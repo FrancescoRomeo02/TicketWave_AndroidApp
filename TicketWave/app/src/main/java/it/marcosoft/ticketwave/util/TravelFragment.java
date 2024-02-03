@@ -34,7 +34,7 @@ public class TravelFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_travel, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_add_travel, container, false);
 
         // Inizializza gli EditText
         fromTravelEditText = rootView.findViewById(R.id.fromtravel);

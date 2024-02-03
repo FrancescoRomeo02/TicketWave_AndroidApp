@@ -74,13 +74,13 @@
 
                 android:layout_marginTop="120dp"
                 android:layout_marginEnd="20dp"
-                android:background="#3F51B5"
+                android:layout_marginBottom="25dp"
                 android:checkable="false"
-                android:clickable="true"
-                android:focusable="true"
+                android:clickable="false"
+                android:focusable="false"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/colorBackground"
+                app:cardBackgroundColor="@color/colorTextLight"
                 app:cardCornerRadius="40dp"
                 style="?attr/materialCardViewFilledStyle">
 
@@ -111,8 +111,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="@string/from"
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="15sp" />
                         <TextView
@@ -120,8 +120,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text=""
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="15sp" />
                         <TextView
@@ -129,8 +130,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/sfprobold"
-                            android:text="@string/to"
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="15sp" />
                         <TextView
@@ -138,6 +140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
                             android:fontFamily="@font/sfprobold"
                             android:text=""
                             android:textColor="@color/colorPrimaryText"

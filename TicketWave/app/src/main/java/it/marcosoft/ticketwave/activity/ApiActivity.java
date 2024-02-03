@@ -45,6 +45,11 @@ public class ApiActivity extends AppCompatActivity {
 
             // Populate UI elements with CardData
             populateUI();
+
+            // Set the back button
+            Button backButton = findViewById(R.id.backbutton);
+            backButton.setOnClickListener(v -> onBackPressed());
+
         }
 
         // Initialize the request queue and the RecyclerView
@@ -62,7 +67,7 @@ public class ApiActivity extends AppCompatActivity {
         TextView eventDateToTextView = findViewById(R.id.datesTo);
 
         eventNameTextView.setText(cardData.getDestination());
-        eventDateFromTextView.setText(getString(R.string.to_placeholder, cardData.getDateFrom()));
+        eventDateFromTextView.setText(getString(R.string.from_placeholder, cardData.getDateFrom()));
         eventDateToTextView.setText(getString(R.string.to_placeholder,cardData.getDateTo()));
     }
 
@@ -70,7 +75,6 @@ public class ApiActivity extends AppCompatActivity {
     private void makeApiCall(CardData cardData) {
         // Initialize a button for triggering the API call
         Button buttonParse = findViewById(R.id.button_parse);
-
         // Set a click listener for the button
         buttonParse.setOnClickListener(v -> {
             // Prepare parameters for the API call
@@ -93,5 +97,15 @@ public class ApiActivity extends AppCompatActivity {
         });
     }
 
-    // Other methods if needed
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish(); // Finish the current activity (ApiActivity) to return to the previous fragment
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed(); // Handle Up button (Back button) by calling onBackPressed()
+        return true;
+    }
 }
