@@ -8,10 +8,6 @@
     <string name="password_prompt">Password</string>
     <string name="name_prompt">Nome</string>
     <string name="phone_prompt">Numero di telefono</string>
-    <string name="date">Data</string>
-    <string name="location">Luogo</string>
-
-
 
     <!-- Azioni -->
     <string name="explore">Esplora</string>
@@ -37,7 +33,24 @@
     <string name="invalid_password_message">Password non valida</string>
     <string name="invalid_username_message">Nome utente non valido</string>
     <string name="landing_page_text">Ride the Wave of Premier Events</string>
-    <string name="event_list_text">Eventi durante il tuo viaggio:</string>
-
+    <string name="event">Evento</string>
+    <string name="event_name">Nome dell\'evento</string>
+    <string name="details">Dettagli</string>
+    <string name="go">Vai</string>
+    <string name="city_name">Città</string>
+    <string name="imageoftheevent">Immagine</string>
+    <string name="join">Partecipa!</string>
+    <string name="parse">Mostrami gli eventi</string>
+    <string name="your">I tuoi</string>
+    <string name="travels">Viaggi</string>
+    <string name="add">Aggiungi</string>
+    <string name="destination">Destinazione</string>
+    <string name="from_placeholder">Dal %1$s</string>
+    <string name="new_travel">Nuovo viaggio…</string>
+    <string name="travel_to">Viaggia verso…</string>
+    <string name="to_placeholder">Al %1$s</string>
+    <string name="event_date">Data dell\'evento</string>
+    <string name="from">Dal</string>
+    <string name="to">Al</string>
 
 </resources>

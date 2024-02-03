@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/registerbackground">
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,10 +25,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dip"
                 android:layout_marginTop="45dip"
-                android:layout_marginEnd="0dp"
+                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/event"
-                android:textColor="@color/black"
+                android:textColor="@color/colorPrimaryText"
                 android:textSize="35sp" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_marginEnd="45dip"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/details"
-                android:textColor="@color/backgroundDarkPrimary"
+                android:textColor="@color/colorPrimary"
                 android:textSize="35sp" />
         </LinearLayout>
 
@@ -67,7 +67,7 @@
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/colorBackground"
                 app:cardCornerRadius="40dp"
                 style="?attr/materialCardViewFilledStyle">
 
@@ -84,7 +84,7 @@
                         android:fontFamily="@font/sfprobold"
                         android:text="@string/event_name"
                         android:textAlignment="center"
-                        android:textColor="@color/backgroundDarkPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="35sp" />
 
                     <TextView
@@ -96,7 +96,7 @@
                         android:fontFamily="@font/sfprobold"
                         android:text=""
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimaryText"
                         android:textSize="15sp"
                         tools:ignore="TextSizeCheck" />
 
@@ -120,7 +120,7 @@
                 android:focusable="true"
                 android:hapticFeedbackEnabled="true"
                 android:visibility="visible"
-                app:cardBackgroundColor="@color/white"
+                app:cardBackgroundColor="@color/colorBackground"
                 app:cardCornerRadius="40dp"
                 style="?attr/materialCardViewFilledStyle">
 
@@ -158,7 +158,7 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/sfprobold"
                                 android:text=""
-                                android:textColor="@color/black"
+                                android:textColor="@color/colorPrimaryDark"
                                 android:textSize="22sp">
                         </TextView>
 
@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:text=""
                             android:textAlignment="textStart"
-                            android:textColor="@color/black"
+                            android:textColor="@color/colorPrimaryText"
                             android:textSize="15sp"
                             android:layout_marginTop="5dp"
                             tools:ignore="TextSizeCheck">
@@ -182,7 +182,9 @@
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
-                            android:layout_marginStart="15dp">
+                            android:layout_marginStart="15dp"
+                            android:background="@color/colorAccent"
+                            android:textColor="@color/colorTextLight">
 
                         </Button>
 

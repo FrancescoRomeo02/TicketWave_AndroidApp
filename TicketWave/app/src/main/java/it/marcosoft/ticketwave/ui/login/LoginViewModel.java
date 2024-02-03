@@ -49,7 +49,7 @@ public class LoginViewModel extends ViewModel {
         } else if (!isPasswordValid(password)) {
             loginFormState.setValue(new LoginFormState(null, R.string.invalid_password_message));
         } else {
-            loginFormState.setValue(new LoginFormState(true));
+            loginFormState.setValue(new LoginFormState());
         }
     }
 

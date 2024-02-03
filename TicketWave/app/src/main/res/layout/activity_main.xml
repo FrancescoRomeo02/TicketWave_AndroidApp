@@ -19,7 +19,6 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bottom_background"
@@ -28,7 +27,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
-        app:itemTextColor="@color/black"
+        app:itemTextColor="@color/colorPrimaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
