@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="40dp"
-        app:cardBackgroundColor="@color/colorBackground"
+        app:cardBackgroundColor="@color/colorTextLight"
         app:cardElevation="10dp"
         android:layout_margin="20dp"
         >
@@ -36,26 +36,48 @@
                     android:text="@string/city_name"
                     android:textColor="@color/colorPrimary"
                     android:textSize="35sp" />
-
-                <TextView
-                    android:id="@+id/datesFrom"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sfprobold"
-                    android:text=""
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="15sp" />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text="@string/from"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/datesFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text=""
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text="@string/to"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/datesTo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/sfprobold"
+                        android:text=""
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/datesTo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/sfprobold"
-                    android:text=""
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="15sp" />
 
             </LinearLayout>
 

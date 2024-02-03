@@ -50,7 +50,10 @@
     <string name="travel_to">Viaggia verso…</string>
     <string name="to_placeholder">Al %1$s</string>
     <string name="event_date">Data dell\'evento</string>
-    <string name="from">Dal</string>
-    <string name="to">Al</string>
+    <string name="from">Dal&#160;</string>
+    <string name="to">&#160;Al&#160;</string>
+    <string name="date">Data:&#160;</string>
+    <string name="location">Luogo:&#160;</string>
+    <string name="description">Descrizione:&#160;</string>
 
 </resources>
