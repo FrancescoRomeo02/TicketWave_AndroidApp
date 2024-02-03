@@ -46,17 +46,19 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
         if (isUserRegistered) {
             signIn(email, password);
         } else {
-            String name=email;
-            signUp(email, password, name);
+            String name="unknown";
+            String surname="unknown";
+            int age=0;
+            signUp(email, password, name, surname, age);
         }
         return userMutableLiveData;
     }
 
-    public MutableLiveData<Result> getUser(String email, String password, String name, boolean isUserRegistered) {
+    public MutableLiveData<Result> getUser(String email, String password, String name, String surname, int age, boolean isUserRegistered) {
         if (isUserRegistered) {
             signIn(email, password);
         } else {
-            signUp(email, password, name);
+            signUp(email, password, name, surname, age);
         }
         return userMutableLiveData;
     }
@@ -74,8 +76,8 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
 
 
     @Override
-    public void signUp(String email, String password, String name) {
-        userRemoteDataSource.signUp(email, password, name);
+    public void signUp(String email, String password, String name, String surname, int age) {
+        userRemoteDataSource.signUp(email, password, name, surname, age);
     }
 
     @Override

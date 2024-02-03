@@ -56,7 +56,7 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
     }
 
     @Override
-    public void signUp(String email, String password, String name) {
+    public void signUp(String email, String password, String name, String surname, int age) {
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
@@ -64,7 +64,7 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
                 if (firebaseUser != null) {
 
                     userResponseCallback.onSuccessFromAuthentication(
-                            new User(name, email, firebaseUser.getUid())
+                            new User(name, email, surname, age, firebaseUser.getUid())
                 );
                 } else {
                     userResponseCallback.onFailureFromAuthentication(getErrorMessage(task.getException()));
@@ -81,7 +81,6 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null) {
-                    Log.d("LOGIN HAPPENED", "This is a debug message");
 
                     userResponseCallback.onSuccessFromAuthentication(
                             new User(firebaseUser.getDisplayName(), email, firebaseUser.getUid())

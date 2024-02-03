@@ -41,5 +41,13 @@
     <string name="new_account" translatable="false">New to TicketWave?</string>
     <string name="register" translatable="false">Register</string>
     <string name="login" translatable="false">Log in</string>
+    <string name="surname_prompt" translatable="false">Surname</string>
+    <string name="age_prompt" translatable="false">Age</string>
+    <string name="error_name" translatable="false">Name can\'t be empty</string>
+    <string name="error_surname" translatable="false">Surname can\'t be empty</string>
+    <string name="error_age" translatable="false">Age can\'t be empty or more than 140 or equal to 0</string>
+    <string name="check_login_data_message" translatable="false">The data inserted isn\'t allowed</string>
+    <string name="error_user_collision_message">Email adress already in use</string>
+    <string name="unexpected_error">Unexpected error</string>
 
 </resources>

@@ -110,11 +110,23 @@ public class RegistrationFragment extends Fragment {
             String email = binding.InputEmail.getText().toString().trim();
             String password = binding.InputPassword.getText().toString().trim();
             String name = binding.InputName.getText().toString().trim();
+            String surname = binding.InputSurname.getText().toString().trim();
+            String ageText = binding.InputAge.getText().toString();
+            int age=0;
+            if (isAgeNotEmpty(ageText)){
+                age = Integer.parseInt(ageText);
+            }
+            else{
+                userViewModel.setAuthenticationError(true);
+                Snackbar.make(requireActivity().findViewById(android.R.id.content),
+                        R.string.check_login_data_message, Snackbar.LENGTH_SHORT).show();
+            }
 
-            if (isEmailOk(email) & isPasswordOk(password)) {
+
+            if (isEmailOk(email) & isPasswordOk(password) & isNameOk(name) & isSurnameOk(surname) & isAgeOk(age) ) {
 
                 if (!userViewModel.isAuthenticationError()) {
-                    userViewModel.getUserMutableLiveData(email, password, name, false).observe(
+                    userViewModel.getUserMutableLiveData(email, password, name, surname, age, false).observe(
                             getViewLifecycleOwner(), result -> {
 
                                 if (result.isSuccess()) {
@@ -126,7 +138,7 @@ public class RegistrationFragment extends Fragment {
                                 } else {
                                     userViewModel.setAuthenticationError(true);
                                     Snackbar.make(requireActivity().findViewById(android.R.id.content),
-                                            "getErrorMessage(((Result.Error) result).getMessage())",
+                                            getErrorMessage(((Result.Error) result).getMessage()),
                                             Snackbar.LENGTH_SHORT).show();
                                 }
 
@@ -138,7 +150,7 @@ public class RegistrationFragment extends Fragment {
             } else {
                 userViewModel.setAuthenticationError(true);
                 Snackbar.make(requireActivity().findViewById(android.R.id.content),
-                        "R.string.check_login_data_message", Snackbar.LENGTH_SHORT).show();
+                        R.string.check_login_data_message, Snackbar.LENGTH_SHORT).show();
             }
         });
 
@@ -190,7 +202,7 @@ public class RegistrationFragment extends Fragment {
     }
 
     /**
-     * Checks if the password is not empty.
+     * Checks if the password is not empty and long enough.
      * @param password The password to be checked
      * @return True if the password is not empty, false otherwise
      */
@@ -205,24 +217,82 @@ public class RegistrationFragment extends Fragment {
         }
     }
 
-    /**
-     * Encrypts login data using DataEncryptionUtil class.
-     * @param email The email address to be encrypted and saved
-     * @param password The password to be encrypted and saved
-     */
-    private void saveLoginData(String email, String password) {
-        try {
-            dataEncryptionUtil.writeSecretDataWithEncryptedSharedPreferences(
-                    ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, EMAIL_ADDRESS, email);
-            dataEncryptionUtil.writeSecretDataWithEncryptedSharedPreferences(
-                    ENCRYPTED_SHARED_PREFERENCES_FILE_NAME, PASSWORD, password);
 
-            dataEncryptionUtil.writeSecreteDataOnFile(ENCRYPTED_DATA_FILE_NAME,
-                    email.concat(":").concat(password));
-        } catch (GeneralSecurityException | IOException e) {
-            e.printStackTrace();
+    /**
+     * Checks if the name is not empty.
+     * @param name to be checked
+     * @return True if the name is not empty, false otherwise
+     */
+    private boolean isNameOk(String name) {
+        // Check if the password length is correct
+        if (name.isEmpty()) {
+            binding.nameInputEditText.setError(getString(R.string.error_name));
+            return false;
+        } else {
+            binding.nameInputEditText.setError(null);
+            return true;
         }
     }
+
+    /**
+     * Checks if the surname is not empty.
+     * @param surname to be checked
+     * @return True if the surname is not empty, false otherwise
+     */
+    private boolean isSurnameOk(String surname) {
+        // Check if the password length is correct
+        if (surname.isEmpty()) {
+            binding.surnameInputEditText.setError(getString(R.string.error_surname));
+            return false;
+        } else {
+            binding.surnameInputEditText.setError(null);
+            return true;
+        }
+    }
+
+    /**
+     * Checks if the age is reasonable.
+     * @param age to be checked
+     * @return True if the age is less than 140 or equal to 0, false otherwise
+     */
+    private boolean isAgeOk(int age) {
+        // Check if the password length is correct
+        if (age > 140 || age == 0) {
+            binding.ageInputEditText.setError(getString(R.string.error_age));
+            return false;
+        } else {
+            binding.ageInputEditText.setError(null);
+            return true;
+        }
+
+    }
+
+    /**
+     * Checks if the age is reasonable.
+     * @param AgeText to be checked
+     * @return True if the AgeText is not empty, false otherwise
+     */
+    private boolean isAgeNotEmpty(String AgeText) {
+        // Check if the password length is correct
+        if (AgeText.isEmpty()) {
+            return false;
+        } else {
+            binding.ageInputEditText.setError(null);
+            return true;
+        }
+    }
+
+    private String getErrorMessage(String message) {
+        switch(message) {
+            case "WEAK_PASSWORD_ERROR":
+                return requireActivity().getString(R.string.error_password);
+            case "USER_COLLISION_ERROR":
+                return requireActivity().getString(R.string.error_user_collision_message);
+            default:
+                return requireActivity().getString(R.string.unexpected_error);
+        }
+    }
+
 
 }
 
