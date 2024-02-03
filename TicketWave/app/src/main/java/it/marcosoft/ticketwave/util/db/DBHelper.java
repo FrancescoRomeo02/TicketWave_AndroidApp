@@ -1,4 +1,4 @@
-package it.marcosoft.ticketwave.util;
+package it.marcosoft.ticketwave.util.db;
 
 import android.content.Context;
 import android.database.Cursor;

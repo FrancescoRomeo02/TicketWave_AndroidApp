@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.util.db.DBHelper;
 
 public class TravelFragment extends Fragment {
 

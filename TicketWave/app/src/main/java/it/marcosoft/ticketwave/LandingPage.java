@@ -9,6 +9,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import it.marcosoft.ticketwave.ui.login.RegisterActivity;
 import it.marcosoft.ticketwave.util.*;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
+import it.marcosoft.ticketwave.util.auth.UserAuthenticationUtil;
 
 import android.content.Intent;
 import android.os.Bundle;

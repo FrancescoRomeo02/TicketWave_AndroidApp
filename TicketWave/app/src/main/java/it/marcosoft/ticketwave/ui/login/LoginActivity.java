@@ -18,7 +18,7 @@ import java.util.Objects;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.databinding.ActivityLoginBinding;
-import it.marcosoft.ticketwave.util.UserAuthenticationUtil;
+import it.marcosoft.ticketwave.util.auth.UserAuthenticationUtil;
 
 public class LoginActivity extends AppCompatActivity {
 

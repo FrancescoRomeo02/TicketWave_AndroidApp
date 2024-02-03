@@ -16,7 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.marcosoft.ticketwave.adapter.eventAdapter;
+import it.marcosoft.ticketwave.adapter.EventAdapter;
 import it.marcosoft.ticketwave.EventModel.Event;
 
 /**
@@ -101,7 +101,7 @@ public class JsonParser {
                 }
 
                 // Update the RecyclerView with the parsed events
-                recyclerView.setAdapter(new eventAdapter(context, eventsList));
+                recyclerView.setAdapter(new EventAdapter(context, eventsList));
             }
         }, new Response.ErrorListener() {
             @Override

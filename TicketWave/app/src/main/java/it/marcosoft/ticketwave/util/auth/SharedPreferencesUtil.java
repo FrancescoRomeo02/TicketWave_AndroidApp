@@ -1,4 +1,4 @@
-package it.marcosoft.ticketwave.util;
+package it.marcosoft.ticketwave.util.auth;
 // PreferencesUtil.java
 
 import android.content.Context;

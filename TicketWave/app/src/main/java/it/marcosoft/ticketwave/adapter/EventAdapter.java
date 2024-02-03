@@ -1,7 +1,6 @@
 package it.marcosoft.ticketwave.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +17,11 @@ import java.util.List;
 import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.R;
 
-public class eventAdapter extends RecyclerView.Adapter<eventAdapter.ViewHolder> {
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
     private final LayoutInflater layoutInflater;
     private final List<Event> eventList;
 
-    public eventAdapter(Context context, List<Event> eventList){
+    public EventAdapter(Context context, List<Event> eventList){
         this.layoutInflater = LayoutInflater.from(context);
         this.eventList = eventList;
 

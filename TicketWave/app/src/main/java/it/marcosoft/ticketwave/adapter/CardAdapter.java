@@ -16,14 +16,14 @@ import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
 
-public class cardAdapter extends RecyclerView.Adapter<cardAdapter.ViewHolder> {
+public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     private final CardData[] cardData;
     private final Context context;
     private OnDataAddedListener onDataAddedListener;
     private final DiscoverFragment discoverFragment;
 
-    public cardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
+    public CardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
         this.cardData = cardData;
         this.context = activity;
         this.discoverFragment = discoverFragment;

@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import it.marcosoft.ticketwave.adapter.cardAdapter;
+import it.marcosoft.ticketwave.adapter.CardAdapter;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.activity.ApiActivity;
 import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.util.db.DBHelper;
 
 public class DiscoverFragment extends Fragment {
 
@@ -39,8 +40,8 @@ public class DiscoverFragment extends Fragment {
         List<CardData> cardDataList = getTravelsDataFromDatabase();
 
         // Creare l'adapter e popolare l'RecyclerView
-        cardAdapter cardAdapter = new cardAdapter(cardDataList.toArray(new CardData[0]), (MainActivity) getActivity(), this);
-        recyclerView.setAdapter(cardAdapter);
+        CardAdapter cardAdapterRecyclerView = new CardAdapter(cardDataList.toArray(new CardData[0]), (MainActivity) getActivity(), this);
+        recyclerView.setAdapter(cardAdapterRecyclerView);
 
 
         // Return the inflated view for the fragment
