@@ -34,9 +34,9 @@ import java.security.GeneralSecurityException;
 import it.marcosoft.ticketwave.model.Result;
 import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.util.ServiceLocator;
-import it.marcosoft.ticketwave.MainActivity;
 
-import it.marcosoft.ticketwave.MainActivity;
+
+import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.repository.user.IUserRepository;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;

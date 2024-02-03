@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
         // Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this) || true) {
+        if (UserAuthenticationUtil.getLoginStatus(this)) {
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
             setupMainScreen();
         } else {
             // User is not logged in, launch the login activity
-            setContentView(R.layout.activity_register);
+            setContentView(R.layout.activity_welcome);
             // Add additional logic for the login activity if needed
         }
     }

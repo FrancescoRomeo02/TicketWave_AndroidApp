@@ -33,7 +33,7 @@ import org.apache.commons.validator.routines.EmailValidator;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-import it.marcosoft.ticketwave.MainActivity;
+import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.databinding.FragmentRegistrationBinding;
 import it.marcosoft.ticketwave.model.Result;
