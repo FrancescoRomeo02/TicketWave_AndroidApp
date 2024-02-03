@@ -4,6 +4,7 @@ import static it.marcosoft.ticketwave.util.Constants.EMAIL_ADDRESS;
 import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_DATA_FILE_NAME;
 import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_SHARED_PREFERENCES_FILE_NAME;
 import static it.marcosoft.ticketwave.util.Constants.PASSWORD;
+import static it.marcosoft.ticketwave.util.SharedPreferencesUtil.setLoginStatus;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -133,6 +134,7 @@ public class RegistrationFragment extends Fragment {
                                     User user = ((Result.UserResponseSuccess) result).getData();
 
                                     userViewModel.setAuthenticationError(false);
+                                    //setLoginStatus(this, true);
                                     Navigation.findNavController(view).navigate(
                                             R.id.action_registrationFragment_to_mainActivity);
                                 } else {

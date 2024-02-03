@@ -13,17 +13,7 @@
         android:theme="@style/Theme.TicketWave"
         tools:targetApi="31">
 
-        <!-- RegisterActivity -->
-        <activity
-            android:name=".ui.login.RegisterActivity"
-            android:exported="false"
-            android:label="@string/register_activity_title" />
 
-        <!-- LoginActivity -->
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/login_activity_title" />
 
         <!-- LandingPage
         <activity android:name=".LandingPage"></activity>

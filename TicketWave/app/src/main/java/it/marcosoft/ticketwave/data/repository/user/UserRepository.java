@@ -122,6 +122,16 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
     }
 
     @Override
+    public void onSuccessFromPswChange(String message) {
+        
+    }
+
+    @Override
+    public void onFailureFromPswChange(String message) {
+
+    }
+
+    @Override
     public void resetPsw(String email) {
         userRemoteDataSource.ResetPassword(email);
     }

@@ -10,4 +10,7 @@ public interface UserResponseCallback {
     void onSuccessFromRemoteDatabase(User user);
     void onFailureFromRemoteDatabase(String message);
 
+    void onSuccessFromPswChange(String message);
+    void onFailureFromPswChange(String message);
+
 }

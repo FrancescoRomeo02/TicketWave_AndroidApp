@@ -8,6 +8,7 @@ import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.*;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,10 +21,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Check the login status
         if (UserAuthenticationUtil.getLoginStatus(this)) {
+            Log.d("S","login HELP");
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
             setupMainScreen();
         } else {
+            Log.d("S","login HELP else");
             // User is not logged in, launch the login activity
             setContentView(R.layout.activity_welcome);
             // Add additional logic for the login activity if needed
