@@ -18,7 +18,7 @@ import java.util.List;
 import it.marcosoft.ticketwave.adapter.CardAdapter;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.ui.main.ApiActivity;
-
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.db.DBHelper;
 import it.marcosoft.ticketwave.viewmodel.CardViewModel;
@@ -26,7 +26,6 @@ import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 public class DiscoverFragment extends Fragment {
 
     private CardViewModel cardViewModel;
-    private CardAdapter cardAdapterRecyclerView;
 
     public DiscoverFragment() {
         // Required empty public constructor
@@ -36,7 +35,6 @@ public class DiscoverFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
-        cardAdapterRecyclerView = new CardAdapter(getContext(), this, cardViewModel);
     }
 
     @Override
@@ -47,14 +45,14 @@ public class DiscoverFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(cardAdapterRecyclerView);
 
         // Observe changes in the ViewModel's data
         cardViewModel.getCardData().observe(getViewLifecycleOwner(), new Observer<CardData[]>() {
             @Override
             public void onChanged(CardData[] cardData) {
                 // Update the RecyclerView adapter with new data
-                cardAdapterRecyclerView.setCardData(cardData);
+                CardAdapter cardAdapterRecyclerView = new CardAdapter(getContext(), DiscoverFragment.this, cardViewModel);
+                recyclerView.setAdapter(cardAdapterRecyclerView);
             }
         });
 
@@ -88,4 +86,3 @@ public class DiscoverFragment extends Fragment {
         startActivity(intent);
     }
 }
-
