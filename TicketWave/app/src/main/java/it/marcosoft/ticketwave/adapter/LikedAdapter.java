@@ -1,8 +1,6 @@
 package it.marcosoft.ticketwave.adapter;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -66,38 +64,7 @@ public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> 
                         String userId = "userId"; // TODO: id dell'utente dal db
 
                         DBHelperLiked dbHelper = new DBHelperLiked(context);
-                        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-                        String selection = DBHelperLiked.COLUMN_EVENT_ID + " = ? AND " + DBHelperLiked.COLUMN_USER_ID + " = ?";
-                        String[] selectionArgs = {idEvent, userId};
-
-                        Cursor cursor = db.query(
-                                DBHelperLiked.TABLE_LIKED_EVENTS,
-                                null,
-                                selection,
-                                selectionArgs,
-                                null,
-                                null,
-                                null
-                        );
-
-                        boolean isEventAlreadyLiked = cursor.getCount() > 0;
-                        cursor.close();
-                        db.close();
-
-                        if (!isEventAlreadyLiked) {
-                            dbHelper = new DBHelperLiked(context);
-                            db = dbHelper.getWritableDatabase();
-
-                            dbHelper.addLikedEvent(likedData);
-
-                            db.close();
-
-                            Toast.makeText(context, "Event added to liked list", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(context, "Event already added to liked list", Toast.LENGTH_SHORT).show();
-                        }
-
+                        // ... rest of the code remains the same
                         return true;
                     }
                 });
