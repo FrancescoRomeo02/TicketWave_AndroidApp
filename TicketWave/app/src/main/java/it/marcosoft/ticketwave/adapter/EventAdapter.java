@@ -1,7 +1,8 @@
 package it.marcosoft.ticketwave.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -24,7 +25,8 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.R;
-import it.marcosoft.ticketwave.viewmodel.EventViewModel;
+import it.marcosoft.ticketwave.data.LikedData;
+import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
     private final LayoutInflater layoutInflater;
@@ -73,17 +75,64 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
-                        // Handle double tap
-                        // TODO: mettere l'evento nel database e fare in modod che si possa recuperare nella sezione LIKED
-                        // TODO: mettere un qualche tipo di animazione sul doppio like e far capire all'utente che può fare questa cosa con un messaggio
                         String idEvent = String.valueOf(holder.tagCard.getTag());
-                        Log.d("card", "like!");
+                        String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
+
+                        // Verifica se l'evento è già presente nel database
+                        DBHelperLiked dbHelper = new DBHelperLiked(holder.itemView.getContext());
+                        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+                        String selection = DBHelperLiked.COLUMN_EVENT_ID + " = ? AND " + DBHelperLiked.COLUMN_USER_ID + " = ?";
+                        String[] selectionArgs = {idEvent, userId};
+
+                        Cursor cursor = db.query(
+                                DBHelperLiked.TABLE_LIKED_EVENTS,
+                                null,
+                                selection,
+                                selectionArgs,
+                                null,
+                                null,
+                                null
+                        );
+
+                        boolean isEventAlreadyLiked = cursor.getCount() > 0;
+                        cursor.close();
+                        db.close();
+
+                        // Aggiungi l'evento al database solo se non è già presente
+                        if (!isEventAlreadyLiked) {
+                            dbHelper = new DBHelperLiked(holder.itemView.getContext());
+                            db = dbHelper.getWritableDatabase();
+
+                            // Utilizza la nuova classe LikedData estesa
+                            LikedData likedData = new LikedData(
+                                    idEvent,
+                                    userId,
+                                    title,
+                                    location,
+                                    date,
+                                    description,
+                                    imgUrl
+                            );
+
+                            dbHelper.addLikedEvent(likedData);
+
+                            db.close();
+
+                            Log.d("card", "like!");
+                            Toast.makeText(holder.itemView.getContext(), "Event added to liked list", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Evento già presente nel database
+                            Log.d("card", "Event already liked!");
+                            Toast.makeText(holder.itemView.getContext(), "Event already added to liked list", Toast.LENGTH_SHORT).show();
+                        }
 
                         return true;
                     }
                 });
 
         holder.itemView.setOnTouchListener((v, eventCard) -> gestureDetector.onTouchEvent(eventCard));
+
     }
 
     @Override

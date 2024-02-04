@@ -1,12 +1,14 @@
 package it.marcosoft.ticketwave.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.LikedData;
+import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> {
 
@@ -35,7 +38,6 @@ public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         LikedData likedData = likedDataList.get(position);
@@ -45,7 +47,29 @@ public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> 
         holder.textDate.setText(likedData.getEventDate());
         holder.textDescription.setText(likedData.getEventDescription());
         Picasso.get().load(likedData.getEventImageUrl()).into(holder.imageView);
+
         holder.tagCard.setTag(likedData.getEventId());
+
+        GestureDetector gestureDetector = new GestureDetector(context,
+                new GestureDetector.SimpleOnGestureListener() {
+                    @Override
+                    public boolean onSingleTapConfirmed(MotionEvent e) {
+                        // Handle single tap (optional)
+                        return super.onSingleTapConfirmed(e);
+                    }
+
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        String idEvent = String.valueOf(holder.tagCard.getTag());
+                        String userId = "userId"; // TODO: id dell'utente dal db
+
+                        DBHelperLiked dbHelper = new DBHelperLiked(context);
+                        // ... rest of the code remains the same
+                        return true;
+                    }
+                });
+
+        holder.itemView.setOnTouchListener((v, eventCard) -> gestureDetector.onTouchEvent(eventCard));
     }
 
     @Override

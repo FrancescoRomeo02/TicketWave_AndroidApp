@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,6 @@ import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class LikedFragment extends Fragment {
 
-    String userID = "cacca";
-
     public LikedFragment() {
         // Required empty public constructor
     }
@@ -38,7 +37,7 @@ public class LikedFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Ottenere i dati dal database dei liked events
-        List<LikedData> likedDataList = getLikedEventsDataFromDatabase(userID);
+        List<LikedData> likedDataList = getLikedEventsDataFromDatabase();
 
         // Creare l'adapter e popolare l'RecyclerView
         LikedAdapter likedAdapter = new LikedAdapter(getContext(), likedDataList);
@@ -48,7 +47,7 @@ public class LikedFragment extends Fragment {
     }
 
     // Metodo per ottenere i dati dal database dei liked events
-    private List<LikedData> getLikedEventsDataFromDatabase(String userID) {
+    private List<LikedData> getLikedEventsDataFromDatabase() {
         DBHelperLiked dbHelperLiked = new DBHelperLiked(requireContext());
         List<LikedData> likedDataList = dbHelperLiked.getAllLikedEventsData();
         dbHelperLiked.close();
