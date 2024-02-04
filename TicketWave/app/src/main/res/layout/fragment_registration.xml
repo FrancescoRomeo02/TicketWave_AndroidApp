@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logot" />
 
 
     <!-- Card -->
@@ -41,11 +41,11 @@
 
         android:layout_margin="20dp"
         android:layout_marginTop="68dp"
-        android:background="#FFF"
+        android:background="@color/white"
         android:checkable="false"
         android:hapticFeedbackEnabled="true"
         android:visibility="visible"
-        app:cardBackgroundColor="#FFF"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -71,7 +71,7 @@
                 android:paddingRight="15dp"
                 android:paddingTop="20dp"
                 android:selectAllOnFocus="true"
-                android:textColor="#FFF"
+                android:textColor="@color/white"
                 android:textColorHint="#331974"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +103,7 @@
                 android:paddingRight="0dp"
                 android:paddingTop="20dp"
                 android:selectAllOnFocus="true"
-                android:textColor="#FFF"
+                android:textColor="@color/white"
                 android:textColorHint="#331974"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -135,7 +135,7 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="5dp"
                 android:selectAllOnFocus="true"
-                android:textColor="#FFF"
+                android:textColor="@color/white"
                 android:textColorHint="#331974"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +202,7 @@
                 android:paddingRight="15dp"
                 android:paddingTop="20dp"
                 android:selectAllOnFocus="true"
-                android:textColor="#FFF"
+                android:textColor="@color/white"
                 android:textColorHint="#331974"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -244,13 +244,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/backgroundDarkPrimary"
         android:paddingLeft="30dp"
         android:paddingTop="10dp"
         android:paddingRight="30dp"
         android:paddingBottom="10dp"
         android:text="@string/register_action"
-        android:textColor="#FFF"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -273,7 +273,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="24dp"
                     android:layout_toStartOf="@id/textview_or"
-                    android:background="@color/colorNavigationBar" />
+                    android:background="@color/black" />
 
                 <TextView
                     android:id="@+id/textview_or"
@@ -283,7 +283,6 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text="OR"
-                    android:textColor="@color/colorStatusBar"
                     android:textStyle="bold"
                     />
 
@@ -293,7 +292,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="24dp"
                     android:layout_toEndOf="@id/textview_or"
-                    android:background="@color/colorNavigationBar" />
+                    android:background="@color/black" />
 
             </RelativeLayout>
 
