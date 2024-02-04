@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".ui.main.TravelFragment">
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="45dp"
-                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/your"
                 android:textColor="@color/colorPrimaryText"
@@ -45,13 +43,14 @@
                 android:textSize="30sp" />
 
             <Button
-                android:id="@+id/logout"
+                android:id="@+id/useraccountbutton"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/useraccount"
-                android:drawableTint="@color/colorPrimary" />
+                android:drawableTint="@color/colorPrimary"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
@@ -65,4 +64,4 @@
 
     </RelativeLayout>
 
-</FrameLayout>
+</ScrollView>

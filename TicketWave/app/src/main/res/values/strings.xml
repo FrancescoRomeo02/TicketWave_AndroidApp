@@ -36,7 +36,7 @@
     <string name="invalid_password_message">Invalid Password</string>
     <string name="invalid_username_message">Invalid Username</string>
     <string name="landing_page_text">Ride the Wave of Premier Events</string>
-    <string name="event">Event</string>
+    <string name="event">Event&#160;</string>
     <string name="event_name">Event Name</string>
     <string name="details">Details&#160;</string>
     <string name="go">Go</string>
@@ -55,7 +55,7 @@
     <string name="event_location" translatable="false">location</string>
     <string name="date">Date:&#160;</string>
     <string name="location">Location:&#160;</string>
-    <string name="genere">Genere:&#160;</string>
+    <string name="genere">Genre:&#160;</string>
 
     <string name="from_placeholder">From:&#160;%1$s</string>
     <string name="to_placeholder">To:&#160;%1$s</string>
