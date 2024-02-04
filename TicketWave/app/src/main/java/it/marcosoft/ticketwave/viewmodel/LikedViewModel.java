@@ -32,9 +32,8 @@ public class LikedViewModel extends AndroidViewModel {
         loadLikedEvents();
     }
 
-    String userID = "cacca";
     private void loadLikedEvents() {
-        List<LikedData> likedEvents = dbHelper.getAllLikedEventsData();
+        List<LikedData> likedEvents = dbHelper.getAllLikedEvents();
         likedEventsLiveData.setValue(likedEvents);
     }
 }
