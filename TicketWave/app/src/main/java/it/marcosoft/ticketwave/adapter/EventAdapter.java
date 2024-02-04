@@ -25,6 +25,8 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.data.LikedData;
+import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
     private final LayoutInflater layoutInflater;
