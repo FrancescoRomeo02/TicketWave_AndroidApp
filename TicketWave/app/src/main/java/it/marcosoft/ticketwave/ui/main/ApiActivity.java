@@ -16,6 +16,7 @@ import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.common.ApiConstants;
 import it.marcosoft.ticketwave.data.CardData;
+import it.marcosoft.ticketwave.data.LikedData;
 import it.marcosoft.ticketwave.util.DateUtil;
 
 import java.util.ArrayList;
