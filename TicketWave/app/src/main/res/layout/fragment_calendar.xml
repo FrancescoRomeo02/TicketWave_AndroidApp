@@ -110,11 +110,13 @@
                         android:textSize="35sp"
                         tools:ignore="HardcodedText" />
 
-                    <CalendarView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                <CalendarView
+                    android:id="@+id/calendar_liked"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                    </CalendarView>
+                    />
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
