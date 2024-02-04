@@ -63,7 +63,7 @@ public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
                         String idEvent = String.valueOf(holder.tagCard.getTag());
-                        String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
+                        String userId = "userId"; // TODO: id dell'utente dal db
 
                         DBHelperLiked dbHelper = new DBHelperLiked(context);
                         SQLiteDatabase db = dbHelper.getReadableDatabase();

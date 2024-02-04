@@ -2,6 +2,7 @@ package it.marcosoft.ticketwave.util;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,20 +90,17 @@ public class LikedFragment extends Fragment {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             try {
                 Date parsedDate = sdf.parse(date);
+                Log.d("calendar", parsedDate.toString());
+
                 if (parsedDate != null) {
-                    int milliseconds = Integer.parseInt(String.valueOf(parsedDate.getTime()));
-
-                    // Set the event date in the calendar
-                    calendarView.setDate(milliseconds, true, true);
-
-                    // Customize the appearance of the highlighted date
-                    int customColor = ContextCompat.getColor(requireContext(), R.color.primary);
-                    calendarView.setDateTextAppearance(customColor);
+                    Log.d("calendar", calendarView.toString());
+                    calendarView.setBackgroundColor(R.style.HighlightedDateStyle);
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
     }
+
 
 }
