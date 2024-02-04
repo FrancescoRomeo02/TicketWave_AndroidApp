@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,55 +13,94 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.adapter.EventAdapter;
 import it.marcosoft.ticketwave.common.ApiConstants;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.util.DateUtil;
+import it.marcosoft.ticketwave.viewmodel.EventViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApiActivity extends AppCompatActivity {
+public class ApiActivity extends AppCompatActivity implements JsonParser.OnEventsParsedListener {
 
     private RequestQueue requestQueue;
     private JsonObjectRequest request;
     private RecyclerView recyclerView;
+    private EventAdapter eventAdapter;
+    private EventViewModel eventViewModel;
     private CardData cardData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_events_list); // Adjust to your layout
+
         // Retrieve CardData from the intent
         this.cardData = getIntent().getParcelableExtra("CardData");
 
-        // Call superclass method after setting CardData
-        super.onCreate(savedInstanceState);
-
-        // Retrieve the layout ID from the intent
-        int layoutId = getIntent().getIntExtra("layout_id", 0);
-
-        // Set the content view to the specified layout
-        if (layoutId != 0) {
-            setContentView(layoutId);
-
-            // Populate UI elements with CardData
-            populateUI();
-
-            // Set the back button
-            Button backButton = findViewById(R.id.backbutton);
-            backButton.setOnClickListener(v -> onBackPressed());
-
-        }
-
         // Initialize the request queue and the RecyclerView
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        recyclerView = findViewById(R.id.recycle_main);
+        recyclerView = findViewById(R.id.recycle_main); // Adjust to your RecyclerView ID
 
-        // Call a method to handle the API call
-        makeApiCall(this.cardData);
+        // Initialize EventViewModel
+        eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
+
+        // Set up the RecyclerView with a LinearLayoutManager
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        // Create EventAdapter and set it to the RecyclerView
+        eventAdapter = new EventAdapter(this, new ArrayList<>()); // Adjust the constructor based on your EventAdapter
+        recyclerView.setAdapter(eventAdapter);
+
+        // Set a click listener for the button
+        Button buttonParse = findViewById(R.id.button_parse); // Adjust to your button ID
+        buttonParse.setOnClickListener(v -> makeApiCall(cardData));
+
+        // Set the back button
+        Button backButton = findViewById(R.id.backbutton); // Adjust to your button ID
+        backButton.setOnClickListener(v -> onBackPressed());
+
+        populateUI();
     }
 
-    // Populate UI elements with CardData
+    // Handle the API call
+    private void makeApiCall(CardData cardData) {
+        // Prepare parameters for the API call
+        List<String> params = new ArrayList<>();
+        params.add("city=" + cardData.getDestination());
+        String dateFrom = DateUtil.convertItalianToISO8601(cardData.getDateFrom());
+        String dateTo = DateUtil.convertItalianToISO8601(cardData.getDateTo());
+        params.add("startDateTime=" + dateFrom);
+        params.add("endDateTime=" + dateTo);
+
+        // Create a JsonParser to handle the API call and parsing
+        JsonParser jsonParser = new JsonParser(ApiConstants.DISCOVERY_EVENTS_ENDPOINT, params, this);
+
+        // Get the JsonObjectRequest from the JsonParser and add it to the request queue
+        request = jsonParser.jsonParse();
+        requestQueue.add(request);
+    }
+
+    @Override
+    public void onEventsParsed(List<Event> events) {
+        // Update the ViewModel with the parsed events
+        eventViewModel.setEvents(events);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Observe the events from the ViewModel and update the RecyclerView
+        eventViewModel.getEvents().observe(this, events -> {
+            eventAdapter.setEventList(events);
+        });
+    }
+
     private void populateUI() {
         TextView eventNameTextView = findViewById(R.id.destination);
         TextView eventDateFromTextView = findViewById(R.id.datesFrom);
@@ -69,32 +109,6 @@ public class ApiActivity extends AppCompatActivity {
         eventNameTextView.setText(cardData.getDestination());
         eventDateFromTextView.setText(getString(R.string.from_placeholder, cardData.getDateFrom()));
         eventDateToTextView.setText(getString(R.string.to_placeholder,cardData.getDateTo()));
-    }
-
-    // Handle the API call
-    private void makeApiCall(CardData cardData) {
-        // Initialize a button for triggering the API call
-        Button buttonParse = findViewById(R.id.button_parse);
-        // Set a click listener for the button
-        buttonParse.setOnClickListener(v -> {
-            // Prepare parameters for the API call
-            List<String> params = new ArrayList<>();
-            params.add("city=" + cardData.getDestination());
-            String dateFrom = DateUtil.convertItalianToISO8601(cardData.getDateFrom());
-            String dateTo = DateUtil.convertItalianToISO8601(cardData.getDateTo());
-            params.add("startDateTime=" + dateFrom);
-            params.add("endDateTime=" + dateTo);
-
-            // Set up the RecyclerView with a LinearLayoutManager
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-            // Create a JsonParser to handle the API call and parsing
-            JsonParser jsonParser = new JsonParser(ApiConstants.DISCOVERY_EVENTS_ENDPOINT, params, getApplicationContext(), recyclerView);
-
-            // Get the JsonObjectRequest from the JsonParser and add it to the request queue
-            request = jsonParser.jsonParse();
-            requestQueue.add(request);
-        });
     }
 
     @Override
