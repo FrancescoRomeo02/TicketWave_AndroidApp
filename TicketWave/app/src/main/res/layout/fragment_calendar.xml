@@ -110,13 +110,11 @@
                         android:textSize="35sp"
                         tools:ignore="HardcodedText" />
 
-                <CalendarView
-                    android:id="@+id/calendar_liked"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    <CalendarView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                    />
-
+                    </CalendarView>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -167,22 +165,11 @@
 
                 </LinearLayout>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card2_inner"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_main_liked"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="15dp"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:strokeColor="@android:color/transparent">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recycle_main_liked"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"/>
-                </com.google.android.material.card.MaterialCardView>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
