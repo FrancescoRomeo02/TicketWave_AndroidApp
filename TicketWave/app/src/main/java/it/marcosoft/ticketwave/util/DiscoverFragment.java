@@ -15,8 +15,8 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.adapter.CardAdapter;
 import it.marcosoft.ticketwave.data.CardData;
-import it.marcosoft.ticketwave.activity.ApiActivity;
-import it.marcosoft.ticketwave.activity.MainActivity;
+import it.marcosoft.ticketwave.ui.main.ApiActivity;
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 
 public class DiscoverFragment extends Fragment {

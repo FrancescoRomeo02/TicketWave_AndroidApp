@@ -21,7 +21,7 @@
 
         <!-- MainActivity -->
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:screenOrientation="fullSensor"
             android:exported="true">
             <intent-filter>
@@ -35,9 +35,9 @@
 
         <!-- ApiActivity -->
         <activity
-            android:name=".activity.ApiActivity"
+            android:name=".ui.main.ApiActivity"
             android:label="API Activity"
-            android:parentActivityName=".activity.MainActivity">
+            android:parentActivityName=".ui.main.MainActivity">
         </activity>
 
     </application>

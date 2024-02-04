@@ -1,4 +1,4 @@
-package it.marcosoft.ticketwave;
+package it.marcosoft.ticketwave.ui.main;
 
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import it.marcosoft.ticketwave.R;
 
 public class CalendarPage extends AppCompatActivity {
     CalendarView calendarView;

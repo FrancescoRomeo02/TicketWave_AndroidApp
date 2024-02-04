@@ -1,4 +1,4 @@
-package it.marcosoft.ticketwave.activity;
+package it.marcosoft.ticketwave.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         if ( SharedPreferencesUtil.getLoginStatus(this)) {
 
             //TODO rimuovi i due comandi qua sotto, servono finche' non c'e' un bottone di logout
-            Log.d("S","DebugMSGxLogin, ricorda di rimuovere");
-            SharedPreferencesUtil.setLoginStatus(this,false);
+            //Log.d("S","DebugMSGxLogin, ricorda di rimuovere");
+            //SharedPreferencesUtil.setLoginStatus(this,false);
 
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);

@@ -1,4 +1,4 @@
-package it.marcosoft.ticketwave.activity;
+package it.marcosoft.ticketwave.ui.main;
 
 import android.os.Bundle;
 import android.widget.Button;

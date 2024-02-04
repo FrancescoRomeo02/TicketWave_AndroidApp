@@ -1,11 +1,5 @@
 package it.marcosoft.ticketwave.ui.login;
 
-import static it.marcosoft.ticketwave.util.Constants.EMAIL_ADDRESS;
-import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_DATA_FILE_NAME;
-import static it.marcosoft.ticketwave.util.Constants.ENCRYPTED_SHARED_PREFERENCES_FILE_NAME;
-import static it.marcosoft.ticketwave.util.Constants.PASSWORD;
-import static it.marcosoft.ticketwave.util.SharedPreferencesUtil.setLoginStatus;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,17 +19,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-
-import it.marcosoft.ticketwave.activity.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.databinding.FragmentRegistrationBinding;
 import it.marcosoft.ticketwave.model.Result;
