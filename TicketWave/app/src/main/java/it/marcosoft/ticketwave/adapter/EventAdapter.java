@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -22,10 +24,11 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.viewmodel.EventViewModel;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
     private final LayoutInflater layoutInflater;
-    private final List<Event> eventList;
+    private List<Event> eventList;
 
     public EventAdapter(Context context, List<Event> eventList) {
         this.layoutInflater = LayoutInflater.from(context);
@@ -81,7 +84,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 });
 
         holder.itemView.setOnTouchListener((v, eventCard) -> gestureDetector.onTouchEvent(eventCard));
-
     }
 
     @Override
@@ -107,5 +109,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             textDescription = itemView.findViewById(R.id.event_description);
             tagCard = itemView.findViewById(R.id.cardId);
         }
+    }
+
+    public void setEventList(List<Event> events) {
+        this.eventList = events;
+        notifyDataSetChanged();
     }
 }
