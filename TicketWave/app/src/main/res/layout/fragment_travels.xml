@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -24,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="45dp"
-                android:layout_marginEnd="5dp"
                 android:fontFamily="@font/sfprobold"
                 android:text="@string/your"
                 android:textColor="@color/colorPrimaryText"
@@ -46,10 +46,11 @@
                 android:id="@+id/useraccountbutton"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginTop="40dp"
                 android:layout_marginStart="60dp"
+                android:layout_marginTop="40dp"
                 android:background="@drawable/useraccount"
-                android:drawableTint="@color/colorPrimary" />
+                android:drawableTint="@color/colorPrimary"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </LinearLayout>
 
