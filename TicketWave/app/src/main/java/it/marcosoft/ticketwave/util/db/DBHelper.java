@@ -115,4 +115,6 @@ public class DBHelper extends SQLiteOpenHelper {
         int columnIndex = cursor.getColumnIndex(columnName);
         return (columnIndex != -1) ? cursor.getString(columnIndex) : "";
     }
+
+
 }
