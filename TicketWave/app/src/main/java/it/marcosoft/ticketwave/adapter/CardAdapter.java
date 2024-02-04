@@ -9,24 +9,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
+import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private final CardData[] cardData;
     private final Context context;
-    private OnDataAddedListener onDataAddedListener;
     private final DiscoverFragment discoverFragment;
+    private final CardViewModel cardViewModel;
 
-    public CardAdapter(CardData[] cardData, MainActivity activity, DiscoverFragment discoverFragment) {
-        this.cardData = cardData;
-        this.context = activity;
+    public CardAdapter(Context context, DiscoverFragment discoverFragment, CardViewModel cardViewModel) {
+        this.context = context;
         this.discoverFragment = discoverFragment;
+        this.cardViewModel = cardViewModel;
     }
 
     @NonNull
@@ -39,24 +40,37 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final CardData currentCardData = cardData[position];
-        holder.destination.setText(currentCardData.getDestination());
-        holder.datesFrom.append(currentCardData.getDateFrom());
-        holder.datesTo.append(currentCardData.getDateTo());
-        holder.exploreButton.setTag(currentCardData.getId());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, currentCardData.getDestination(), Toast.LENGTH_SHORT).show();
-                onDataAddedListener.onDataAdded(currentCardData);
-            }
-        });
+        if (cardViewModel.getCardData().getValue() != null) {
+            final CardData currentCardData = cardViewModel.getCardData().getValue()[position];
+            holder.destination.setText(currentCardData.getDestination());
+            holder.datesFrom.append(currentCardData.getDateFrom());
+            holder.datesTo.append(currentCardData.getDateTo());
+            holder.exploreButton.setTag(currentCardData.getId());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, currentCardData.getDestination(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.exploreButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int cardId = Integer.valueOf((String) holder.exploreButton.getTag());
+                    discoverFragment.loadEventListMain(cardId);
+                }
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return cardData.length;
+        if (cardViewModel.getCardData().getValue() != null) {
+            return cardViewModel.getCardData().getValue().length;
+        } else {
+            return 0;
+        }
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         final TextView destination;
@@ -70,15 +84,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             datesFrom = itemView.findViewById(R.id.datesFrom);
             datesTo = itemView.findViewById(R.id.datesTo);
             exploreButton = itemView.findViewById(R.id.explore_button);
-            exploreButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int cardId = Integer.valueOf((String) exploreButton.getTag());
-                    discoverFragment.loadEventListMain(cardId);
-                }
-            });
         }
     }
 }
-
-
