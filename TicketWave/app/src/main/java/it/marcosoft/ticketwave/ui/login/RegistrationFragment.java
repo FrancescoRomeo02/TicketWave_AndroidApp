@@ -3,6 +3,13 @@ package it.marcosoft.ticketwave.ui.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,14 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
@@ -200,11 +199,11 @@ public class RegistrationFragment extends Fragment {
     /**
      * Checks if the password is not empty and long enough.
      * @param password The password to be checked
-     * @return True if the password is not empty, false otherwise
+     * @return True if the password is not empty or lower then 6 characters in length, false otherwise
      */
     private boolean isPasswordOk(String password) {
         // Check if the password length is correct
-        if (password.isEmpty() || password.length()<8) {
+        if (password.isEmpty() || password.length()<6) {
             binding.passwordInputEditText.setError(getString(R.string.error_password));
             return false;
         } else {

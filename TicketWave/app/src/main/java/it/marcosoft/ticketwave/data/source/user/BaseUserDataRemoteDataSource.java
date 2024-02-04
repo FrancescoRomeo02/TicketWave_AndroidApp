@@ -15,6 +15,7 @@ public abstract class BaseUserDataRemoteDataSource {
         this.userResponseCallback = userResponseCallback;
     }
 
+
     public abstract void saveUserData(User user);
 
 }

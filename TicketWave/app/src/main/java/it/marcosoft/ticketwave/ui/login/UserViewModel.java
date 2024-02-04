@@ -75,5 +75,8 @@ public class UserViewModel extends ViewModel {
         this.authenticationError = authenticationError;
     }
 
+    public void sendPasswordMail(String mail){
+        userRepository.resetPsw(mail);
+    }
 
 }

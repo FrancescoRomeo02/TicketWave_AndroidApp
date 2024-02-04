@@ -121,14 +121,16 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
         userMutableLiveData.postValue(result);
     }
 
+    //TODO
     @Override
     public void onSuccessFromPswChange(String message) {
-        
+        Result.Error result = new Result.Error(message);
     }
 
+    //TODO
     @Override
     public void onFailureFromPswChange(String message) {
-
+        Result.Error result = new Result.Error(message);
     }
 
     @Override
