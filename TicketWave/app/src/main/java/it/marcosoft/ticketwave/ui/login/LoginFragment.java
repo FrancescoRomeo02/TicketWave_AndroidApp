@@ -41,7 +41,7 @@ import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.repository.user.IUserRepository;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
-import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 
 /**
  * A simple {@link Fragment} subclass.

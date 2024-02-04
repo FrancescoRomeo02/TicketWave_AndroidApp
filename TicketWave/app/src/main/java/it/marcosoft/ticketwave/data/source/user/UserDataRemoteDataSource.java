@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import it.marcosoft.ticketwave.model.User;
-import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 
 /**
  * Class that manages the user authentication using Firebase Authentication.

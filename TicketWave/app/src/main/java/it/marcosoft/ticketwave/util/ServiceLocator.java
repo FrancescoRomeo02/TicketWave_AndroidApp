@@ -11,6 +11,7 @@ import it.marcosoft.ticketwave.data.source.user.BaseUserAuthenticationRemoteData
 import it.marcosoft.ticketwave.data.source.user.UserAuthenticationRemoteDataSource;
 import it.marcosoft.ticketwave.data.source.user.BaseUserDataRemoteDataSource;
 import it.marcosoft.ticketwave.data.source.user.UserDataRemoteDataSource;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 
 public class ServiceLocator {
 

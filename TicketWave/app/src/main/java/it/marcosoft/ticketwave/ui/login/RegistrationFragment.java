@@ -29,7 +29,7 @@ import it.marcosoft.ticketwave.databinding.FragmentRegistrationBinding;
 import it.marcosoft.ticketwave.model.Result;
 import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.util.DataEncryptionUtil;
-import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 
 /**
  * A simple {@link Fragment} subclass.

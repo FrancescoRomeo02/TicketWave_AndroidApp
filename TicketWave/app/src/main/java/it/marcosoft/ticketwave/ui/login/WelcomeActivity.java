@@ -6,7 +6,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import it.marcosoft.ticketwave.R;
-import it.marcosoft.ticketwave.util.SharedPreferencesUtil;
+import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 
 /**
  * Activity to allow user to login.
