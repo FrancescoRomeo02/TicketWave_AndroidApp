@@ -83,9 +83,6 @@ public class JsonParser {
                             Event event = new Event(eventObj);
                             eventsList.add(event);
                         }
-                    } else if ("discovery/v2/events/G5djZ9E6rVE4K".equals(root)) {
-                        Event event = new Event(response);
-                        eventsList.add(event);
                     } else {
                         // Handle unknown API endpoint
                         throw new Exception();
