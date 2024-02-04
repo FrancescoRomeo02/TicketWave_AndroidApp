@@ -1,34 +1,27 @@
 package it.marcosoft.ticketwave.util;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.LikedAdapter;
 import it.marcosoft.ticketwave.data.LikedData;
+import it.marcosoft.ticketwave.ui.main.ApiActivity;
 import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
-
-
-
 public class LikedFragment extends Fragment {
-
-    String userID = "TODO";
-
-
-
 
     public LikedFragment() {
         // Required empty public constructor
@@ -44,40 +37,21 @@ public class LikedFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Ottenere i dati dal database dei liked events
-        List<LikedData> likedDataList = getLikedEventsDataFromDatabase(userID);
+        List<LikedData> likedDataList = getLikedEventsDataFromDatabase();
 
         // Creare l'adapter e popolare l'RecyclerView
         LikedAdapter likedAdapter = new LikedAdapter(getContext(), likedDataList);
         recyclerView.setAdapter(likedAdapter);
 
-        Button logoutBtn = rootView.findViewById(R.id.useraccountbutton2);
-
-        logoutBtn.setOnClickListener(v -> {
-            ((MainActivity)getActivity()).goToUserPage();
-        });
-
+        // Return the inflated view for the fragment
         return rootView;
     }
 
     // Metodo per ottenere i dati dal database dei liked events
-    private List<LikedData> getLikedEventsDataFromDatabase(String userID) {
+    private List<LikedData> getLikedEventsDataFromDatabase() {
         DBHelperLiked dbHelperLiked = new DBHelperLiked(requireContext());
         List<LikedData> likedDataList = dbHelperLiked.getAllLikedEventsData();
         dbHelperLiked.close();
         return likedDataList;
     }
-
-    // Metodo per ottenere le date degli eventi liked
-    private List<String> getLikedEventDates(List<LikedData> likedDataList) {
-        List<String> likedEventDates = new ArrayList<>();
-        for (LikedData likedData : likedDataList) {
-            // Assuming your LikedData class has a method to get the date
-            likedEventDates.add(likedData.getEventDate());
-        }
-        return likedEventDates;
-    }
-
-
-
-
 }
