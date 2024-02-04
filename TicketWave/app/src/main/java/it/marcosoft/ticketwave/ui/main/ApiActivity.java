@@ -1,10 +1,8 @@
 package it.marcosoft.ticketwave.ui.main;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,7 +17,7 @@ import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.EventAdapter;
-import it.marcosoft.ticketwave.util.Constants;
+import it.marcosoft.ticketwave.common.ApiConstants;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.util.DateUtil;
 import it.marcosoft.ticketwave.viewmodel.EventViewModel;
@@ -30,6 +28,8 @@ import java.util.List;
 public class ApiActivity extends AppCompatActivity implements JsonParser.OnEventsParsedListener {
 
     private RequestQueue requestQueue;
+    private JsonObjectRequest request;
+    private RecyclerView recyclerView;
     private EventAdapter eventAdapter;
     private EventViewModel eventViewModel;
     private CardData cardData;
@@ -44,7 +44,7 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
 
         // Initialize the request queue and the RecyclerView
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        RecyclerView recyclerView = findViewById(R.id.recycle_main); // Adjust to your RecyclerView ID
+        recyclerView = findViewById(R.id.recycle_main); // Adjust to your RecyclerView ID
 
         // Initialize EventViewModel
         eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
@@ -56,8 +56,9 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
         eventAdapter = new EventAdapter(this, new ArrayList<>()); // Adjust the constructor based on your EventAdapter
         recyclerView.setAdapter(eventAdapter);
 
-
-        makeApiCall(cardData);
+        // Set a click listener for the button
+        Button buttonParse = findViewById(R.id.button_parse); // Adjust to your button ID
+        buttonParse.setOnClickListener(v -> makeApiCall(cardData));
 
         // Set the back button
         Button backButton = findViewById(R.id.backbutton); // Adjust to your button ID
@@ -77,23 +78,15 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
         params.add("endDateTime=" + dateTo);
 
         // Create a JsonParser to handle the API call and parsing
-        JsonParser jsonParser = new JsonParser(Constants.DISCOVERY_EVENTS_ENDPOINT, params, this);
+        JsonParser jsonParser = new JsonParser(ApiConstants.DISCOVERY_EVENTS_ENDPOINT, params, this);
 
         // Get the JsonObjectRequest from the JsonParser and add it to the request queue
-        JsonObjectRequest request = jsonParser.jsonParse();
+        request = jsonParser.jsonParse();
         requestQueue.add(request);
     }
 
     @Override
     public void onEventsParsed(List<Event> events) {
-        if (events.isEmpty()) {
-            // Display a message indicating no events
-            Toast.makeText(this, "No events found for the specified criteria", Toast.LENGTH_SHORT).show();
-            // Additionally, you can update a TextView to display the message
-            TextView msgTextView = findViewById(R.id.doubletap_text);
-            msgTextView.setText(R.string.msgNotFound);
-        }
-
         // Update the ViewModel with the parsed events
         eventViewModel.setEvents(events);
     }
