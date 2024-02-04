@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,16 +18,14 @@ import java.util.List;
 import it.marcosoft.ticketwave.adapter.CardAdapter;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.ui.main.ApiActivity;
-
-import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.ui.main.MainActivity;
+import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.db.DBHelper;
 import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 
 public class DiscoverFragment extends Fragment {
 
     private CardViewModel cardViewModel;
-    private CardAdapter cardAdapterRecyclerView;
 
     public DiscoverFragment() {
         // Required empty public constructor
@@ -38,7 +35,6 @@ public class DiscoverFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
-        cardAdapterRecyclerView = new CardAdapter(getContext(), this);
     }
 
     @Override
@@ -49,27 +45,20 @@ public class DiscoverFragment extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(cardAdapterRecyclerView);
 
         // Observe changes in the ViewModel's data
         cardViewModel.getCardData().observe(getViewLifecycleOwner(), new Observer<CardData[]>() {
             @Override
             public void onChanged(CardData[] cardData) {
                 // Update the RecyclerView adapter with new data
-                cardAdapterRecyclerView.setCardData(cardData);
+                CardAdapter cardAdapterRecyclerView = new CardAdapter(getContext(), DiscoverFragment.this, cardViewModel);
+                recyclerView.setAdapter(cardAdapterRecyclerView);
             }
         });
 
         // Get and set data from the database
         List<CardData> cardDataList = getTravelsDataFromDatabase();
         cardViewModel.setCardData(cardDataList.toArray(new CardData[0]));
-
-        Button logoutBtn = rootView.findViewById(R.id.useraccountbutton);
-
-        logoutBtn.setOnClickListener(v -> {
-            ((MainActivity)getActivity()).goToUserPage();
-        });
-
 
         // Return the inflated view for the fragment
         return rootView;
@@ -97,4 +86,3 @@ public class DiscoverFragment extends Fragment {
         startActivity(intent);
     }
 }
-

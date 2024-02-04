@@ -1,32 +1,33 @@
 package it.marcosoft.ticketwave.adapter;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import it.marcosoft.ticketwave.data.CardData;
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
-import it.marcosoft.ticketwave.util.db.DBHelper;
+import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
+    private final Context context;
     private final DiscoverFragment discoverFragment;
-    private CardData[] cardData;  // Declare this field
+    private final CardViewModel cardViewModel;
 
-    public CardAdapter(Context context, DiscoverFragment discoverFragment) {
+    public CardAdapter(Context context, DiscoverFragment discoverFragment, CardViewModel cardViewModel) {
+        this.context = context;
         this.discoverFragment = discoverFragment;
+        this.cardViewModel = cardViewModel;
     }
 
     @NonNull
@@ -37,43 +38,25 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         return new ViewHolder(view);
     }
 
-    @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (cardData != null) {  // Check if cardData is not null
-            final CardData currentCardData = cardData[position];
+        if (cardViewModel.getCardData().getValue() != null) {
+            final CardData currentCardData = cardViewModel.getCardData().getValue()[position];
             holder.destination.setText(currentCardData.getDestination());
-            holder.datesFrom.setText(holder.itemView.getContext().getString(R.string.from) + " " + currentCardData.getDateFrom());
-            holder.datesTo.setText(holder.itemView.getContext().getString(R.string.to) + currentCardData.getDateTo());
+            holder.datesFrom.append(currentCardData.getDateFrom());
+            holder.datesTo.append(currentCardData.getDateTo());
             holder.exploreButton.setTag(currentCardData.getId());
-
-            holder.exploreButton.setOnClickListener((View v) -> {
-                int cardId = Integer.parseInt((String) holder.exploreButton.getTag());
-                discoverFragment.loadEventListMain(cardId);
-            });
-
-            holder.dellButton.setOnClickListener((View v) -> {
-                int cardId = Integer.parseInt((String) holder.exploreButton.getTag());
-                DBHelper dbHelper = new DBHelper(v.getContext());
-                // Find the index of the card with the matching ID
-                int indexToRemove = -1;
-                for (int i = 0; i < cardData.length; i++) {
-                    if (Integer.parseInt(cardData[i].getId()) == cardId) {
-                        indexToRemove = i;
-                        break;
-                    }
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, currentCardData.getDestination(), Toast.LENGTH_SHORT).show();
                 }
-
-                // Remove the card from the list if found
-                if (indexToRemove != -1) {
-                    // Assuming cardData is an array, if it's a list, use cardData.remove(indexToRemove);
-                    cardData = ArrayUtils.remove(cardData, indexToRemove);
-
-                    // Notify the adapter that the data set has changed
-                    notifyDataSetChanged();
-
-                    // Now you can delete the card from the database if needed
-                    dbHelper.deleteCard(cardId);
+            });
+            holder.exploreButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int cardId = Integer.valueOf((String) holder.exploreButton.getTag());
+                    discoverFragment.loadEventListMain(cardId);
                 }
             });
         }
@@ -81,15 +64,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return (cardData != null) ? cardData.length : 0;
+        if (cardViewModel.getCardData().getValue() != null) {
+            return cardViewModel.getCardData().getValue().length;
+        } else {
+            return 0;
+        }
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         final TextView destination;
         final TextView datesFrom;
         final TextView datesTo;
         final Button exploreButton;
-        final Button dellButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,14 +84,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             datesFrom = itemView.findViewById(R.id.datesFrom);
             datesTo = itemView.findViewById(R.id.datesTo);
             exploreButton = itemView.findViewById(R.id.explore_button);
-            dellButton = itemView.findViewById(R.id.dell_button);
         }
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    public void setCardData(CardData[] cardData) {
-        // Update the adapter's data and notify the change
-        this.cardData = cardData;
-        notifyDataSetChanged();
     }
 }
