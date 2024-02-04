@@ -1,15 +1,18 @@
-package it.marcosoft.ticketwave.activity;
+package it.marcosoft.ticketwave.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.ui.login.WelcomeActivity;
 import it.marcosoft.ticketwave.util.*;
 import it.marcosoft.ticketwave.util.auth.SharedPreferencesUtil;
 import it.marcosoft.ticketwave.util.auth.UserAuthenticationUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,13 +24,19 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
 
         // Check the login status
-        if (UserAuthenticationUtil.getLoginStatus(this) || true) {
+        if ( SharedPreferencesUtil.getLoginStatus(this)) {
+
+            //TODO rimuovi i due comandi qua sotto, servono finche' non c'e' un bottone di logout
+            Log.d("S","DebugMSGxLogin, ricorda di rimuovere");
+            SharedPreferencesUtil.setLoginStatus(this,false);
+
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
             setupMainScreen();
         } else {
+
             // User is not logged in, launch the login activity
-            setContentView(R.layout.activity_register);
+            setContentView(R.layout.activity_welcome);
             // Add additional logic for the login activity if needed
         }
     }
@@ -74,5 +83,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+
+    public void writeFileForFragments() {
+        SharedPreferencesUtil.setLoginStatus(this,true);
     }
 }

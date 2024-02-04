@@ -61,4 +61,31 @@
     <string name="to_placeholder">To:&#160;%1$s</string>
     <string name="from">From:&#160;</string>
     <string name="to">To:&#160;</string>
+    <!-- App Information -->
+
+
+
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="error_email" translatable="false">Insert a valid email address</string>
+    <string name="error_password" translatable="false">Password cannot be empty or less than 6 characters</string>
+
+    <string name="google_login" translatable="false">Login with Google</string>
+    <string name="new_account" translatable="false">New to TicketWave?</string>
+    <string name="register" translatable="false">Register</string>
+    <string name="login" translatable="false">Log in</string>
+    <string name="surname_prompt" translatable="false">Surname</string>
+    <string name="age_prompt" translatable="false">Age</string>
+    <string name="error_name" translatable="false">Name can\'t be empty</string>
+    <string name="error_surname" translatable="false">Surname can\'t be empty</string>
+    <string name="error_age" translatable="false">Age can\'t be empty or more than 140 or equal to 0</string>
+    <string name="check_login_data_message" translatable="false">The data inserted isn\'t allowed</string>
+    <string name="error_user_collision_message" translatable="false">Email adress already in use</string>
+    <string name="unexpected_error" translatable="false">Unexpected error</string>
+    <string name="sendEmailReset" translatable="false">Send password reset</string>
+    <string name="returnToLogin" translatable="false">Return to Login Page</string>
+    <string name="error_login_password_message" translatable="false">invalid credentials</string>
+    <string name="error_login_user_message" translatable="false">login users doesn\'t exist</string>
+    <string name="forgotPassword" translatable="false">Forgot your password?</string>
+
 </resources>
