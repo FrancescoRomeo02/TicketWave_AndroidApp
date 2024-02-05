@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
             //TODO rimuovi i due comandi qua sotto, servono finche' non c'e' un bottone di logout
             Log.d("S","DebugMSGxLogin, ricorda di rimuovere");
-            SharedPreferencesUtil.setLoginStatus(this,false);
+            //SharedPreferencesUtil.setLoginStatus(this,false);
 
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);

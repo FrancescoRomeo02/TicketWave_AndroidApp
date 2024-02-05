@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,11 @@ import it.marcosoft.ticketwave.util.ServiceLocator;
  * create an instance of this fragment.
  */
 public class UserPageFragment extends Fragment {
+
+    private TextInputLayout textInputLayoutEmail;
+    private TextInputLayout textInputLayoutName;
+    private TextInputLayout textInputLayoutSurname;
+    private TextInputLayout textInputLayoutAge;
 
     private UserViewModel userViewModel;
     private User user;
@@ -82,13 +88,30 @@ public class UserPageFragment extends Fragment {
 
         final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_REALTIME_DATABASE);
         DatabaseReference ref = firebaseDatabase.getReference().getRef();
-/*
+
         ref.child(FIREBASE_USERS_COLLECTION).child(token).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 user = snapshot.getValue(User.class);
                 Log.d("AIUTOOOO", user.getSurname());
+                textInputLayoutEmail = rootView.findViewById(R.id.emailInputEditText);
+                textInputLayoutEmail.setHint(user.getEmail());
+
+                textInputLayoutName = rootView.findViewById(R.id.nameInputEditText);
+                textInputLayoutName.setHint(user.getName());
+
+                textInputLayoutSurname = rootView.findViewById(R.id.surnameInputEditText);
+                textInputLayoutSurname.setHint(user.getSurname());
+
+
+                String ageString = String.valueOf(user.getAge());
+
+
+                textInputLayoutAge = rootView.findViewById(R.id.ageInputEditText);
+                textInputLayoutAge.setHint(ageString);
+
             }
 
             @Override
@@ -99,7 +122,12 @@ public class UserPageFragment extends Fragment {
 
         });
 
- */
+
+
+        /*
+        textInputLayoutAge = rootView.findViewById(R.id.ageInputEditText);
+        textInputLayoutAge.setHint(user.getAge());
+        */
 
 
 
