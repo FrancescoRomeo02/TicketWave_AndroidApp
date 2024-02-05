@@ -16,9 +16,7 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.LikedAdapter;
-import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.data.LikedData;
-import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 

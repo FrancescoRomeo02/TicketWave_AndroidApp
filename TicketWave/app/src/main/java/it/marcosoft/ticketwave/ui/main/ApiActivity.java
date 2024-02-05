@@ -19,7 +19,7 @@ import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.EventAdapter;
-import it.marcosoft.ticketwave.common.ConstantsVar;
+import it.marcosoft.ticketwave.util.Constants;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.util.DateUtil;
 import it.marcosoft.ticketwave.viewmodel.EventViewModel;
@@ -77,7 +77,7 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
         params.add("endDateTime=" + dateTo);
 
         // Create a JsonParser to handle the API call and parsing
-        JsonParser jsonParser = new JsonParser(ConstantsVar.DISCOVERY_EVENTS_ENDPOINT, params, this);
+        JsonParser jsonParser = new JsonParser(Constants.DISCOVERY_EVENTS_ENDPOINT, params, this);
 
         // Get the JsonObjectRequest from the JsonParser and add it to the request queue
         JsonObjectRequest request = jsonParser.jsonParse();

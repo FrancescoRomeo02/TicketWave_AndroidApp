@@ -59,7 +59,6 @@ public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         LikedData likedData = likedDataList.get(position);
-
         holder.textTitle.setText(likedData.getEventTitle());
         holder.textLocation.setText(likedData.getEventLocation());
         holder.textDate.setText(likedData.getEventDate());

@@ -28,7 +28,6 @@ import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.ui.login.UserViewModel;
 import it.marcosoft.ticketwave.ui.login.UserViewModelFactory;
 import it.marcosoft.ticketwave.util.ServiceLocator;
-import it.marcosoft.ticketwave.common.ConstantsVar;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link UserPageFragment#newInstance} factory method to
@@ -96,7 +95,6 @@ public class UserPageFragment extends Fragment {
 
                 textInputLayoutName = rootView.findViewById(R.id.nameInputEditText);
                 textInputLayoutName.setHint(user.getName());
-                ConstantsVar.USER_NAME = user.getName();
 
 
                 textInputLayoutSurname = rootView.findViewById(R.id.surnameInputEditText);
