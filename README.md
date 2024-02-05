@@ -2,6 +2,19 @@
 
 Experience seamless event booking with TicketWave, your ultimate guide to local entertainment. Using the powerful Ticketmaster API, this Android app brings you real-time updates on concerts, live shows, and more. Discover, book, and enjoy - all from one user-friendly platform. Don't miss a beat; elevate your event experience with TicketWave!
 
+## Meet the Team
+
+TicketWave was created by a collaborative team of developers:
+- **Filippo Nembrini**: 886135
+- **Gabriele Soranno**: 885930
+- **Francesco Romeo**: 885880
+- **Marco Passoni**: 885873
+- **Mattia Trombella**: 879184
+
+## Account TEST:
+- mail: admin@gmail.com
+- psw: Admin10
+
 ## Features
 
 - **Event Exploration**: Discover a wide range of local events, spanning concerts, live performances, sports matches, and more, all conveniently categorized for easy exploration.
@@ -10,14 +23,6 @@ Experience seamless event booking with TicketWave, your ultimate guide to local 
 - **Intuitive Interface**: Enjoy a user-friendly interface that simplifies event browsing, selection, and booking.
 - **Personalized Recommendations**: Receive tailored event suggestions based on your interests, ensuring you find events that resonate with your preferences.
 
-## Meet the Team
-
-TicketWave was created by a collaborative team of developers:
-- **Nembrini**: 886135
-- **Soranno**: 885930
-- **Romeo**: 885880
-- **Trombella**: 879184
-- **Passoni**: 885873
 
 ## How It Works
 
