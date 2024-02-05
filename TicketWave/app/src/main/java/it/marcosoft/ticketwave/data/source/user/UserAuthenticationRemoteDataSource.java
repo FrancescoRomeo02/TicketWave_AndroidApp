@@ -112,7 +112,9 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
     @Override
     public void ResetPassword(String email) {
 
-        firebaseAuth.sendPasswordResetEmail(email)/*.addOnSuccessListener(task -> {
+        firebaseAuth.sendPasswordResetEmail(email)
+        //TODO questo se in tempo
+        /*.addOnSuccessListener(task -> {
             Log.d("S","DebugMSGxPsw, ricorda di rimuovere");
             userResponseCallback.onSuccessFromPswChange("Email for password change sent");
 
