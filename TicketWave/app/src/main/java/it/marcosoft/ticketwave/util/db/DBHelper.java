@@ -10,14 +10,13 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.data.CardData;
 
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends BaseDBHelper {
 
     private static final String DATABASE_NAME = "travel_database";
     private static final int DATABASE_VERSION = 1;
 
-    // Constructor
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, DATABASE_VERSION);
     }
 
     // Create the database table when the database is created
@@ -110,11 +109,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    // Helper method to get column value from cursor safely
-    private String getColumnValue(Cursor cursor, String columnName) {
-        int columnIndex = cursor.getColumnIndex(columnName);
-        return (columnIndex != -1) ? cursor.getString(columnIndex) : "";
-    }
 
 
 }
