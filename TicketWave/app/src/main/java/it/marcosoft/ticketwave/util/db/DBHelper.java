@@ -57,7 +57,7 @@ public class DBHelper extends BaseDBHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Query the "travels" table to retrieve all rows
-        Cursor cursor = db.query("travels", null, null, null, null, null, null);
+        Cursor cursor = db.query("travels", null, null, null, null, null, "id DESC");
 
         // Check if the cursor is not null and move to the first row
         if (cursor != null && cursor.moveToFirst()) {

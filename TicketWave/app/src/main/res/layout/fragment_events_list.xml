@@ -170,7 +170,7 @@
                     android:fontFamily="@font/sfprobold"
                     android:text="Double Tap to Like an Event!"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="25sp" />
 
                 <androidx.recyclerview.widget.RecyclerView

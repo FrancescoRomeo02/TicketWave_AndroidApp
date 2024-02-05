@@ -216,7 +216,8 @@
                 android:layout_marginEnd="24dp"
                 android:text="@string/forgotPassword"
                 android:textSize="14sp"
-                app:backgroundTint="@color/colorPrimaryLight"
+                app:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorTextLight"
                 app:iconGravity="textStart"
                 app:iconTint="@null"
                 style="@style/Widget.Material3.Button.ElevatedButton"
@@ -224,7 +225,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/relative_layout" />
 
-    <!-- "You don't have an account?" Text -->
 
     <TextView
         android:id="@+id/textview_new_account"
