@@ -52,51 +52,10 @@ public class DBHelperLiked extends BaseDBHelper {
 
 
     // Method to get all liked events
-    public List<LikedData> getAllLikedEvents() {
-        List<LikedData> likedEvents = new ArrayList<>();
+    public Cursor getAllLikedEvents() {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        // Define the columns you want to retrieve
-        String[] projection = {
-                COLUMN_EVENT_ID,
-                COLUMN_USER_ID,
-                COLUMN_EVENT_TITLE,
-                COLUMN_EVENT_LOCATION,
-                COLUMN_EVENT_DATE,
-                COLUMN_EVENT_DESCRIPTION,
-                COLUMN_EVENT_IMAGE_URL
-        };
-
-        Cursor cursor = db.query(
-                TABLE_LIKED_EVENTS,
-                projection,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-
-        // Iterate through the cursor and add LikedData to the list
-        while (cursor.moveToNext()) {
-            String eventId = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_ID));
-            String userId = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USER_ID));
-            String title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_TITLE));
-            String location = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_LOCATION));
-            String date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_DATE));
-            String description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_DESCRIPTION));
-            String imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_EVENT_IMAGE_URL));
-
-            LikedData likedData = new LikedData(eventId, userId, title, location, date, description, imageUrl);
-            likedEvents.add(likedData);
-        }
-
-        cursor.close();
-        db.close();
-
-        return likedEvents;
+        return db.query(TABLE_LIKED_EVENTS, null, null, null, null, null, null);
     }
-
 
     // Method to check if an event is already liked
     public boolean isEventLiked(String eventId, String userId) {
