@@ -38,8 +38,6 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
         this.userDataRemoteDataSource = userDataRemoteDataSource;
         this.userDataRemoteDataSource.setUserResponseCallback(this);
 
-
-
     }
 
     public MutableLiveData<Result> getUser(String email, String password, boolean isUserRegistered) {
@@ -97,10 +95,7 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
             userDataRemoteDataSource.saveUserData(user);
         }
 
-        /*
-        Result.UserResponseSuccess result = new Result.UserResponseSuccess(user);
-        userMutableLiveData.postValue(result);
-         */
+
     }
 
     @Override
