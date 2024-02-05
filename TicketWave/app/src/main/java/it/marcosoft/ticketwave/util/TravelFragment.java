@@ -14,6 +14,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,6 +30,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.data.repository.user.IUserRepository;
+import it.marcosoft.ticketwave.ui.login.UserViewModel;
+import it.marcosoft.ticketwave.ui.login.UserViewModelFactory;
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.util.db.DBHelper;
 
 public class TravelFragment extends Fragment {
@@ -31,6 +41,20 @@ public class TravelFragment extends Fragment {
     private EditText fromTravelEditText;
     private EditText toTravelEditText;
     private EditText destinationEditText;
+
+    UserViewModel userViewModel;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        IUserRepository userRepository = ServiceLocator.getInstance().
+                getUserRepository(requireActivity().getApplication());
+        userViewModel = new ViewModelProvider(
+                requireActivity(),
+                new UserViewModelFactory(userRepository)).get(UserViewModel.class);
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +115,17 @@ public class TravelFragment extends Fragment {
                 }
             }
         });
+
+
+        Button logoutBtn = rootView.findViewById(R.id.useraccountbuttontravel);
+
+        logoutBtn.setOnClickListener(v -> {
+            userViewModel.logout();
+            getActivity().getViewModelStore().clear();
+            ((MainActivity)getActivity()).goToLogin();
+        });
+
+
 
         return rootView;
     }
