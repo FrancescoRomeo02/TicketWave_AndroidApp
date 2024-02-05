@@ -16,7 +16,6 @@ TicketWave was created by a collaborative team of developers:
 - **Nembrini**: 886135
 - **Soranno**: 885930
 - **Romeo**: 885880
-- **Trombella**: 879184
 - **Passoni**: 885873
 
 ## How It Works
