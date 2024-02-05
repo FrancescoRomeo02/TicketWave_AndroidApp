@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp" >
+
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="51dp"
+            android:background="@drawable/back_button"
+            android:clickable="true"
+            android:drawableTint="@color/colorPrimary"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:orientation="horizontal"
             android:weightSum="1"
+            android:gravity="center_horizontal"
             android:layout_marginBottom="30dip">
-
-            <Button
-                android:id="@+id/backbutton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="40dip"
-                android:background="@drawable/back_button"
-                android:clickable="true"
-                android:drawableTint="@color/colorPrimary"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/searchevents_title1"
@@ -57,7 +62,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
@@ -68,6 +73,7 @@
 
                 android:layout_marginTop="120dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="25dp"
                 android:checkable="false"
                 android:clickable="false"
                 android:focusable="false"
@@ -139,7 +145,10 @@
                             android:text=""
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="15sp" />
+
                     </LinearLayout>
+
+
 
                 </LinearLayout>
 
@@ -147,43 +156,23 @@
 
 
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
-
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/dynamic_card_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:strokeColor="@android:color/transparent">
 
-                <TextView
-                    android:id="@+id/doubletap_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:fontFamily="@font/sfprobold"
-                    android:text="Double Tap to Like an Event!"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/colorPrimary"
-                    android:gravity="center_horizontal"
-                    android:textSize="25sp" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycle_main"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="50dp"/>
+                    android:layout_margin="5dp"/>
             </com.google.android.material.card.MaterialCardView>
-        </ScrollView>
-
 
         </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

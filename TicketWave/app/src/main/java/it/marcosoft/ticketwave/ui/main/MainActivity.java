@@ -22,12 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Check and create preferences file if not exists
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
+        SharedPreferencesUtil.setLoginStatus(this, true);
 
         // Check the login status
         if ( SharedPreferencesUtil.getLoginStatus(this)) {
 
-            //TODO rimuovi i due comandi qua sotto, servono finche' non c'e' un bottone di logout
-            Log.d("S","DebugMSGxLogin, ricorda di rimuovere");
             SharedPreferencesUtil.setLoginStatus(this,false);
 
             // User is logged in, launch the main activity

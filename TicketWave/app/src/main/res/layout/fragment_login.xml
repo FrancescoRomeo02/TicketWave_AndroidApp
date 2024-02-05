@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logot"
+        app:srcCompat="@drawable/logo"
         android:contentDescription="@string/logo_description" />
 
     <com.google.android.material.card.MaterialCardView
