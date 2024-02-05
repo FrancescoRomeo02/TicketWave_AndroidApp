@@ -2,6 +2,9 @@ package it.marcosoft.ticketwave.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import it.marcosoft.ticketwave.R;
@@ -24,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
         SharedPreferencesUtil.setLoginStatus(this, true);
 
+
+
+
         // Check the login status
         if ( SharedPreferencesUtil.getLoginStatus(this)) {
 
@@ -31,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
             // User is logged in, launch the main activity
             setContentView(R.layout.activity_main);
+
+
             setupMainScreen();
         } else {
 
@@ -38,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_welcome);
             // Add additional logic for the login activity if needed
         }
+
+
+
     }
 
     // Method to set up the main screen with BottomNavigationView
@@ -84,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    public void goToLogin(){
+        SharedPreferencesUtil.setLoginStatus(this,false);
+        setContentView(R.layout.activity_welcome);
+    }
 
     public void writeFileForFragments() {
         SharedPreferencesUtil.setLoginStatus(this,true);
