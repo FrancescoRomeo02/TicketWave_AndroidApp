@@ -34,11 +34,11 @@
 
                     <Button
                         android:id="@+id/cancel_travel"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="25dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/baseline_airplane_ticket_24"
+                        android:background="@drawable/baseline_cancel_24"
                         android:clickable="true"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -108,25 +108,7 @@
                     android:tag="To define"
                     android:text="@string/explore"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <Button
-                    android:id="@+id/dell_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginBottom="18dp"
-                    android:backgroundTint="@color/colorDel"
-                    android:tag="To define"
-                    android:text="Delete"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
-                />
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
