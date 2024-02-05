@@ -87,5 +87,6 @@
     <string name="forgotPassword">Forgot your password?</string>
     <string name="logout" translatable="false">Logout</string>
     <string name="msgNotFound">No events found for the specified location and dates.\n Please try again with different criteria.</string>
+    <string name="double_tap_to_like_dislike_an_event">Double Tap to Like/Dislike an Event!</string>
 
 </resources>

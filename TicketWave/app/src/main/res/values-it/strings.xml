@@ -68,5 +68,6 @@
     <string name="error_login_password_message">Credenziali non valide</string>
     <string name="error_login_user_message">Utente non esistente</string>
     <string name="forgotPassword">Password dimenticata?</string>
+    <string name="double_tap_to_like_dislike_an_event">Doppio tap per mettere/togliere Like!</string>
 
 </resources>
