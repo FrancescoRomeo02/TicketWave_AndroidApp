@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="HighlightedDateStyle">
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
     <style name="Widget.TicketWave.AppWidget.Container" parent="android:Widget">
