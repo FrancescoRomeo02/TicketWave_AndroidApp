@@ -51,6 +51,7 @@ public class SharedPreferencesUtil {
      * Sets the login status to true after the user logs in.
      *
      * @param context The application context.
+     * @param status The status to set.
      */
     public static void setLoginStatus(Context context,boolean status) {
         SharedPreferences preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);

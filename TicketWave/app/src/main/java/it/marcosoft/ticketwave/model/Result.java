@@ -24,6 +24,8 @@ public abstract class Result {
         public User getData() {
             return user;
         }
+
+
     }
 
     /**

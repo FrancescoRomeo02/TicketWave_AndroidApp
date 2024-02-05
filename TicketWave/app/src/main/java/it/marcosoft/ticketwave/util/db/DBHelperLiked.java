@@ -70,10 +70,10 @@ public class DBHelperLiked extends BaseDBHelper {
     }
 
     // Method to remove a liked event
-    public void removeLikedEvent(String eventId, String userId) {
+    public void removeLikedEvent(String eventId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String whereClause = COLUMN_EVENT_ID + " = ? AND " + COLUMN_USER_ID + " = ?";
-        String[] whereArgs = {eventId, userId};
+        String whereClause = COLUMN_EVENT_ID + " = ? ";
+        String[] whereArgs = {eventId};
         db.delete(TABLE_LIKED_EVENTS, whereClause, whereArgs);
         db.close();
 
