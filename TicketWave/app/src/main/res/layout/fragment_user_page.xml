@@ -27,7 +27,7 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logot" />
+            app:srcCompat="@drawable/logo" />
 
 
         <!-- Card -->
@@ -218,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/backgroundDarkPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:paddingLeft="30dp"
             android:paddingTop="10dp"
             android:paddingRight="30dp"
