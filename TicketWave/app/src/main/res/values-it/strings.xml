@@ -55,5 +55,6 @@
     <string name="genere">Genere:&#160;</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="msgNotFound">\"No events found for the specified location and dates. Please try again with different criteria.\"</string>
 
 </resources>

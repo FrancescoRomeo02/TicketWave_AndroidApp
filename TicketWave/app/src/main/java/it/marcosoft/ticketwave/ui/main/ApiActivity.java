@@ -1,8 +1,10 @@
 package it.marcosoft.ticketwave.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,9 +19,8 @@ import it.marcosoft.ticketwave.EventModel.Event;
 import it.marcosoft.ticketwave.NetworkActivity.JsonParser;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.EventAdapter;
-import it.marcosoft.ticketwave.common.ApiConstants;
+import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.data.CardData;
-import it.marcosoft.ticketwave.data.LikedData;
 import it.marcosoft.ticketwave.util.DateUtil;
 import it.marcosoft.ticketwave.viewmodel.EventViewModel;
 
@@ -29,8 +30,6 @@ import java.util.List;
 public class ApiActivity extends AppCompatActivity implements JsonParser.OnEventsParsedListener {
 
     private RequestQueue requestQueue;
-    private JsonObjectRequest request;
-    private RecyclerView recyclerView;
     private EventAdapter eventAdapter;
     private EventViewModel eventViewModel;
     private CardData cardData;
@@ -45,7 +44,7 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
 
         // Initialize the request queue and the RecyclerView
         requestQueue = Volley.newRequestQueue(getApplicationContext());
-        recyclerView = findViewById(R.id.recycle_main); // Adjust to your RecyclerView ID
+        RecyclerView recyclerView = findViewById(R.id.recycle_main); // Adjust to your RecyclerView ID
 
         // Initialize EventViewModel
         eventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
@@ -78,15 +77,23 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
         params.add("endDateTime=" + dateTo);
 
         // Create a JsonParser to handle the API call and parsing
-        JsonParser jsonParser = new JsonParser(ApiConstants.DISCOVERY_EVENTS_ENDPOINT, params, this);
+        JsonParser jsonParser = new JsonParser(ConstantsVar.DISCOVERY_EVENTS_ENDPOINT, params, this);
 
         // Get the JsonObjectRequest from the JsonParser and add it to the request queue
-        request = jsonParser.jsonParse();
+        JsonObjectRequest request = jsonParser.jsonParse();
         requestQueue.add(request);
     }
 
     @Override
     public void onEventsParsed(List<Event> events) {
+        if (events.isEmpty()) {
+            // Display a message indicating no events
+            Toast.makeText(this, "No events found for the specified criteria", Toast.LENGTH_SHORT).show();
+            // Additionally, you can update a TextView to display the message
+            TextView msgTextView = findViewById(R.id.doubletap_text);
+            msgTextView.setText(R.string.msgNotFound);
+        }
+
         // Update the ViewModel with the parsed events
         eventViewModel.setEvents(events);
     }

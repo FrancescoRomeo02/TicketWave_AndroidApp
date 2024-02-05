@@ -45,32 +45,10 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
                 tools:ignore="HardcodedText" />
-<!--
-            <Button
-                android:id="@+id/useraccountbuttoncalendar"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginStart="60dp"
-                android:layout_weight="0"
-                android:background="@drawable/useraccount"
-                android:drawableTint="@color/primary"
-                />
--->
+
 
         </LinearLayout>
-        <!-- <TextView
-            android:id="@+id/titolo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="45dip"
-            android:layout_marginTop="45dip"
-            android:layout_marginEnd="45dip"
-            android:text="Your Travels"
-            android:textSize="30dp"
-            android:textColor="@color/primary"
-            android:fontFamily="@font/sfprobold"
-            /> -->
+
 
 
         <com.google.android.material.card.MaterialCardView
