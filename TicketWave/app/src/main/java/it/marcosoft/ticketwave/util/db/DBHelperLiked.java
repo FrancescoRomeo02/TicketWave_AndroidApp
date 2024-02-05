@@ -12,7 +12,7 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.data.LikedData;
 
-public class DBHelperLiked extends SQLiteOpenHelper {
+public class DBHelperLiked extends BaseDBHelper {
 
     private static final String DATABASE_NAME_LIKED = "liked_events.db";
     private static final int DATABASE_VERSION_LIKED = 1;
@@ -37,7 +37,7 @@ public class DBHelperLiked extends SQLiteOpenHelper {
                     COLUMN_EVENT_IMAGE_URL + " TEXT);";
 
     public DBHelperLiked(Context context) {
-        super(context, DATABASE_NAME_LIKED, null, DATABASE_VERSION_LIKED);
+        super(context, DATABASE_NAME_LIKED, DATABASE_VERSION_LIKED);
     }
 
     @Override
@@ -70,15 +70,23 @@ public class DBHelperLiked extends SQLiteOpenHelper {
     }
 
     // Method to remove a liked event
-    public void removeLikedEvent(String eventId, String userId) {
+    public boolean removeLikedEvent(String eventId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String whereClause = COLUMN_EVENT_ID + " = ? AND " + COLUMN_USER_ID + " = ?";
-        String[] whereArgs = {eventId, userId};
-        db.delete(TABLE_LIKED_EVENTS, whereClause, whereArgs);
-        db.close();
 
-
+        try {
+            String whereClause = COLUMN_EVENT_ID + " = ? ";
+            String[] whereArgs = {eventId};
+            db.delete(TABLE_LIKED_EVENTS, whereClause, whereArgs);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            db.close();
+        }
     }
+
+
 
     // Metodo per ottenere tutti gli eventi liked dal database
     public List<LikedData> getAllLikedEventsData() {
@@ -88,13 +96,13 @@ public class DBHelperLiked extends SQLiteOpenHelper {
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                String eventId = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
-                String userId = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID));
-                String eventTitle = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
-                String eventLocation = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_LOCATION));
-                String eventDate = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_DATE));
-                String eventDescription = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_DESCRIPTION));
-                String eventImageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_IMAGE_URL));
+                @SuppressLint("Range") String eventId = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_ID));
+                @SuppressLint("Range") String userId = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID));
+                @SuppressLint("Range") String eventTitle = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_TITLE));
+                @SuppressLint("Range") String eventLocation = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_LOCATION));
+                @SuppressLint("Range") String eventDate = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_DATE));
+                @SuppressLint("Range") String eventDescription = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_DESCRIPTION));
+                @SuppressLint("Range") String eventImageUrl = cursor.getString(cursor.getColumnIndex(COLUMN_EVENT_IMAGE_URL));
 
                 LikedData likedData = new LikedData(eventId, userId, eventTitle, eventLocation, eventDate, eventDescription, eventImageUrl);
                 likedEventList.add(likedData);

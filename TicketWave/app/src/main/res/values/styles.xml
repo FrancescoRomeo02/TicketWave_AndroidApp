@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="HighlightedDateStyle">
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
     </style>
-
-    <style name="Widget.TicketWave.AppWidget.Container" parent="android:Widget">
-        <item name="android:id">@android:id/background</item>
-        <item name="android:background">?android:attr/colorBackground</item>
-    </style>
-
-    <style name="Widget.TicketWave.AppWidget.InnerView" parent="android:Widget">
-        <item name="android:background">?android:attr/colorBackground</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-    </style>
-
-    <style name="Widget.BottomNavigationView"
-        parent="Widget.Design.BottomNavigationView">
-        <item name="fontFamily">@font/sfpro</item>
-    </style>
+    
 
     <style name="roundimageview" parent="">
         <item name="cornerFamily">rounded</item>

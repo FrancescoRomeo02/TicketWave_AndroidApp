@@ -10,14 +10,13 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.data.CardData;
 
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends BaseDBHelper {
 
     private static final String DATABASE_NAME = "travel_database";
     private static final int DATABASE_VERSION = 1;
 
-    // Constructor
     public DBHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, DATABASE_VERSION);
     }
 
     // Create the database table when the database is created
@@ -40,7 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Method to clear all data from the "travels" table
-// warning but when is never used this method
+    // warning but when is never used this method
     public void clearDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete all rows in the "travels" table
@@ -50,6 +49,8 @@ public class DBHelper extends SQLiteOpenHelper {
         // Close the database connection
         db.close();
     }
+
+
     // Retrieve all travel data from the database
     public List<CardData> getAllTravelData() {
         List<CardData> cardDataList = new ArrayList<>();
@@ -58,7 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Query the "travels" table to retrieve all rows
-        Cursor cursor = db.query("travels", null, null, null, null, null, null);
+        Cursor cursor = db.query("travels", null, null, null, null, null, "id DESC");
 
         // Check if the cursor is not null and move to the first row
         if (cursor != null && cursor.moveToFirst()) {
@@ -110,11 +111,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    // Helper method to get column value from cursor safely
-    private String getColumnValue(Cursor cursor, String columnName) {
-        int columnIndex = cursor.getColumnIndex(columnName);
-        return (columnIndex != -1) ? cursor.getString(columnIndex) : "";
+
+    // Method to delete a card based on its ID
+    public void deleteCard(int cardId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            // Define the WHERE clause to delete the row with the matching cardId
+            String selection = "id = ?";
+            String[] selectionArgs = {String.valueOf(cardId)};
+            // Perform the delete operation
+            db.delete("travels", selection, selectionArgs);
+            // Log success or perform any additional actions if needed
+        } catch (Exception e) {
+            // Handle exceptions, log errors, or perform any necessary actions
+        } finally {
+            // Close the database
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
     }
-
-
 }

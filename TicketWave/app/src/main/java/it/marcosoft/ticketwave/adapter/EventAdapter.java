@@ -1,8 +1,11 @@
 package it.marcosoft.ticketwave.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,13 +31,25 @@ import it.marcosoft.ticketwave.data.LikedData;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+
+    // VARIABILI PER ANIMAZIONE LIKE
+    ImageView heart;
+    ImageView cover;
+    AnimatedVectorDrawableCompat avd;
+    AnimatedVectorDrawable avd2;
+
+    // VARIABILI PER ANIMAZIONE DISLIKE
+    ImageView disheart;
+    AnimatedVectorDrawableCompat avd3;
+    AnimatedVectorDrawable avd4;
     private final LayoutInflater layoutInflater;
-    private final List<Event> eventList;
+    private List<Event> eventList;
 
     public EventAdapter(Context context, List<Event> eventList) {
         this.layoutInflater = LayoutInflater.from(context);
         this.eventList = eventList;
     }
+
 
     @NonNull
     @Override
@@ -42,10 +58,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Event event = eventList.get(position);
-
         // Retrieve data from the event object
         String title = event.getName();
         String location = event.getVenue().getName();
@@ -53,6 +69,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         String description = event.getClassifications().get(0).toStringPretty();
         String imgUrl = event.getImages().get(0).getUrlImage();
         String id = event.getId();
+
 
         // Bind data to the ViewHolder
         holder.textTitle.setText(title);
@@ -66,13 +83,22 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         GestureDetector gestureDetector = new GestureDetector(holder.itemView.getContext(),
                 new GestureDetector.SimpleOnGestureListener() {
                     @Override
-                    public boolean onSingleTapConfirmed(MotionEvent e) {
+                    public boolean onSingleTapConfirmed(@NonNull MotionEvent e) {
                         // Handle single tap (optional)
                         return super.onSingleTapConfirmed(e);
                     }
 
                     @Override
-                    public boolean onDoubleTap(MotionEvent e) {
+                    public boolean onDoubleTap(@NonNull MotionEvent e) {
+
+                        //PREPARAZIONE PER ANIMAZIONE LIKE/DISLIKE
+                        cover = holder.itemView.findViewById(R.id.event_image);
+                        heart = holder.itemView.findViewById(R.id.like_animation);
+                        disheart = holder.itemView.findViewById(R.id.dislike_animation);
+                        final Drawable drawable=heart.getDrawable();
+                        final Drawable drawable2=disheart.getDrawable();
+
+
                         String idEvent = String.valueOf(holder.tagCard.getTag());
                         String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
 
@@ -102,6 +128,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                             dbHelper = new DBHelperLiked(holder.itemView.getContext());
                             db = dbHelper.getWritableDatabase();
 
+                            //ANIMAZIONE DEL LIKE
+                            if (heart != null) {
+                                heart.setAlpha(1f);
+                            }
+                            if (drawable instanceof AnimatedVectorDrawableCompat){
+                                avd = (AnimatedVectorDrawableCompat) drawable;
+                                avd.start();
+                            } else if (drawable instanceof AnimatedVectorDrawable) {
+                                avd2=(AnimatedVectorDrawable) drawable;
+                                avd2.start();
+                            }
+
                             // Utilizza la nuova classe LikedData estesa
                             LikedData likedData = new LikedData(
                                     idEvent,
@@ -114,15 +152,40 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                             );
 
                             dbHelper.addLikedEvent(likedData);
-
                             db.close();
+                            Toast.makeText(holder.itemView.getContext(), "Liked event!", Toast.LENGTH_SHORT).show();
 
-                            Log.d("card", "like!");
-                            Toast.makeText(holder.itemView.getContext(), "Event added to liked list", Toast.LENGTH_SHORT).show();
                         } else {
                             // Evento già presente nel database
-                            Log.d("card", "Event already liked!");
-                            Toast.makeText(holder.itemView.getContext(), "Event already added to liked list", Toast.LENGTH_SHORT).show();
+                            dbHelper = new DBHelperLiked(holder.itemView.getContext());
+                            dbHelper.getWritableDatabase();
+
+                            // Utilizza la nuova classe LikedData estesa
+                            LikedData likedData = new LikedData(
+                                    idEvent,
+                                    userId,
+                                    title,
+                                    location,
+                                    date,
+                                    description,
+                                    imgUrl
+                            );
+                            dbHelper.removeLikedEvent(likedData.getEventId());
+
+
+                            //ANIMAZIONE DEL DISLIKE
+                            if (disheart != null) {
+                                disheart.setAlpha(1f);
+                            }
+                            if (drawable2 instanceof AnimatedVectorDrawableCompat){
+                                avd3 = (AnimatedVectorDrawableCompat) drawable2;
+                                avd3.start();
+                            } else if (drawable2 instanceof AnimatedVectorDrawable) {
+                                avd4=(AnimatedVectorDrawable) drawable2;
+                                avd4.start();
+                            }
+
+                            Toast.makeText(holder.itemView.getContext(), "Disliked event!", Toast.LENGTH_SHORT).show();
                         }
 
                         return true;
@@ -130,6 +193,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 });
 
         holder.itemView.setOnTouchListener((v, eventCard) -> gestureDetector.onTouchEvent(eventCard));
+
     }
 
     @Override
@@ -138,6 +202,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         final TextView textTitle;
         final TextView textLocation;
         final TextView textDate;
@@ -154,5 +219,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             textDescription = itemView.findViewById(R.id.event_description);
             tagCard = itemView.findViewById(R.id.cardId);
         }
+    }
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setEventList(List<Event> events) {
+        this.eventList = events;
+        notifyDataSetChanged();
     }
 }

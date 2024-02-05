@@ -4,6 +4,7 @@ package it.marcosoft.ticketwave.data.source.user;
 import android.util.Log;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import com.google.firebase.auth.AuthCredential;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import it.marcosoft.ticketwave.data.source.user.BaseUserAuthenticationRemoteDataSource;
 import it.marcosoft.ticketwave.model.User;
@@ -62,6 +64,17 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setDisplayName(name).build();
+
+                firebaseUser.updateProfile(profileUpdates).addOnCompleteListener(task2 -> {
+                    if (task.isSuccessful()){
+                        Log.d(TAG, "name inserted");
+                    }
+                });
+
+
                 if (firebaseUser != null) {
 
                     userResponseCallback.onSuccessFromAuthentication(
@@ -99,14 +112,16 @@ public class UserAuthenticationRemoteDataSource extends BaseUserAuthenticationRe
     @Override
     public void ResetPassword(String email) {
 
-        firebaseAuth.sendPasswordResetEmail(email).addOnSuccessListener(task -> {
+        firebaseAuth.sendPasswordResetEmail(email)
+        //TODO questo se in tempo
+        /*.addOnSuccessListener(task -> {
             Log.d("S","DebugMSGxPsw, ricorda di rimuovere");
             userResponseCallback.onSuccessFromPswChange("Email for password change sent");
 
         }).addOnFailureListener(task ->{
             Log.d("S","DebugMSGxPsw, ricorda di rimuovere FAIL");
           userResponseCallback.onFailureFromAuthentication("Email for password change failed");
-        });
+        })*/;
 
 
     }

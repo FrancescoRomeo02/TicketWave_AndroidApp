@@ -11,13 +11,16 @@
         android:paddingBottom="20dp">
 
         <!-- Le tue TextView rimangono invariati -->
+
+        <!-- Aggiungi la RecyclerView sotto le TextView -->
+
         <LinearLayout
             android:id="@+id/titleLayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:layout_marginBottom="30dip"
             android:orientation="horizontal"
-            android:weightSum="1"
-            android:layout_marginBottom="30dip">
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/titolo"
@@ -46,7 +49,7 @@
                 android:id="@+id/useraccountbutton"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginStart="60dp"
+                android:layout_marginLeft="36dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/useraccount"
                 android:drawableTint="@color/colorPrimary"
@@ -54,13 +57,14 @@
 
         </LinearLayout>
 
-        <!-- Aggiungi la RecyclerView sotto le TextView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_below="@id/titleLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_below="@id/titleLayout"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="60dp" />
+
 
     </RelativeLayout>
 
