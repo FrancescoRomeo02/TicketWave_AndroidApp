@@ -173,6 +173,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         }
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     public void setEventList(List<Event> events) {
         this.eventList = events;
