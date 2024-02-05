@@ -80,10 +80,7 @@ public class UserPageFragment extends Fragment {
         });
 
 
-
         String token=userViewModel.getLoggedUser().getIdToken();
-        Log.d("AIUTOOOO",token);
-
 
 
         final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_REALTIME_DATABASE);
@@ -95,7 +92,6 @@ public class UserPageFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 user = snapshot.getValue(User.class);
-                Log.d("AIUTOOOO", user.getSurname());
                 textInputLayoutEmail = rootView.findViewById(R.id.emailInputEditText);
                 textInputLayoutEmail.setHint(user.getEmail());
 
@@ -119,17 +115,7 @@ public class UserPageFragment extends Fragment {
                 Log.d("User Page Fragment","error");
             }
 
-
         });
-
-
-
-        /*
-        textInputLayoutAge = rootView.findViewById(R.id.ageInputEditText);
-        textInputLayoutAge.setHint(user.getAge());
-        */
-
-
 
 
 

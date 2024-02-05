@@ -22,7 +22,7 @@ import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class LikedFragment extends Fragment {
 
-    String userID = "cacca";
+    String userID = "TODO";
 
     public LikedFragment() {
         // Required empty public constructor

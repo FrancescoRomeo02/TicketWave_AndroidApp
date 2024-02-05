@@ -9,6 +9,7 @@
     <color name="colorAccent">#80D8FF</color>
     <color name="colorAccentDark">#82B1FF</color>
     <color name="colorAccentLight">#84FFFF</color>
+    <color name="colorDel">#FF8A80</color>
 
     <!-- Text and Icons -->
     <color name="colorPrimaryText">#3F3F3F</color>
