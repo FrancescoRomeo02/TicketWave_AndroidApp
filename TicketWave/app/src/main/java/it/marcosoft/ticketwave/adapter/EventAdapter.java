@@ -1,5 +1,6 @@
 package it.marcosoft.ticketwave.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -44,6 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Event event = eventList.get(position);
@@ -68,13 +68,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         GestureDetector gestureDetector = new GestureDetector(holder.itemView.getContext(),
                 new GestureDetector.SimpleOnGestureListener() {
                     @Override
-                    public boolean onSingleTapConfirmed(MotionEvent e) {
+                    public boolean onSingleTapConfirmed(@NonNull MotionEvent e) {
                         // Handle single tap (optional)
                         return super.onSingleTapConfirmed(e);
                     }
 
                     @Override
-                    public boolean onDoubleTap(MotionEvent e) {
+                    public boolean onDoubleTap(@NonNull MotionEvent e) {
                         String idEvent = String.valueOf(holder.tagCard.getTag());
                         String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
 
@@ -160,6 +160,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setEventList(List<Event> events) {
         this.eventList = events;
         notifyDataSetChanged();
