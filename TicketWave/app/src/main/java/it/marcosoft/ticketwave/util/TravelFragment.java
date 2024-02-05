@@ -152,10 +152,10 @@ public class TravelFragment extends Fragment {
 
         if (newRowId != -1) {
             Log.d("Database", "Travel added to database with ID: " + newRowId);
-            Toast.makeText(requireContext(), "Travel added to database", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Travel added!", Toast.LENGTH_SHORT).show();
         } else {
             Log.e("Database", "Failed to add travel to database");
-            Toast.makeText(requireContext(), "Failed to add travel to database", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Failed to add travel!", Toast.LENGTH_SHORT).show();
         }
 
         // Chiudi il database
