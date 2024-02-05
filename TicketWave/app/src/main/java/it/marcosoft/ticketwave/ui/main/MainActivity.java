@@ -100,6 +100,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
     }
 
+    public void goToUserPage(){
+        Fragment fragment =new UserPageFragment();
+        loadFragment(fragment);
+    }
+
     public void writeFileForFragments() {
         SharedPreferencesUtil.setLoginStatus(this,true);
     }
