@@ -1,12 +1,12 @@
 package it.marcosoft.ticketwave.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,19 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
-import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private final Context context;
     private final DiscoverFragment discoverFragment;
-    private final CardViewModel cardViewModel;
     private CardData[] cardData;  // Declare this field
 
-    public CardAdapter(Context context, DiscoverFragment discoverFragment, CardViewModel cardViewModel) {
-        this.context = context;
+    public CardAdapter(Context context, DiscoverFragment discoverFragment) {
         this.discoverFragment = discoverFragment;
-        this.cardViewModel = cardViewModel;
     }
 
     @NonNull
@@ -45,18 +40,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             holder.datesFrom.append(currentCardData.getDateFrom());
             holder.datesTo.append(currentCardData.getDateTo());
             holder.exploreButton.setTag(currentCardData.getId());
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, currentCardData.getDestination(), Toast.LENGTH_SHORT).show();
-                }
-            });
-            holder.exploreButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int cardId = Integer.parseInt((String) holder.exploreButton.getTag());
-                    discoverFragment.loadEventListMain(cardId);
-                }
+
+            holder.exploreButton.setOnClickListener((View v) -> {
+                int cardId = Integer.parseInt((String) holder.exploreButton.getTag());
+                discoverFragment.loadEventListMain(cardId);
             });
         }
     }
@@ -81,6 +68,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setCardData(CardData[] cardData) {
         // Update the adapter's data and notify the change
         this.cardData = cardData;
