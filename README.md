@@ -35,7 +35,8 @@ We welcome contributions from the community to enhance TicketWave further. To co
 ## Support and Feedback
 
 For any issues, feedback, or queries, please [open an issue](mailto:romeo.francesco.2002@gmail.com) or [open an issue](mailto:mattiatrombella02@gmail.com). We appreciate your input as it helps us improve the TicketWave experience.
-
+## TODO:
+- different accounts in same phone need different DB.
 ## License
 
 All rights reserved. This project and its accompanying code, assets, and documentation are owned and maintained by Francesco Romeo, Mattia Trombella, Marco Passoni and are protected by copyright law. No part of this project may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the owner, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law.

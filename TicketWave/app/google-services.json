@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "336132033217",
+    "project_id": "ticketwavepmd",
+    "storage_bucket": "ticketwavepmd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336132033217:android:4a4f929453fd6a4915a240",
+        "android_client_info": {
+          "package_name": "it.marcosoft.ticketwave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336132033217-d6csutp8cprp36kd1q9r7r95n5eosbgi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "it.marcosoft.ticketwave",
+            "certificate_hash": "6ff4b2f062069ceef3577f2a678e1d1043905b4d"
+          }
+        },
+        {
+          "client_id": "336132033217-jd7dvm534fb2feg82vg2kin6k763fbd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtuUtWWBQ-jSQzzAZnvATxCHFO6jg2f6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336132033217-jd7dvm534fb2feg82vg2kin6k763fbd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
