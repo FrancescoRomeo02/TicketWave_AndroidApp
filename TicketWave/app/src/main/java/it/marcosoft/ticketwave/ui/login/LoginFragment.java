@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -108,7 +107,6 @@ public class LoginFragment extends Fragment {
         final Button buttonRegistration = view.findViewById(R.id.toRegisterButtonFrame);
 
         buttonLogin.setOnClickListener(v -> {
-            Log.d("S","PROVISSIMA1");
 
             String email = textInputLayoutEmail.getEditText().getText().toString();
             String password = textInputLayoutPassword.getEditText().getText().toString();
@@ -116,13 +114,10 @@ public class LoginFragment extends Fragment {
             // Start login if email and password are ok
             if (isEmailOk(email) & isPasswordOk(password)) {
 
-                Log.d("S","PROVISSIMA2");
 
                 if (!userViewModel.isAuthenticationError()) {
-                    Log.d("S","PROVISSIMA3");
                     userViewModel.getUserMutableLiveData(email, password, true).observe(
                             getViewLifecycleOwner(), result -> {
-                                Log.d("S","PROVISSIMAUltima");
                                 if (result.isSuccess()) {
 
                                     User user = ((Result.UserResponseSuccess) result).getData();

@@ -18,12 +18,4 @@
         android:name="it.marcosoft.ticketwave.ui.login.WelcomeActivity"
         android:label="activity_welcome"
         tools:layout="@layout/activity_welcome" />
-    <fragment
-        android:id="@+id/discoverFragment"
-        android:name="it.marcosoft.ticketwave.util.DiscoverFragment"
-        android:label="DiscoverFragment" >
-        <action
-            android:id="@+id/action_discoverFragment_to_welcomeActivity"
-            app:destination="@id/welcomeActivity" />
-    </fragment>
 </navigation>
