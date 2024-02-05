@@ -57,9 +57,8 @@ public class ApiActivity extends AppCompatActivity implements JsonParser.OnEvent
         eventAdapter = new EventAdapter(this, new ArrayList<>()); // Adjust the constructor based on your EventAdapter
         recyclerView.setAdapter(eventAdapter);
 
-        // Set a click listener for the button
-        Button buttonParse = findViewById(R.id.button_parse); // Adjust to your button ID
-        buttonParse.setOnClickListener(v -> makeApiCall(cardData));
+
+        makeApiCall(cardData);
 
         // Set the back button
         Button backButton = findViewById(R.id.backbutton); // Adjust to your button ID
