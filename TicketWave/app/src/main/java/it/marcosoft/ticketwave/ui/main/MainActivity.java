@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Check and create preferences file if not exists
         SharedPreferencesUtil.checkAndCreatePreferencesFile(this);
-        SharedPreferencesUtil.setLoginStatus(this,true);
-
 
 
         // Check the login status
