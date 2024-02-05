@@ -28,8 +28,8 @@
                 android:layout_marginTop="45dip"
                 android:layout_marginEnd="0dp"
                 android:fontFamily="@font/sfprobold"
-                android:text="Hi "
-                android:textColor="@color/colorPrimaryText"
+                android:text="Welcome!"
+                android:textColor="@color/colorPrimary"
                 android:textSize="30sp"
                 tools:ignore="HardcodedText" />
 
@@ -84,7 +84,7 @@
                         android:layout_marginStart="24dp"
                         android:fontFamily="@font/sfprobold"
                         android:text="Your Calendar"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="35sp"
                         tools:ignore="HardcodedText" />
 
@@ -140,7 +140,7 @@
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/sfprobold"
                         android:text="Your liked"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="35sp"
                         tools:ignore="HardcodedText" />
 
