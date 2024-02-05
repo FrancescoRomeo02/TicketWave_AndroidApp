@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,17 +27,13 @@ import it.marcosoft.ticketwave.model.User;
 import it.marcosoft.ticketwave.ui.login.UserViewModel;
 import it.marcosoft.ticketwave.ui.login.UserViewModelFactory;
 import it.marcosoft.ticketwave.util.ServiceLocator;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link UserPageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class UserPageFragment extends Fragment {
-
-    private TextInputLayout textInputLayoutEmail;
-    private TextInputLayout textInputLayoutName;
-    private TextInputLayout textInputLayoutSurname;
-    private TextInputLayout textInputLayoutAge;
 
     private UserViewModel userViewModel;
     private User user;
@@ -48,6 +43,7 @@ public class UserPageFragment extends Fragment {
     }
 
 
+    // TODO: Rename and change types and number of parameters
     public static UserPageFragment newInstance() {
         return new UserPageFragment();
     }
@@ -78,35 +74,21 @@ public class UserPageFragment extends Fragment {
         });
 
 
+
         String token=userViewModel.getLoggedUser().getIdToken();
+        Log.d("AIUTOOOO",token);
+
 
 
         final FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_REALTIME_DATABASE);
         DatabaseReference ref = firebaseDatabase.getReference().getRef();
-
+/*
         ref.child(FIREBASE_USERS_COLLECTION).child(token).addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 user = snapshot.getValue(User.class);
-                textInputLayoutEmail = rootView.findViewById(R.id.emailInputEditText);
-                textInputLayoutEmail.setHint(user.getEmail());
-
-                textInputLayoutName = rootView.findViewById(R.id.nameInputEditText);
-                textInputLayoutName.setHint(user.getName());
-
-
-                textInputLayoutSurname = rootView.findViewById(R.id.surnameInputEditText);
-                textInputLayoutSurname.setHint(user.getSurname());
-
-
-                String ageString = String.valueOf(user.getAge());
-
-
-                textInputLayoutAge = rootView.findViewById(R.id.ageInputEditText);
-                textInputLayoutAge.setHint(ageString);
-
+                Log.d("AIUTOOOO", user.getSurname());
             }
 
             @Override
@@ -114,7 +96,12 @@ public class UserPageFragment extends Fragment {
                 Log.d("User Page Fragment","error");
             }
 
+
         });
+
+ */
+
+
 
 
 

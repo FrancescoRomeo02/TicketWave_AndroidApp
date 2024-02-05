@@ -120,12 +120,8 @@ public class TravelFragment extends Fragment {
         Button logoutBtn = rootView.findViewById(R.id.useraccountbuttontravel);
 
         logoutBtn.setOnClickListener(v -> {
-            userViewModel.logout();
-            getActivity().getViewModelStore().clear();
-            ((MainActivity)getActivity()).goToLogin();
+            ((MainActivity)getActivity()).goToUserPage();
         });
-
-
 
         return rootView;
     }
