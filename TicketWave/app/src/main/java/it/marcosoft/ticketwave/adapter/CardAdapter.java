@@ -9,11 +9,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import it.marcosoft.ticketwave.data.CardData;
-import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.util.DiscoverFragment;
 import it.marcosoft.ticketwave.viewmodel.CardViewModel;
@@ -55,7 +53,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             holder.exploreButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int cardId = Integer.valueOf((String) holder.exploreButton.getTag());
+                    int cardId = Integer.parseInt((String) holder.exploreButton.getTag());
                     discoverFragment.loadEventListMain(cardId);
                 }
             });
@@ -72,7 +70,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView destination;
         final TextView datesFrom;
         final TextView datesTo;

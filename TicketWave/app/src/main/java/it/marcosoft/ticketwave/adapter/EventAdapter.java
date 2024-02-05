@@ -1,5 +1,6 @@
 package it.marcosoft.ticketwave.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -28,7 +29,7 @@ import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
     private final LayoutInflater layoutInflater;
-    private final List<Event> eventList;
+    private List<Event> eventList;
 
     public EventAdapter(Context context, List<Event> eventList) {
         this.layoutInflater = LayoutInflater.from(context);
@@ -42,6 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Event event = eventList.get(position);
@@ -66,13 +68,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         GestureDetector gestureDetector = new GestureDetector(holder.itemView.getContext(),
                 new GestureDetector.SimpleOnGestureListener() {
                     @Override
-                    public boolean onSingleTapConfirmed(MotionEvent e) {
+                    public boolean onSingleTapConfirmed(@NonNull MotionEvent e) {
                         // Handle single tap (optional)
                         return super.onSingleTapConfirmed(e);
                     }
 
                     @Override
-                    public boolean onDoubleTap(MotionEvent e) {
+                    public boolean onDoubleTap(@NonNull MotionEvent e) {
                         String idEvent = String.valueOf(holder.tagCard.getTag());
                         String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
 
@@ -130,6 +132,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                 });
 
         holder.itemView.setOnTouchListener((v, eventCard) -> gestureDetector.onTouchEvent(eventCard));
+
     }
 
     @Override
@@ -138,6 +141,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         final TextView textTitle;
         final TextView textLocation;
         final TextView textDate;
@@ -154,5 +158,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
             textDescription = itemView.findViewById(R.id.event_description);
             tagCard = itemView.findViewById(R.id.cardId);
         }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void setEventList(List<Event> events) {
+        this.eventList = events;
+        notifyDataSetChanged();
     }
 }
