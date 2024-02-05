@@ -11,6 +11,9 @@ TicketWave was created by a collaborative team of developers:
 - **Marco Passoni**: 885873
 - **Mattia Trombella**: 879184
 
+## Account TEST:
+- mail: admin@gmail.com
+- psw: Admin10
 
 ## Features
 
