@@ -2,14 +2,6 @@
 
 Experience seamless event booking with TicketWave, your ultimate guide to local entertainment. Using the powerful Ticketmaster API, this Android app brings you real-time updates on concerts, live shows, and more. Discover, book, and enjoy - all from one user-friendly platform. Don't miss a beat; elevate your event experience with TicketWave!
 
-## Features
-
-- **Event Exploration**: Discover a wide range of local events, spanning concerts, live performances, sports matches, and more, all conveniently categorized for easy exploration.
-- **Effortless Booking**: Secure your spot at any event with seamless booking functionality, ensuring you never miss out on the excitement.
-- **Real-time Updates**: Stay informed with live event updates, including ticket availability, venue details, and performance schedules.
-- **Intuitive Interface**: Enjoy a user-friendly interface that simplifies event browsing, selection, and booking.
-- **Personalized Recommendations**: Receive tailored event suggestions based on your interests, ensuring you find events that resonate with your preferences.
-
 ## Meet the Team
 
 TicketWave was created by a collaborative team of developers:
@@ -18,6 +10,15 @@ TicketWave was created by a collaborative team of developers:
 - **Francesco Romeo**: 885880
 - **Marco Passoni**: 885873
 - **Mattia Trombella**: 879184
+
+
+## Features
+
+- **Event Exploration**: Discover a wide range of local events, spanning concerts, live performances, sports matches, and more, all conveniently categorized for easy exploration.
+- **Effortless Booking**: Secure your spot at any event with seamless booking functionality, ensuring you never miss out on the excitement.
+- **Real-time Updates**: Stay informed with live event updates, including ticket availability, venue details, and performance schedules.
+- **Intuitive Interface**: Enjoy a user-friendly interface that simplifies event browsing, selection, and booking.
+- **Personalized Recommendations**: Receive tailored event suggestions based on your interests, ensuring you find events that resonate with your preferences.
 
 
 ## How It Works
