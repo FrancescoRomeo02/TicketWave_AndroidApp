@@ -21,6 +21,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     private final Context context;
     private final DiscoverFragment discoverFragment;
     private final CardViewModel cardViewModel;
+    private CardData[] cardData;  // Declare this field
 
     public CardAdapter(Context context, DiscoverFragment discoverFragment, CardViewModel cardViewModel) {
         this.context = context;
@@ -38,8 +39,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (cardViewModel.getCardData().getValue() != null) {
-            final CardData currentCardData = cardViewModel.getCardData().getValue()[position];
+        if (cardData != null) {  // Check if cardData is not null
+            final CardData currentCardData = cardData[position];
             holder.destination.setText(currentCardData.getDestination());
             holder.datesFrom.append(currentCardData.getDateFrom());
             holder.datesTo.append(currentCardData.getDateTo());
@@ -62,13 +63,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (cardViewModel.getCardData().getValue() != null) {
-            return cardViewModel.getCardData().getValue().length;
-        } else {
-            return 0;
-        }
+        return (cardData != null) ? cardData.length : 0;
     }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView destination;
@@ -83,5 +79,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
             datesTo = itemView.findViewById(R.id.datesTo);
             exploreButton = itemView.findViewById(R.id.explore_button);
         }
+    }
+
+    public void setCardData(CardData[] cardData) {
+        // Update the adapter's data and notify the change
+        this.cardData = cardData;
+        notifyDataSetChanged();
     }
 }

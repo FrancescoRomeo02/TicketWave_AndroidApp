@@ -123,7 +123,20 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                             Toast.makeText(holder.itemView.getContext(), "Event added to liked list", Toast.LENGTH_SHORT).show();
                         } else {
                             // Evento già presente nel database
-                            Log.d("card", "Event already liked!");
+                            dbHelper = new DBHelperLiked(holder.itemView.getContext());
+                            db = dbHelper.getWritableDatabase();
+
+                            // Utilizza la nuova classe LikedData estesa
+                            LikedData likedData = new LikedData(
+                                    idEvent,
+                                    userId,
+                                    title,
+                                    location,
+                                    date,
+                                    description,
+                                    imgUrl
+                            );
+                            dbHelper.removeLikedEvent(likedData.getEventId());
                             Toast.makeText(holder.itemView.getContext(), "Event already added to liked list", Toast.LENGTH_SHORT).show();
                         }
 

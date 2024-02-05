@@ -1,11 +1,11 @@
 package it.marcosoft.ticketwave.data.repository.user;
 
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
-
-import java.util.List;
-import java.util.Set;
 
 
 import it.marcosoft.ticketwave.model.Result;
@@ -21,6 +21,8 @@ import it.marcosoft.ticketwave.data.source.user.BaseUserDataRemoteDataSource;
 public class UserRepository implements IUserRepository, UserResponseCallback {
 
     private static final String TAG = UserRepository.class.getSimpleName();
+    private static final String PREF_NAME = "user_pref";
+    private static final String KEY_LOGIN_STATUS = "login_status";
 
     private final BaseUserAuthenticationRemoteDataSource userRemoteDataSource;
     private final BaseUserDataRemoteDataSource userDataRemoteDataSource;
@@ -132,4 +134,6 @@ public class UserRepository implements IUserRepository, UserResponseCallback {
     public void resetPsw(String email) {
         userRemoteDataSource.ResetPassword(email);
     }
+
+
 }
