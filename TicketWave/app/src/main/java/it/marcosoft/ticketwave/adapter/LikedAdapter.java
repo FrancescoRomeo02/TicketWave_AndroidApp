@@ -2,6 +2,7 @@ package it.marcosoft.ticketwave.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.squareup.picasso.Picasso;
 
@@ -19,6 +21,16 @@ import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.LikedData;
 
 public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> {
+    // VARIABILI PER ANIMAZIONE LIKE
+    ImageView heart;
+    ImageView cover;
+    AnimatedVectorDrawableCompat avd;
+    AnimatedVectorDrawable avd2;
+
+    // VARIABILI PER ANIMAZIONE DISLIKE
+    ImageView disheart;
+    AnimatedVectorDrawableCompat avd3;
+    AnimatedVectorDrawable avd4;
 
     private final Context context;
     private final List<LikedData> likedDataList;

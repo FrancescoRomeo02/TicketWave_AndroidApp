@@ -1,6 +1,7 @@
 package it.marcosoft.ticketwave.util;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,9 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.adapter.LikedAdapter;
+import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.data.LikedData;
+import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 
@@ -23,6 +26,9 @@ import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 public class LikedFragment extends Fragment {
 
     String userID = "TODO";
+
+
+
 
     public LikedFragment() {
         // Required empty public constructor
