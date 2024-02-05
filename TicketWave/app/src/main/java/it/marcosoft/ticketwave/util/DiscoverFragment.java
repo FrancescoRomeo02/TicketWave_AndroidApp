@@ -36,7 +36,7 @@ public class DiscoverFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cardViewModel = new ViewModelProvider(this).get(CardViewModel.class);
-        cardAdapterRecyclerView = new CardAdapter(getContext(), this, cardViewModel);
+        cardAdapterRecyclerView = new CardAdapter(getContext(), this);
     }
 
     @Override

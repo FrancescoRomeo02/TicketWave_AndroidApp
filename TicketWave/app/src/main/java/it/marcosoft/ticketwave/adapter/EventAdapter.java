@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 
 import com.squareup.picasso.Picasso;
 
@@ -28,6 +30,17 @@ import it.marcosoft.ticketwave.data.LikedData;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
+
+    // VARIABILI PER ANIMAZIONE LIKE
+    ImageView heart;
+    ImageView cover;
+    AnimatedVectorDrawableCompat avd;
+    AnimatedVectorDrawable avd2;
+
+    // VARIABILI PER ANIMAZIONE DISLIKE
+    ImageView disheart;
+    AnimatedVectorDrawableCompat avd3;
+    AnimatedVectorDrawable avd4;
     private final LayoutInflater layoutInflater;
     private List<Event> eventList;
 
@@ -56,6 +69,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         String imgUrl = event.getImages().get(0).getUrlImage();
         String id = event.getId();
 
+
         // Bind data to the ViewHolder
         holder.textTitle.setText(title);
         holder.textLocation.setText(location);
@@ -75,6 +89,15 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
                     @Override
                     public boolean onDoubleTap(@NonNull MotionEvent e) {
+
+                        //PREPARAZIONE PER ANIMAZIONE LIKE/DISLIKE
+                        cover = holder.itemView.findViewById(R.id.event_image);
+                        heart = holder.itemView.findViewById(R.id.like_animation);
+                        disheart = holder.itemView.findViewById(R.id.dislike_animation);
+                        final Drawable drawable=heart.getDrawable();
+                        final Drawable drawable2=disheart.getDrawable();
+
+
                         String idEvent = String.valueOf(holder.tagCard.getTag());
                         String userId = "userId"; // Sostituisci "userId" con l'id dell'utente reale
 
@@ -104,6 +127,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                             dbHelper = new DBHelperLiked(holder.itemView.getContext());
                             db = dbHelper.getWritableDatabase();
 
+                            //ANIMAZIONE DEL LIKE
+                            if (heart != null) {
+                                heart.setAlpha(1f);
+                            }
+                            if (drawable instanceof AnimatedVectorDrawableCompat){
+                                avd = (AnimatedVectorDrawableCompat) drawable;
+                                avd.start();
+                            } else if (drawable instanceof AnimatedVectorDrawable) {
+                                avd2=(AnimatedVectorDrawable) drawable;
+                                avd2.start();
+                            }
+
                             // Utilizza la nuova classe LikedData estesa
                             LikedData likedData = new LikedData(
                                     idEvent,
@@ -116,15 +151,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                             );
 
                             dbHelper.addLikedEvent(likedData);
-
                             db.close();
+                            Toast.makeText(holder.itemView.getContext(), "Liked event!", Toast.LENGTH_SHORT).show();
 
-                            Log.d("card", "like!");
-                            Toast.makeText(holder.itemView.getContext(), "Event added to liked list", Toast.LENGTH_SHORT).show();
                         } else {
                             // Evento già presente nel database
                             dbHelper = new DBHelperLiked(holder.itemView.getContext());
-                            db = dbHelper.getWritableDatabase();
+                            dbHelper.getWritableDatabase();
 
                             // Utilizza la nuova classe LikedData estesa
                             LikedData likedData = new LikedData(
@@ -137,7 +170,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                                     imgUrl
                             );
                             dbHelper.removeLikedEvent(likedData.getEventId());
-                            Toast.makeText(holder.itemView.getContext(), "Event already added to liked list", Toast.LENGTH_SHORT).show();
+
+
+                            //ANIMAZIONE DEL DISLIKE
+                            if (disheart != null) {
+                                disheart.setAlpha(1f);
+                            }
+                            if (drawable2 instanceof AnimatedVectorDrawableCompat){
+                                avd3 = (AnimatedVectorDrawableCompat) drawable2;
+                                avd3.start();
+                            } else if (drawable2 instanceof AnimatedVectorDrawable) {
+                                avd4=(AnimatedVectorDrawable) drawable2;
+                                avd4.start();
+                            }
+
+                            Toast.makeText(holder.itemView.getContext(), "Disliked event!", Toast.LENGTH_SHORT).show();
                         }
 
                         return true;
