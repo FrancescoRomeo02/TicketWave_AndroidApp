@@ -53,20 +53,8 @@
     <string name="date">Data:&#160;</string>
     <string name="location">Luogo:&#160;</string>
     <string name="genere">Genere:&#160;</string>
-    <string name="from">Da:&#160;</string>
+    <string name="from">From</string>
     <string name="to">To</string>
-    <string name="msgNotFound">Nessun evento trovato per il luogo e data scelti. \\n Riprova con altre combinazioni di dati</string>
-    <string name="surname_prompt">Cognome</string>
-    <string name="age_prompt">Età</string>
-    <string name="error_name">Il nome non può essere vuoto</string>
-    <string name="error_surname">Il cognome non può essere vuoto</string>
-    <string name="error_age">L\'età non può essere vuota</string>
-    <string name="check_login_data_message">Il dato inserito non è valido</string>
-    <string name="error_user_collision_message">E-Mail già in uso</string>
-    <string name="unexpected_error">Errore inaspettato</string>
-    <string name="returnToLogin">Torna al Login</string>
-    <string name="error_login_password_message">Credenziali non valide</string>
-    <string name="error_login_user_message">Utente non esistente</string>
-    <string name="forgotPassword">Password dimenticata?</string>
+    <string name="msgNotFound">\"No events found for the specified location and dates. Please try again with different criteria.\"</string>
 
 </resources>

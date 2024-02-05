@@ -86,5 +86,6 @@
     <string name="error_login_user_message" translatable="false">login users doesn\'t exist</string>
     <string name="forgotPassword" translatable="false">Forgot your password?</string>
     <string name="logout">Logout</string>
+    <string name="msgNotFound">\"No events found for the specified location and dates. Please try again with different criteria.\"</string>
 
 </resources>

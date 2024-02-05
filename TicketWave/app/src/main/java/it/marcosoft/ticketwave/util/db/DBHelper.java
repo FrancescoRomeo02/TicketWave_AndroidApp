@@ -39,7 +39,7 @@ public class DBHelper extends BaseDBHelper {
     }
 
     // Method to clear all data from the "travels" table
-// warning but when is never used this method
+    // warning but when is never used this method
     public void clearDatabase() {
         SQLiteDatabase db = this.getWritableDatabase();
         // Delete all rows in the "travels" table
@@ -49,6 +49,8 @@ public class DBHelper extends BaseDBHelper {
         // Close the database connection
         db.close();
     }
+
+
     // Retrieve all travel data from the database
     public List<CardData> getAllTravelData() {
         List<CardData> cardDataList = new ArrayList<>();
@@ -110,5 +112,23 @@ public class DBHelper extends BaseDBHelper {
     }
 
 
-
+    // Method to delete a card based on its ID
+    public void deleteCard(int cardId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            // Define the WHERE clause to delete the row with the matching cardId
+            String selection = "id = ?";
+            String[] selectionArgs = {String.valueOf(cardId)};
+            // Perform the delete operation
+            db.delete("travels", selection, selectionArgs);
+            // Log success or perform any additional actions if needed
+        } catch (Exception e) {
+            // Handle exceptions, log errors, or perform any necessary actions
+        } finally {
+            // Close the database
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
+        }
+    }
 }
