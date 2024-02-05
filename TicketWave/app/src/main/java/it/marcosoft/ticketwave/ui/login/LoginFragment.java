@@ -113,9 +113,7 @@ public class LoginFragment extends Fragment {
 
             // Start login if email and password are ok
             if (isEmailOk(email) & isPasswordOk(password)) {
-                /**
-                 *
-                 */
+
 
                 if (!userViewModel.isAuthenticationError()) {
                     userViewModel.getUserMutableLiveData(email, password, true).observe(
@@ -140,9 +138,7 @@ public class LoginFragment extends Fragment {
                 } else {
                     userViewModel.getUser(email, password, true);
                 }
-                /**
-                 *
-                 */
+
             } else {
                 Snackbar.make(requireActivity().findViewById(android.R.id.content),
                         "check inserted data", Snackbar.LENGTH_SHORT).show();

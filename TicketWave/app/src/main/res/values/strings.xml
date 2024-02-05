@@ -64,8 +64,6 @@
     <!-- App Information -->
 
 
-
-
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="error_email" translatable="false">Insert a valid email address</string>
     <string name="error_password" translatable="false">Password cannot be empty or less than 6 characters</string>
@@ -87,5 +85,6 @@
     <string name="error_login_password_message" translatable="false">invalid credentials</string>
     <string name="error_login_user_message" translatable="false">login users doesn\'t exist</string>
     <string name="forgotPassword" translatable="false">Forgot your password?</string>
+    <string name="logout">Logout</string>
 
 </resources>

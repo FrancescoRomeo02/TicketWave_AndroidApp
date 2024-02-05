@@ -128,6 +128,7 @@ public class RegistrationFragment extends Fragment {
                                     Log.d("S","login HELP fino a qua");
                                     Context context = getContext();
                                     SharedPreferencesUtil.setLoginStatus(context,true);
+
                                     Navigation.findNavController(view).navigate(
                                             R.id.action_registrationFragment_to_mainActivity);
                                 } else {
