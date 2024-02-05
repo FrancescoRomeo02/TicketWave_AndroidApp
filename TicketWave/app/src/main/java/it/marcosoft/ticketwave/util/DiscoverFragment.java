@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,6 +21,7 @@ import it.marcosoft.ticketwave.data.CardData;
 import it.marcosoft.ticketwave.ui.main.ApiActivity;
 
 import it.marcosoft.ticketwave.R;
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.util.db.DBHelper;
 import it.marcosoft.ticketwave.viewmodel.CardViewModel;
 
@@ -61,6 +63,13 @@ public class DiscoverFragment extends Fragment {
         // Get and set data from the database
         List<CardData> cardDataList = getTravelsDataFromDatabase();
         cardViewModel.setCardData(cardDataList.toArray(new CardData[0]));
+
+        Button logoutBtn = rootView.findViewById(R.id.useraccountbutton);
+
+        logoutBtn.setOnClickListener(v -> {
+            ((MainActivity)getActivity()).goToUserPage();
+        });
+
 
         // Return the inflated view for the fragment
         return rootView;
