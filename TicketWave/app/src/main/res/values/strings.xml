@@ -8,7 +8,7 @@
     <string name="login_activity_title" translatable="false">Login Activity</string>
 
     <!-- Prompts -->
-    <string name="email_prompt">Email</string>
+    <string name="email_prompt">E-Mail</string>
     <string name="password_prompt">Password</string>
     <string name="name_prompt">Name</string>
     <string name="phone_prompt">Phone Number</string>
@@ -72,20 +72,20 @@
     <string name="new_account" translatable="false">New to TicketWave?</string>
     <string name="register" translatable="false">Register</string>
     <string name="login" translatable="false">Log in</string>
-    <string name="surname_prompt" translatable="false">Surname</string>
-    <string name="age_prompt" translatable="false">Age</string>
-    <string name="error_name" translatable="false">Name can\'t be empty</string>
-    <string name="error_surname" translatable="false">Surname can\'t be empty</string>
-    <string name="error_age" translatable="false">Age can\'t be empty or more than 140 or equal to 0</string>
-    <string name="check_login_data_message" translatable="false">The data inserted isn\'t allowed</string>
-    <string name="error_user_collision_message" translatable="false">Email adress already in use</string>
-    <string name="unexpected_error" translatable="false">Unexpected error</string>
+    <string name="surname_prompt">Surname</string>
+    <string name="age_prompt">Age</string>
+    <string name="error_name">Name can\'t be empty</string>
+    <string name="error_surname">Surname can\'t be empty</string>
+    <string name="error_age">Age can\'t be empty or more than 140 or equal to 0</string>
+    <string name="check_login_data_message">The data inserted isn\'t allowed</string>
+    <string name="error_user_collision_message">Email adress already in use</string>
+    <string name="unexpected_error">Unexpected error</string>
     <string name="sendEmailReset" translatable="false">Send password reset</string>
-    <string name="returnToLogin" translatable="false">Return to Login Page</string>
-    <string name="error_login_password_message" translatable="false">invalid credentials</string>
-    <string name="error_login_user_message" translatable="false">login users doesn\'t exist</string>
-    <string name="forgotPassword" translatable="false">Forgot your password?</string>
-    <string name="logout">Logout</string>
-    <string name="msgNotFound">\"No events found for the specified location and dates. Please try again with different criteria.\"</string>
+    <string name="returnToLogin">Return to Login Page</string>
+    <string name="error_login_password_message">invalid credentials</string>
+    <string name="error_login_user_message">Login users doesn\'t exist</string>
+    <string name="forgotPassword">Forgot your password?</string>
+    <string name="logout" translatable="false">Logout</string>
+    <string name="msgNotFound">No events found for the specified location and dates.\n Please try again with different criteria.</string>
 
 </resources>

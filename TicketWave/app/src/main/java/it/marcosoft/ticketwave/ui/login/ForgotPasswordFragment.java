@@ -65,7 +65,9 @@ public class ForgotPasswordFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
-
+        binding.toLoginButtonFrame.setOnClickListener(v -> {
+            Navigation.findNavController(view).navigate(R.id.action_forgotPasswordFragment_to_loginFragment);
+        });
 
         binding.resetEmailButtonFrame.setOnClickListener(v -> {
         String email = binding.InputEmail.getText().toString().trim();
