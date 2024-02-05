@@ -2,8 +2,6 @@ package it.marcosoft.ticketwave.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +17,6 @@ import java.util.List;
 
 import it.marcosoft.ticketwave.R;
 import it.marcosoft.ticketwave.data.LikedData;
-import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 public class LikedAdapter extends RecyclerView.Adapter<LikedAdapter.ViewHolder> {
 
