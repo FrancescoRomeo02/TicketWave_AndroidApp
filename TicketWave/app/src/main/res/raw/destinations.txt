@@ -142,7 +142,7 @@ Helena
 Honolulu
 Houston
 Huntsville
-Decatur (Florence)
+Decatur
 Idaho Falls
 Pocatello
 Indianapolis
@@ -155,12 +155,12 @@ Jonesboro
 Joplin
 Pittsburg
 Juneau
-Kansas City
+Kansas
 Knoxville
 La Crosse
 Eau Claire
-Lafayette, IN
-Lafayette, LA
+Lafayette
+Lafayette
 Lake Charles
 Lansing
 Laredo
@@ -192,12 +192,12 @@ Bismarck
 Dickinson
 Missoula
 Mobile
-Pensacola (Fort Walton Beach)
+Pensacola
 Monroe
 El Dorado
 Monterey
 Salinas
-Montgomery (Selma)
+Montgomery
 Nashville
 New Orleans
 New York
@@ -228,7 +228,7 @@ Phoenix
 Pittsburgh
 Portland
 Auburn
-Portland, OR
+Portland
 Presque Isle
 Providence
 New Bedford
@@ -236,7 +236,7 @@ Quincy
 Hannibal
 Keokuk
 Raleigh
-Durham (Fayetteville)
+Durham+
 Rapid City
 Reno
 Richmond
@@ -246,7 +246,7 @@ Lynchburg
 Rochester
 Mason City
 Austin
-Rochester, NY
+Rochester
 Rockford
 Sacramento
 Stockton
@@ -271,13 +271,13 @@ Sherman
 Ada
 Shreveport
 Sioux City
-Sioux Falls (Mitchell)
+Sioux Falls
 South Bend
 Elkhart
 Spokane
 Springfield
 Holyoke
-Springfield, MO
+Springfield
 Syracuse
 Tallahassee
 Thomasville
@@ -288,7 +288,7 @@ Toledo
 Topeka
 Traverse City
 Cadillac
-Tri-Cities, TN-VA
+Tri-Cities
 Tucson (Sierra Vista)
 Tulsa
 Twin Falls
@@ -357,7 +357,6 @@ Midlands and Central
 Wales and North West
 North and North East
 Scotland
-All of Ireland
 Northern Ireland
 Germany
 Netherlands
@@ -367,10 +366,9 @@ New South Wales/Australian Capital Territory
 Queensland
 Western Australia
 Victoria/Tasmania
-All of New Zealand
 North Island
 South Island
-Mexico City and Metropolitan Area
+Mexico City
 Monterrey
 Guadalajara
 Barcelona
