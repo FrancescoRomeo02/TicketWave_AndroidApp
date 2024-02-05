@@ -33,18 +33,15 @@
                 android:textSize="30sp"
                 tools:ignore="HardcodedText" />
 
-            <TextView
-                android:id="@+id/nomeLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="45dip"
-                android:layout_marginEnd="45dip"
-                android:fontFamily="@font/sfprobold"
-                android:text = ""
-                android:textColor="@color/colorPrimary"
-                android:textSize="30sp"
-                tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/useraccountbutton2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/useraccount"
+                android:drawableTint="@color/colorPrimary"
+                tools:ignore="SpeakableTextPresentCheck" />
 
 
         </LinearLayout>

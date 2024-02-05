@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,7 @@ import it.marcosoft.ticketwave.adapter.LikedAdapter;
 import it.marcosoft.ticketwave.common.ConstantsVar;
 import it.marcosoft.ticketwave.data.LikedData;
 import it.marcosoft.ticketwave.common.ConstantsVar;
+import it.marcosoft.ticketwave.ui.main.MainActivity;
 import it.marcosoft.ticketwave.util.db.DBHelperLiked;
 
 
@@ -49,6 +51,12 @@ public class LikedFragment extends Fragment {
         // Creare l'adapter e popolare l'RecyclerView
         LikedAdapter likedAdapter = new LikedAdapter(getContext(), likedDataList);
         recyclerView.setAdapter(likedAdapter);
+
+        Button logoutBtn = rootView.findViewById(R.id.useraccountbutton2);
+
+        logoutBtn.setOnClickListener(v -> {
+            ((MainActivity)getActivity()).goToUserPage();
+        });
 
         return rootView;
     }
